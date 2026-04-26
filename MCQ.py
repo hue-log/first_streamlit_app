@@ -5688,54 +5688,39 @@ question_bank = [
 import streamlit as st
 import random
 import re
-# -------------------------------------------------------------------
-# 2) DOMAIN ASSIGNMENT – map each question to official CISA domain
-# -------------------------------------------------------------------
-def assign_official_domains(questions):
-    mapping = {
-        'is audit process': 'Information System Auditing Process',
-        'it governance': 'Governance & Management of IT',
-        'systems and infrastructure lifecycle management': 'Acquisition, Development & Implementation',
-        'protection of information assets': 'Protection of Information Assets'
-    }
+
+# ─── Helper to shuffle options for each question ───
+def prepare_quiz_questions(questions):
+    import random
+    prepared = []
     for q in questions:
-        expl = q.get('explanation', '')
-        m = re.search(r'Section:\s*(.*)', expl, re.IGNORECASE)
-        if m:
-            raw = m.group(1).strip().lower()
-            domain = mapping.get(raw, 'Operations and Business Resilience')
-        else:
-            # manual assign for older questions (150‑300)
-            qid = q['id']
-            if qid <= 150:
-                domain = 'Information System Auditing Process'
-            elif 151 <= qid <= 200:
-                domain = 'Governance & Management of IT'
-            elif 201 <= qid <= 240:
-                domain = 'Information System Auditing Process'
-            elif 241 <= qid <= 300:
-                domain = 'Protection of Information Assets'
-            else:
-                # fallback: detect keywords for 300+ without tags
-                text = q['question'] + ' ' + expl
-                if any(w in text.lower() for w in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
-                    domain = 'Operations and Business Resilience'
-                elif any(w in text.lower() for w in ['audit', 'auditor', 'sampling', 'evidence']):
-                    domain = 'Information System Auditing Process'
-                elif any(w in text.lower() for w in ['governance', 'policy', 'steering committee', 'board']):
-                    domain = 'Governance & Management of IT'
-                else:
-                    domain = 'Acquisition, Development & Implementation'
-        q['domain'] = domain
+        original_options = q['options']
+        # Shuffle while keeping track of the correct answer's new position
+        indexed = list(enumerate(original_options))
+        random.shuffle(indexed)
+        new_labels = ['A','B','C','D']
+        shuffled_options = []
+        new_correct = None
+        original_correct_letter = q['correct']
+        for new_idx, (orig_idx, opt_text) in enumerate(indexed):
+            opt_content = opt_text[3:].strip()   # remove original prefix
+            new_opt = f"{new_labels[new_idx]}) {opt_content}"
+            shuffled_options.append(new_opt)
+            # if this option was originally the correct answer
+            if opt_text[0] == original_correct_letter:
+                new_correct = new_labels[new_idx]
+        prepared.append({
+            'id': q['id'],
+            'question': q['question'],
+            'shuffled_options': shuffled_options,
+            'shuffled_correct': new_correct,
+            'explanation': q.get('explanation',''),
+            'domain': q.get('domain','')
+        })
+    return prepared
 
-assign_official_domains(question_bank)
-
-# -------------------------------------------------------------------
-# 3) STREAMLIT APP
-# -------------------------------------------------------------------
+# ─── Streamlit App ───
 st.set_page_config(page_title="CISA Domain Quiz", layout="wide")
-
-# CSS (black explanations, etc.)
 st.markdown("""
 <style>
     .stButton > button { width: 100%; border-radius: 8px; font-weight: 600; }
@@ -5747,45 +5732,41 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Session state
-for key, val in [('current_index',0), ('answers',{}), ('submitted',{}),
-                 ('score',0), ('total_answered',0), ('shuffled',[])]:
+for key, val in [('current_index',0), ('answers',{}), ('submitted',{}), ('score',0), ('total_answered',0), ('shuffled',[])]:
     if key not in st.session_state:
         st.session_state[key] = val
 
 # Sidebar
 with st.sidebar:
-    st.title("📋 CISA Quiz")
+    st.title("📋 CISA 150‑500")
     st.markdown("---")
-
-    # Official domains
+    # Domain filter
     all_domains = sorted(list(set(q['domain'] for q in question_bank)))
     selected = st.multiselect("Filter by CISA Domain:", all_domains, default=all_domains)
-
     eligible = [q for q in question_bank if q['domain'] in selected]
     max_q = len(eligible)
     if max_q == 0:
-        st.warning("No questions for the chosen domains.")
+        st.warning("No questions match selected domains.")
         num_q = 0
     else:
         num_q = st.number_input("Number of questions:", 1, max_q, min(50, max_q))
-
     mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
-
     if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
         if max_q == 0:
-            st.error("Select at least one domain with questions.")
+            st.error("Select at least one domain.")
         else:
             if mode == "Random":
-                st.session_state.shuffled = random.sample(eligible, num_q)
+                selected_qs = random.sample(eligible, num_q)
             else:
-                st.session_state.shuffled = eligible[:num_q]
+                selected_qs = eligible[:num_q]
+            # Shuffle options and store
+            st.session_state.shuffled = prepare_quiz_questions(selected_qs)
             st.session_state.current_index = 0
             st.session_state.answers = {}
             st.session_state.submitted = {}
             st.session_state.score = 0
             st.session_state.total_answered = 0
             st.rerun()
-
     if st.button("🔄 Reset to All Questions", use_container_width=True):
         st.session_state.shuffled = question_bank.copy()
         st.session_state.current_index = 0
@@ -5794,7 +5775,6 @@ with st.sidebar:
         st.session_state.score = 0
         st.session_state.total_answered = 0
         st.rerun()
-
     total_q = len(st.session_state.shuffled)
     if total_q:
         st.markdown(f"""
@@ -5804,10 +5784,7 @@ with st.sidebar:
             <p>{total_q} questions loaded</p>
         </div>
         """, unsafe_allow_html=True)
-        st.progress((st.session_state.current_index+1)/total_q,
-                     text=f"Q {st.session_state.current_index+1}/{total_q}")
-
-    # Navigation
+        st.progress((st.session_state.current_index+1)/total_q, text=f"Q {st.session_state.current_index+1}/{total_q}")
     c1,c2,c3 = st.columns(3)
     with c1:
         if st.button("⬅️ Prev", disabled=(st.session_state.current_index==0)):
@@ -5819,12 +5796,12 @@ with st.sidebar:
         if st.button("Next ➡️", disabled=(st.session_state.current_index>=total_q-1)):
             st.session_state.current_index += 1; st.rerun()
 
-# Main
+# Main display
 st.title("CISA Exam Prep – Official Domains")
-st.markdown("*Select domains in the sidebar, choose number of questions, and start.*")
+st.markdown("*Select domains, choose number of questions, and start your quiz.*")
 st.markdown("---")
 
-total_q = len(st.session_state.shuffled)  # safe definition
+total_q = len(st.session_state.shuffled)
 if total_q and 0 <= st.session_state.current_index < total_q:
     q = st.session_state.shuffled[st.session_state.current_index]
     qid = q['id']
@@ -5837,20 +5814,22 @@ if total_q and 0 <= st.session_state.current_index < total_q:
     </div>
     """, unsafe_allow_html=True)
 
-    labels = [o[0] for o in q['options']]
-    texts  = [o[3:].strip() for o in q['options']]
+    options = q['shuffled_options']
+    labels = [o[0] for o in options]
+    texts  = [o[3:].strip() for o in options]
+    correct_letter = q['shuffled_correct']
 
     if qid not in st.session_state.submitted:
-        sel = st.radio("Your answer:", labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}",
+        sel = st.radio("Choose:", options=labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}",
                        key=f"r{qid}", index=None)
         c1,c2 = st.columns(2)
         with c1:
             if st.button("✅ Submit", disabled=(sel is None), use_container_width=True, type="primary"):
-                correct = (sel == q['correct'])
-                st.session_state.submitted[qid] = {'selected':sel, 'correct':correct}
+                ok = (sel == correct_letter)
+                st.session_state.submitted[qid] = {'selected': sel, 'correct': ok}
                 st.session_state.answers[qid] = sel
                 st.session_state.total_answered += 1
-                if correct: st.session_state.score += 1
+                if ok: st.session_state.score += 1
                 st.rerun()
         with c2:
             if st.button("⏭️ Skip", use_container_width=True):
@@ -5858,19 +5837,18 @@ if total_q and 0 <= st.session_state.current_index < total_q:
                 st.rerun()
     else:
         sub = st.session_state.submitted[qid]
-        sel, ok = sub['selected'], sub['correct']
+        sel = sub['selected']
+        ok = sub['correct']
         st.markdown("### Result:")
         for i,(lbl,txt) in enumerate(zip(labels,texts)):
-            if lbl == q['correct']:
+            if lbl == correct_letter:
                 st.markdown(f'<div class="correct-answer">✅ {lbl}) {txt} – Correct</div>', unsafe_allow_html=True)
             elif lbl == sel and not ok:
                 st.markdown(f'<div class="wrong-answer">❌ {lbl}) {txt} – Your answer</div>', unsafe_allow_html=True)
             else:
                 st.markdown(f"{lbl}) {txt}")
-        if ok:
-            st.success("🎉 Correct!")
-        else:
-            st.error("😔 Incorrect.")
+        if ok: st.success("🎉 Correct!")
+        else: st.error("😔 Incorrect.")
         st.markdown(f"""
         <div class="explanation-box"><b>📖 Explanation:</b><br>{q['explanation']}</div>
         """, unsafe_allow_html=True)
