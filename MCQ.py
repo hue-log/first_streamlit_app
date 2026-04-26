@@ -5688,7 +5688,45 @@ question_bank = [
 import streamlit as st
 import random
 import re
+def assign_official_domains(questions):
+    mapping = {
+        'is audit process': 'Information System Auditing Process',
+        'it governance': 'Governance & Management of IT',
+        'systems and infrastructure lifecycle management': 'Acquisition, Development & Implementation',
+        'protection of information assets': 'Protection of Information Assets'
+    }
+    for q in questions:
+        if 'domain' in q:
+            continue
+        expl = q.get('explanation', '')
+        m = re.search(r'Section:\s*(.*)', expl, re.IGNORECASE)
+        if m:
+            raw = m.group(1).strip().lower()
+            q['domain'] = mapping.get(raw, 'Operations and Business Resilience')
+        else:
+            # fallback manual assignment
+            qid = q['id']
+            if qid <= 150:
+                q['domain'] = 'Information System Auditing Process'
+            elif 151 <= qid <= 200:
+                q['domain'] = 'Governance & Management of IT'
+            elif 201 <= qid <= 250:
+                q['domain'] = 'Information System Auditing Process'
+            elif 251 <= qid <= 300:
+                q['domain'] = 'Information System Auditing Process'
+            else:
+                # 300+ without tags – guess from text
+                text = q['question'] + ' ' + expl
+                if any(w in text.lower() for w in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
+                    q['domain'] = 'Operations and Business Resilience'
+                elif any(w in text.lower() for w in ['audit', 'auditor', 'sampling', 'evidence']):
+                    q['domain'] = 'Information System Auditing Process'
+                elif any(w in text.lower() for w in ['governance', 'policy', 'steering committee', 'board']):
+                    q['domain'] = 'Governance & Management of IT'
+                else:
+                    q['domain'] = 'Acquisition, Development & Implementation'
 
+assign_official_domains(question_bank)
 # ─── Helper to shuffle options for each question ───
 def prepare_quiz_questions(questions):
     import random
@@ -5738,7 +5776,7 @@ for key, val in [('current_index',0), ('answers',{}), ('submitted',{}), ('score'
 
 # Sidebar
 with st.sidebar:
-    st.title("📋 CISA 150‑500")
+    st.title("📋 CISA")
     st.markdown("---")
     # Domain filter
     all_domains = sorted(list(set(q.get('domain', 'Uncategorized') for q in question_bank)))
