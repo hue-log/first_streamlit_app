@@ -5826,6 +5826,8 @@ with st.sidebar:
         st.rerun()
 
     total_q = len(st.session_state.shuffled)
+
+    # --- Score & progress (always show if total_q > 0) ---
     if total_q:
         st.markdown(f"""
         <div class="score-card">
@@ -5837,6 +5839,24 @@ with st.sidebar:
         st.progress((st.session_state.current_index+1)/total_q,
                      text=f"Q {st.session_state.current_index+1}/{total_q}")
 
+        # --- Navigation (only when there are questions) ---
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
+                st.session_state.current_index -= 1
+                st.rerun()
+        with c2:
+            # Safe Jump input: value clamped between 1 and total_q
+            safe_value = max(1, min(st.session_state.current_index + 1, total_q))
+            j = st.number_input("Jump", min_value=1, max_value=total_q,
+                                value=safe_value, label_visibility="collapsed")
+            if st.button("Go"):
+                st.session_state.current_index = j - 1
+                st.rerun()
+        with c3:
+            if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q - 1)):
+                st.session_state.current_index += 1
+                st.rerun()
     # Navigation
     c1,c2,c3 = st.columns(3)
     with c1:
