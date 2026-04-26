@@ -5733,7 +5733,7 @@ assign_official_domains(question_bank)
 # -------------------------------------------------------------------
 # 3) STREAMLIT APP
 # -------------------------------------------------------------------
-st.set_page_config(page_title="CISA 150‑450 Domain Quiz", layout="wide")
+st.set_page_config(page_title="CISA Domain Quiz", layout="wide")
 
 # CSS (black explanations, etc.)
 st.markdown("""
@@ -5754,7 +5754,7 @@ for key, val in [('current_index',0), ('answers',{}), ('submitted',{}),
 
 # Sidebar
 with st.sidebar:
-    st.title("📋 CISA 150‑450")
+    st.title("📋 CISA Quiz")
     st.markdown("---")
 
     # Official domains
@@ -5820,7 +5820,7 @@ with st.sidebar:
             st.session_state.current_index += 1; st.rerun()
 
 # Main
-st.title("CISA Exam Prep (150‑450) – Official Domains")
+st.title("CISA Exam Prep – Official Domains")
 st.markdown("*Select domains in the sidebar, choose number of questions, and start.*")
 st.markdown("---")
 
@@ -5886,4 +5886,4 @@ if total_q and 0 <= st.session_state.current_index < total_q:
                 st.rerun()
 
 st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA 150‑450 | Official domains | Study consistently 🎓</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center; color:#666;'>CISA | Official domains | Study consistently 🎓</div>", unsafe_allow_html=True)
