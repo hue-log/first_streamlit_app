@@ -3345,4 +3345,3 @@ if total_q:
 
 st.markdown("---")
 st.markdown("<div style='text-align:center; color:#666;'>CISA 150-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
-]
