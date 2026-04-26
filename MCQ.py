@@ -4902,7 +4902,7 @@ def assign_domains(questions):
 # Apply the domain assignment once
 assign_domains(question_bank)
 # ─── Streamlit App ─────────────────────
-st.set_page_config(page_title="CISA 150-300 Quiz", page_icon="📋", layout="wide")
+st.set_page_config(page_title="CISA Quiz", page_icon="📋", layout="wide")
 
 # Custom CSS
 st.markdown("""
@@ -4932,7 +4932,7 @@ if 'shuffled' not in st.session_state:
 # Sidebar
 # Inside with st.sidebar:
 
-st.title("📋 CISA 150‑450")
+st.title("📋 CISA Quiz ")
 st.markdown("---")
 
 # ─── Domain filtering ───
