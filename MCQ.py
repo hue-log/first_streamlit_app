@@ -5033,7 +5033,7 @@ question_bank = [
         "correct": "A",
         "explanation": "If resource allocation is decreased, quality can still be improved if there is flexibility in extending the project's delivery time. The project management triangle (scope, time, cost) shows that adjusting one dimension can affect others.",
         "domain": "Acquisition, Development & Implementation"
-    }
+    },
     {
         "id": 451,
         "question": "Which of the following should an IS auditor review to understand project progress in terms of time, budget, and deliverables for early detection of possible overruns and for projecting estimates at completion (EACs)?",
