@@ -5826,7 +5826,7 @@ with st.sidebar:
         st.rerun()
 
     total_q = len(st.session_state.shuffled)
-
+if total_q and 0 <= st.session_state.current_index < total_q:
     # --- Score & progress (always show if total_q > 0) ---
     if total_q:
         st.markdown(f"""
