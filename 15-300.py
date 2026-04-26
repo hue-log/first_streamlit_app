@@ -3390,4 +3390,4 @@ if total_q and 0 <= st.session_state.current_index < total_q:
                 st.rerun()
 
 st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA 150-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center; color:#666;'>CISA 01-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
