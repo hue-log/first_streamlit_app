@@ -3221,7 +3221,7 @@ import random
         "correct": "C",
         "explanation": "Automated code comparison directly detects differences between versions."
     }
-
+]
 # ─── Streamlit App ─────────────────────────────
 st.set_page_config(
     page_title="CISA Exam Prep - Interactive Quiz",
