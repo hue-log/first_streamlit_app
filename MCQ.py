@@ -5054,19 +5054,26 @@ if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
             st.rerun()
 
 # Main display
-st.title("CISA Exam Prep: Questions 150–300")
-st.markdown("*Interactive quiz with answers, feedback, and black-explanation text*")
+# Main display
+st.title("CISA Exam Prep: Questions 150–450")
+st.markdown("*Interactive quiz with domain filtering*")
 st.markdown("---")
+
+# Ensure total_q is defined
+total_q = len(st.session_state.shuffled) if 'shuffled' in st.session_state else 0
 
 if total_q and 0 <= st.session_state.current_index < total_q:
     q = st.session_state.shuffled[st.session_state.current_index]
     qid = q['id']
+    domain = q.get('domain', 'Uncategorized')
     st.markdown(f"""
     <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
-        <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid})</h3>
+        <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid}) 
+        <small style="color:#666;">- Domain: {domain}</small></h3>
         <p style="font-size:18px; color:black; font-weight:500;">{q['question']}</p>
     </div>
     """, unsafe_allow_html=True)
+    # ... rest of the question display and answer logic
 
     labels = [opt[0] for opt in q['options']]
     texts = [opt[3:].strip() for opt in q['options']]
