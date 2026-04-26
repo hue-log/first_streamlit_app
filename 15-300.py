@@ -1553,10 +1553,6 @@ if total_q:
                 if st.session_state.current_index < total_q-1: st.session_state.current_index += 1
                 st.rerun()
 
-
-st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA 150-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
-
 st.markdown(f"""
     <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
         <h3 style="color:black; margin-top:0;">Q{st.session_state.current_index+1} (ID:{qid})</h3>
