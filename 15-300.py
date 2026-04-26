@@ -1451,9 +1451,22 @@ if 'total_answered' not in st.session_state: st.session_state.total_answered = 0
 if 'shuffled' not in st.session_state: st.session_state.shuffled = question_bank.copy()
 
 # Sidebar
+# ... imports and question_bank ...
+
+# Session state init (keep this!)
+if 'current_index' not in st.session_state:
+    st.session_state.current_index = 0
+# ... other session state defaults ...
+
+# Sidebar (replace this whole block)
 with st.sidebar:
     st.title("📋 CISA 150-300")
-    st.markdown("---")
+    # --- New code (number input, mode, start button, etc.) ---
+    ...
+
+# Main display (unchanged)
+st.title("CISA Exam Prep: Questions 150–300")
+...
     mode = st.radio("Mode:", ["📝 Practice", "🔀 Random 50"], help="Practice: all 151 questions. Random: 50 questions.")
     if st.button("🔄 Reset Progress", use_container_width=True):
         st.session_state.current_index = 0
