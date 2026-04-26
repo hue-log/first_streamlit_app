@@ -5824,7 +5824,6 @@ with st.sidebar:
             st.rerun()
 
     if st.button("🔄 Reset to All Questions", use_container_width=True):
-    # Store raw questions – the main area will convert them on the fly
     st.session_state.shuffled = question_bank.copy()
     st.session_state.current_index = 0
     st.session_state.answers = {}
@@ -5832,7 +5831,7 @@ with st.sidebar:
     st.session_state.score = 0
     st.session_state.total_answered = 0
     st.rerun()
-
+    
     total_q = len(st.session_state.shuffled)
 
     # Score & progress (only when quiz active)
