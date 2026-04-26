@@ -5055,7 +5055,7 @@ if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
 
 # Main display
 # Main display
-st.title("CISA Exam Prep: Questions 150–450")
+st.title("CISA Exam Prep:Questions")
 st.markdown("*Interactive quiz with domain filtering*")
 st.markdown("---")
 
