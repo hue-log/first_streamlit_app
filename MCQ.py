@@ -4864,7 +4864,6 @@ question_bank = [
         ],
         "correct": "C",
         "explanation": "A freezing point allows for a review of changes to ensure they are
-    }
 ]
 # ─── Streamlit App ─────────────────────
 st.set_page_config(page_title="CISA 150-300 Quiz", page_icon="📋", layout="wide")
