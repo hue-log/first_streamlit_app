@@ -4902,6 +4902,54 @@ def assign_domains(questions):
 # Apply the domain assignment once
 assign_domains(question_bank)
 # ─── Streamlit App ─────────────────────
+def assign_official_domains(questions):
+    # Map raw section names to official CISA domains
+    domain_mapping = {
+        'is audit process': 'Information System Auditing Process',
+        'it governance': 'Governance & Management of IT',
+        'systems and infrastructure lifecycle management': 'Acquisition, Development & Implementation',
+        'protection of information assets': 'Protection of Information Assets',
+        # any other tags from PDFs
+    }
+
+    for q in questions:
+        explanation = q.get('explanation', '')
+        # Try to extract Section: ... from the explanation
+        match = re.search(r'Section:\s*(.*)', explanation, re.IGNORECASE)
+        if match:
+            raw_section = match.group(1).strip().lower()
+            q['domain'] = domain_mapping.get(raw_section, 'Operations and Business Resilience')
+        else:
+            # For 150‑300 questions without tags, assign based on topic
+            qid = q['id']
+            # Simple heuristic – you can adjust these ranges
+            if qid <= 150:
+                # These are very early questions – many are general, but can be classified
+                # For simplicity, we'll put them into "Information System Auditing Process"
+                q['domain'] = 'Information System Auditing Process'
+            elif 151 <= qid <= 200:
+                q['domain'] = 'Governance & Management of IT'
+            elif 201 <= qid <= 250:
+                q['domain'] = 'Information System Auditing Process'
+            elif 251 <= qid <= 300:
+                # Many are about testing, audit techniques → Auditing Process
+                q['domain'] = 'Information System Auditing Process'
+            else:
+                # Fallback – in case some from 300+ didn't have a tag
+                # Check topic keywords
+                text = q['question'] + ' ' + explanation
+                if any(word in text.lower() for word in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
+                    q['domain'] = 'Operations and Business Resilience'
+                elif any(word in text.lower() for word in ['audit', 'auditor', 'sampling', 'evidence']):
+                    q['domain'] = 'Information System Auditing Process'
+                elif any(word in text.lower() for word in ['governance', 'policy', 'steering committee', 'board']):
+                    q['domain'] = 'Governance & Management of IT'
+                else:
+                    q['domain'] = 'Protection of Information Assets'
+
+# Call the function once
+assign_official_domains(question_bank)
+#----
 st.set_page_config(page_title="CISA Quiz", page_icon="📋", layout="wide")
 
 # Custom CSS
@@ -4985,7 +5033,38 @@ if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
         st.rerun()
 
 # ... rest of sidebar (reset, score, navigation) unchanged ...
-    
+    # ─── Domain filtering with official domains ───
+official_domains = [
+    'Information System Auditing Process',
+    'Governance & Management of IT',
+    'Acquisition, Development & Implementation',
+    'Operations and Business Resilience',
+    'Protection of Information Assets'
+]
+
+# Get only the domains that actually exist in the question bank
+available_domains = sorted(list(set(q.get('domain', '') for q in question_bank if q.get('domain', '') in official_domains)))
+selected_domains = st.multiselect(
+    "Filter by CISA Domain:",
+    options=available_domains,
+    default=available_domains   # all selected initially
+)
+
+# Filter eligible questions
+eligible_questions = [q for q in question_bank if q.get('domain', '') in selected_domains]
+
+max_possible = len(eligible_questions)
+if max_possible == 0:
+    st.warning("No questions match the selected domains.")
+    num_q = 0
+else:
+    num_q = st.number_input(
+        "Number of questions:",
+        min_value=1,
+        max_value=max_possible,
+        value=min(50, max_possible),
+        step=1
+    )
     # Quiz settings
     total_questions_in_bank = len(question_bank)
     num_q = st.number_input(
@@ -5053,7 +5132,6 @@ if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
             st.session_state.current_index += 1
             st.rerun()
 
-# Main display
 # Main display
 st.title("CISA Exam Prep:Questions")
 st.markdown("*Interactive quiz with domain filtering*")
