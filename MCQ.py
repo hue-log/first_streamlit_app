@@ -4866,6 +4866,41 @@ question_bank = [
         "explanation": "A freezing point allows for a review of changes to ensure they are"
     },
 ]
+#-----
+import re
+
+def assign_domains(questions):
+    # Domain mapping for known explanations that contain "Section: ..."
+    # We'll parse the explanation; if not present, assign based on question id or content.
+    domain_map = {}
+    for q in questions:
+        explanation = q.get('explanation', '')
+        match = re.search(r'Section:\s*(.*)', explanation)
+        if match:
+            domain = match.group(1).strip()
+        else:
+            # Manual assignment for the 150‑300 range (adjust if needed)
+            qid = q['id']
+            if qid <= 150:
+                # Questions 0‑150 are from the earlier PDFs; assign manually or leave as 'General'
+                domain = 'General'
+            elif 151 <= qid <= 300:
+                # Classify 150‑300 based on your earlier content
+                # (These are example assignments – adjust to your actual topics)
+                if qid <= 200:
+                    domain = 'IT Governance'
+                elif qid <= 240:
+                    domain = 'IS Audit Process'
+                elif qid <= 270:
+                    domain = 'Protection of Information Assets'
+                else:
+                    domain = 'Systems & Infrastructure Lifecycle'
+            else:
+                domain = 'Uncategorized'  # fallback
+        q['domain'] = domain
+
+# Apply the domain assignment once
+assign_domains(question_bank)
 # ─── Streamlit App ─────────────────────
 st.set_page_config(page_title="CISA 150-300 Quiz", page_icon="📋", layout="wide")
 
@@ -4895,9 +4930,61 @@ if 'shuffled' not in st.session_state:
     st.session_state.shuffled = question_bank.copy()
 
 # Sidebar
-with st.sidebar:
-    st.title("📋 CISA 150-300")
-    st.markdown("---")
+# Inside with st.sidebar:
+
+st.title("📋 CISA 150‑450")
+st.markdown("---")
+
+# ─── Domain filtering ───
+# Get all unique domains (sorted)
+all_domains = sorted(list(set(q.get('domain', 'Unknown') for q in question_bank)))
+selected_domains = st.multiselect(
+    "Filter by CISA Domain:",
+    options=all_domains,
+    default=all_domains   # all are selected by default
+)
+
+# ─── Quiz settings ───
+total_questions_in_bank = len(question_bank)
+# Restrict max questions to the number allowed by the domain filter
+if selected_domains:
+    eligible_questions = [q for q in question_bank if q.get('domain', '') in selected_domains]
+else:
+    eligible_questions = question_bank
+
+max_possible = len(eligible_questions)
+if max_possible == 0:
+    st.warning("No questions match the selected domains.")
+    num_q = 0
+else:
+    num_q = st.number_input(
+        "Number of questions:",
+        min_value=1,
+        max_value=max_possible,
+        value=min(50, max_possible),
+        step=1
+    )
+
+selection_mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
+
+# Start quiz button
+if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
+    if max_possible == 0:
+        st.error("Please select at least one domain with questions.")
+    else:
+        if selection_mode == "Random":
+            st.session_state.shuffled = random.sample(eligible_questions, num_q)
+        else:
+            st.session_state.shuffled = eligible_questions[:num_q]
+        # Reset progress
+        st.session_state.current_index = 0
+        st.session_state.answers = {}
+        st.session_state.submitted = {}
+        st.session_state.score = 0
+        st.session_state.total_answered = 0
+        st.rerun()
+
+# ... rest of sidebar (reset, score, navigation) unchanged ...
     
     # Quiz settings
     total_questions_in_bank = len(question_bank)
@@ -5036,103 +5123,3 @@ if total_q and 0 <= st.session_state.current_index < total_q:
 
 st.markdown("---")
 st.markdown("<div style='text-align:center; color:#666;'>CISA 01-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
-#------------
-
-import re
-
-def assign_domains(questions):
-    # Domain mapping for known explanations that contain "Section: ..."
-    # We'll parse the explanation; if not present, assign based on question id or content.
-    domain_map = {}
-    for q in questions:
-        explanation = q.get('explanation', '')
-        match = re.search(r'Section:\s*(.*)', explanation)
-        if match:
-            domain = match.group(1).strip()
-        else:
-            # Manual assignment for the 150‑300 range (adjust if needed)
-            qid = q['id']
-            if qid <= 150:
-                # Questions 0‑150 are from the earlier PDFs; assign manually or leave as 'General'
-                domain = 'General'
-            elif 151 <= qid <= 300:
-                # Classify 150‑300 based on your earlier content
-                # (These are example assignments – adjust to your actual topics)
-                if qid <= 200:
-                    domain = 'IT Governance'
-                elif qid <= 240:
-                    domain = 'IS Audit Process'
-                elif qid <= 270:
-                    domain = 'Protection of Information Assets'
-                else:
-                    domain = 'Systems & Infrastructure Lifecycle'
-            else:
-                domain = 'Uncategorized'  # fallback
-        q['domain'] = domain
-
-# Apply the domain assignment once
-assign_domains(question_bank)
-#-------
-# Inside with st.sidebar:
-
-st.title("📋 CISA 150‑450")
-st.markdown("---")
-
-# ─── Domain filtering ───
-# Get all unique domains (sorted)
-all_domains = sorted(list(set(q.get('domain', 'Unknown') for q in question_bank)))
-selected_domains = st.multiselect(
-    "Filter by CISA Domain:",
-    options=all_domains,
-    default=all_domains   # all are selected by default
-)
-
-# ─── Quiz settings ───
-total_questions_in_bank = len(question_bank)
-# Restrict max questions to the number allowed by the domain filter
-if selected_domains:
-    eligible_questions = [q for q in question_bank if q.get('domain', '') in selected_domains]
-else:
-    eligible_questions = question_bank
-
-max_possible = len(eligible_questions)
-if max_possible == 0:
-    st.warning("No questions match the selected domains.")
-    num_q = 0
-else:
-    num_q = st.number_input(
-        "Number of questions:",
-        min_value=1,
-        max_value=max_possible,
-        value=min(50, max_possible),
-        step=1
-    )
-
-selection_mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
-
-# Start quiz button
-if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
-    if max_possible == 0:
-        st.error("Please select at least one domain with questions.")
-    else:
-        if selection_mode == "Random":
-            st.session_state.shuffled = random.sample(eligible_questions, num_q)
-        else:
-            st.session_state.shuffled = eligible_questions[:num_q]
-        # Reset progress
-        st.session_state.current_index = 0
-        st.session_state.answers = {}
-        st.session_state.submitted = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-        st.rerun()
-
-# ... rest of sidebar (reset, score, navigation) unchanged ...
-
-st.markdown(f"""
-<div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
-    <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid}) 
-    <small style="color:#666;">- Domain: {q.get('domain','')}</small></h3>
-    <p style="font-size:18px; color:black; font-weight:500;">{q['question']}</p>
-</div>
-""", unsafe_allow_html=True)
