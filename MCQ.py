@@ -5741,7 +5741,7 @@ with st.sidebar:
     st.title("📋 CISA 150‑500")
     st.markdown("---")
     # Domain filter
-    all_domains = sorted(list(set(q['domain'] for q in question_bank)))
+    all_domains = sorted(list(set(q.get('domain', 'Uncategorized') for q in question_bank)))
     selected = st.multiselect("Filter by CISA Domain:", all_domains, default=all_domains)
     eligible = [q for q in question_bank if q['domain'] in selected]
     max_q = len(eligible)
