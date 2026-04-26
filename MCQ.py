@@ -5685,7 +5685,6 @@ question_bank = [
         "domain": "Acquisition, Development & Implementation"
     }
 ]
-]
 import streamlit as st
 import random
 import re
