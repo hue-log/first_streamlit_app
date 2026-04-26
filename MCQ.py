@@ -5690,32 +5690,6 @@ import random
 import re
 
 # =====================================================================
-# 1) QUESTION BANK – insert your complete 150‑500 list here.
-#    The format must be exactly like the samples below.
-#    Ensure every entry has: id, question, options (list of 4 strings starting with A), B), etc.),
-#    correct (single letter "A".."D"), explanation (may contain "Section: ...").
-# =====================================================================
-question_bank = [
-    # --- EXAMPLE ENTRIES (replace with your real data) ---
-    {"id": 150, "question": "Atomicity ... True or false?",
-     "options": ["A) True", "B) False"], "correct": "A",
-     "explanation": "Atomicity ensures a transaction is completed or not at all; part of ACID."},
-    {"id": 151, "question": "If an IS auditor finds risk in segregation of duties...",
-     "options": ["A) To advise senior management.", "B) To reassign jobs.",
-                 "C) Implement compensator controls.", "D) Segregation of duties is administrative."],
-     "correct": "A", "explanation": "Primary responsibility is to advise senior management."},
-    {"id": 201, "question": "Purpose of BCP & DRP is to:",
-     "options": ["A) Transfer risk", "B) Mitigate risk", "C) Accept risk", "D) Eliminate risk"],
-     "correct": "B", "explanation": "Mitigate risk. Section: IT GOVERNANCE"},
-    {"id": 301, "question": "Management says no unlicensed software, auditor suspects...",
-     "options": ["A) Include management statement", "B) Identify if software is being used",
-                 "C) Reconfirm with management", "D) Discuss with senior management"],
-     "correct": "B", "explanation": "Independent verification needed. Section: IS AUDIT PROCESS"},
-    # ... Paste all 351 questions here (IDs 150 to 500) with the exact same structure.
-    # The script will assign domains automatically.
-]
-
-# =====================================================================
 # 2) DOMAIN ASSIGNMENT (official ISACA categories)
 # =====================================================================
 def assign_official_domains(questions):
