@@ -5824,13 +5824,13 @@ with st.sidebar:
             st.rerun()
 
     if st.button("🔄 Reset to All Questions", use_container_width=True):
-    st.session_state.shuffled = question_bank.copy()
-    st.session_state.current_index = 0
-    st.session_state.answers = {}
-    st.session_state.submitted = {}
-    st.session_state.score = 0
-    st.session_state.total_answered = 0
-    st.rerun()
+        st.session_state.shuffled = question_bank.copy()
+        st.session_state.current_index = 0
+        st.session_state.answers = {}
+        st.session_state.submitted = {}
+        st.session_state.score = 0
+        st.session_state.total_answered = 0
+        st.rerun()
     
     total_q = len(st.session_state.shuffled)
 
