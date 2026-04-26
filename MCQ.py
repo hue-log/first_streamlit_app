@@ -5688,6 +5688,10 @@ question_bank = [
 import streamlit as st
 import random
 import re
+
+# ────────────────────────────────────────────────────────────────────
+# 2) DOMAIN ASSIGNMENT FUNCTION – called once to tag every question
+# ────────────────────────────────────────────────────────────────────
 def assign_official_domains(questions):
     mapping = {
         'is audit process': 'Information System Auditing Process',
@@ -5696,6 +5700,7 @@ def assign_official_domains(questions):
         'protection of information assets': 'Protection of Information Assets'
     }
     for q in questions:
+        # Skip if already tagged manually
         if 'domain' in q:
             continue
         expl = q.get('explanation', '')
@@ -5704,7 +5709,7 @@ def assign_official_domains(questions):
             raw = m.group(1).strip().lower()
             q['domain'] = mapping.get(raw, 'Operations and Business Resilience')
         else:
-            # fallback manual assignment
+            # Manual fallback for older questions without Section: tag
             qid = q['id']
             if qid <= 150:
                 q['domain'] = 'Information System Auditing Process'
@@ -5715,25 +5720,26 @@ def assign_official_domains(questions):
             elif 251 <= qid <= 300:
                 q['domain'] = 'Information System Auditing Process'
             else:
-                # 300+ without tags – guess from text
+                # 300+ with no tag – guess from text
                 text = q['question'] + ' ' + expl
-                if any(w in text.lower() for w in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
+                if any(w in text.lower() for w in ['bcp','drp','disaster recovery','business continuity']):
                     q['domain'] = 'Operations and Business Resilience'
-                elif any(w in text.lower() for w in ['audit', 'auditor', 'sampling', 'evidence']):
+                elif any(w in text.lower() for w in ['audit','auditor','sampling','evidence']):
                     q['domain'] = 'Information System Auditing Process'
-                elif any(w in text.lower() for w in ['governance', 'policy', 'steering committee', 'board']):
+                elif any(w in text.lower() for w in ['governance','policy','steering committee','board']):
                     q['domain'] = 'Governance & Management of IT'
                 else:
                     q['domain'] = 'Acquisition, Development & Implementation'
 
 assign_official_domains(question_bank)
-# ─── Helper to shuffle options for each question ───
+
+# ────────────────────────────────────────────────────────────────────
+# 3) OPTION SHUFFLER – randomises choices for each quiz start
+# ────────────────────────────────────────────────────────────────────
 def prepare_quiz_questions(questions):
-    import random
     prepared = []
     for q in questions:
         original_options = q['options']
-        # Shuffle while keeping track of the correct answer's new position
         indexed = list(enumerate(original_options))
         random.shuffle(indexed)
         new_labels = ['A','B','C','D']
@@ -5741,10 +5747,8 @@ def prepare_quiz_questions(questions):
         new_correct = None
         original_correct_letter = q['correct']
         for new_idx, (orig_idx, opt_text) in enumerate(indexed):
-            opt_content = opt_text[3:].strip()   # remove original prefix
-            new_opt = f"{new_labels[new_idx]}) {opt_content}"
-            shuffled_options.append(new_opt)
-            # if this option was originally the correct answer
+            content = opt_text[3:].strip()          # remove original prefix
+            shuffled_options.append(f"{new_labels[new_idx]}) {content}")
             if opt_text[0] == original_correct_letter:
                 new_correct = new_labels[new_idx]
         prepared.append({
@@ -5752,12 +5756,14 @@ def prepare_quiz_questions(questions):
             'question': q['question'],
             'shuffled_options': shuffled_options,
             'shuffled_correct': new_correct,
-            'explanation': q.get('explanation',''),
-            'domain': q.get('domain','')
+            'explanation': q.get('explanation', ''),
+            'domain': q.get('domain', 'Uncategorized')
         })
     return prepared
 
-# ─── Streamlit App ───
+# ────────────────────────────────────────────────────────────────────
+# 4) STREAMLIT APP
+# ────────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="CISA Domain Quiz", layout="wide")
 st.markdown("""
 <style>
@@ -5769,42 +5775,47 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Session state
-for key, val in [('current_index',0), ('answers',{}), ('submitted',{}), ('score',0), ('total_answered',0), ('shuffled',[])]:
+# Session state initialisation
+for key, val in [('current_index',0), ('answers',{}), ('submitted',{}),
+                 ('score',0), ('total_answered',0), ('shuffled',[])]:
     if key not in st.session_state:
         st.session_state[key] = val
 
 # Sidebar
 with st.sidebar:
-    st.title("📋 CISA")
+    st.title("📋 CISA Domain Quiz")
     st.markdown("---")
+
     # Domain filter
     all_domains = sorted(list(set(q.get('domain', 'Uncategorized') for q in question_bank)))
-    selected = st.multiselect("Filter by CISA Domain:", all_domains, default=all_domains)
-    eligible = [q for q in question_bank if q['domain'] in selected]
+    selected_domains = st.multiselect("Filter by CISA Domain:", all_domains, default=all_domains)
+    eligible = [q for q in question_bank if q.get('domain', '') in selected_domains]
     max_q = len(eligible)
+
     if max_q == 0:
-        st.warning("No questions match selected domains.")
+        st.warning("No questions for the selected domains.")
         num_q = 0
     else:
         num_q = st.number_input("Number of questions:", 1, max_q, min(50, max_q))
+
     mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
+
     if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
         if max_q == 0:
             st.error("Select at least one domain.")
         else:
             if mode == "Random":
-                selected_qs = random.sample(eligible, num_q)
+                selected = random.sample(eligible, num_q)
             else:
-                selected_qs = eligible[:num_q]
-            # Shuffle options and store
-            st.session_state.shuffled = prepare_quiz_questions(selected_qs)
+                selected = eligible[:num_q]
+            st.session_state.shuffled = prepare_quiz_questions(selected)
             st.session_state.current_index = 0
             st.session_state.answers = {}
             st.session_state.submitted = {}
             st.session_state.score = 0
             st.session_state.total_answered = 0
             st.rerun()
+
     if st.button("🔄 Reset to All Questions", use_container_width=True):
         st.session_state.shuffled = question_bank.copy()
         st.session_state.current_index = 0
@@ -5813,6 +5824,7 @@ with st.sidebar:
         st.session_state.score = 0
         st.session_state.total_answered = 0
         st.rerun()
+
     total_q = len(st.session_state.shuffled)
     if total_q:
         st.markdown(f"""
@@ -5822,7 +5834,10 @@ with st.sidebar:
             <p>{total_q} questions loaded</p>
         </div>
         """, unsafe_allow_html=True)
-        st.progress((st.session_state.current_index+1)/total_q, text=f"Q {st.session_state.current_index+1}/{total_q}")
+        st.progress((st.session_state.current_index+1)/total_q,
+                     text=f"Q {st.session_state.current_index+1}/{total_q}")
+
+    # Navigation
     c1,c2,c3 = st.columns(3)
     with c1:
         if st.button("⬅️ Prev", disabled=(st.session_state.current_index==0)):
@@ -5834,9 +5849,9 @@ with st.sidebar:
         if st.button("Next ➡️", disabled=(st.session_state.current_index>=total_q-1)):
             st.session_state.current_index += 1; st.rerun()
 
-# Main display
-st.title("CISA Exam Prep – Official Domains")
-st.markdown("*Select domains, choose number of questions, and start your quiz.*")
+# Main area
+st.title("CISA Exam Preparation – Domain Quiz")
+st.markdown("*Select domains in the sidebar, choose the number of questions, and start.*")
 st.markdown("---")
 
 total_q = len(st.session_state.shuffled)
@@ -5902,4 +5917,4 @@ if total_q and 0 <= st.session_state.current_index < total_q:
                 st.rerun()
 
 st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA | Official domains | Study consistently 🎓</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center; color:#666;'>CISA Domain Quiz | Study consistently 🎓</div>", unsafe_allow_html=True)
