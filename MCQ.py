@@ -4865,6 +4865,826 @@ question_bank = [
         "correct": "C",
         "explanation": "A freezing point allows for a review of changes to ensure they are"
     },
+    {
+        "id": 438,
+        "question": "Change control for business application systems being developed using prototyping could be complicated by the:",
+        "options": [
+            "A) iterative nature of prototyping.",
+            "B) need for constant user feedback.",
+            "C) complexity of the proposed systems.",
+            "D) lack of documentation."
+        ],
+        "correct": "A",
+        "explanation": "The iterative nature of prototyping makes it difficult to control changes because prototypes are continuously modified based on feedback.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 439,
+        "question": "An IS auditor is reviewing the project management practices of a large organization. The organization is implementing a major information system and, at the project's outset, has not established a formal project management process. Which of the following would be the MOST effective recommendation for the organization?",
+        "options": [
+            "A) Establish a project steering committee.",
+            "B) Implement project management software tools.",
+            "C) Develop a project charter and project management plan.",
+            "D) Hire an external project manager."
+        ],
+        "correct": "C",
+        "explanation": "A project charter and project management plan are fundamental to establish proper project management practices from the beginning.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 440,
+        "question": "Which of the following is MOST important to consider when determining whether to convert to an automated system?",
+        "options": [
+            "A) Cost of system maintenance.",
+            "B) Internal controls needed to secure the data.",
+            "C) User training requirements.",
+            "D) Efficiency of the new system."
+        ],
+        "correct": "D",
+        "explanation": "The efficiency of the new system is crucial to determine whether automation provides a net benefit over current processes.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 441,
+        "question": "When planning to add personnel to tasks imposing time constraints on the duration of a project, which of the following should be revalidated FIRST?",
+        "options": [
+            "A) The project budget",
+            "B) The critical path for the project",
+            "C) The length of the remaining tasks",
+            "D) The personnel assigned to other tasks"
+        ],
+        "correct": "B",
+        "explanation": "Adding personnel may alter the sequence of activities on the critical path, which determines the overall project duration. The critical path must be revalidated first.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 442,
+        "question": "Which of the following is a characteristic of timebox management?",
+        "options": [
+            "A) Not suitable for prototyping or rapid application development (RAD)",
+            "B) Eliminates the need for a quality process",
+            "C) Prevents cost overruns and delivery delays",
+            "D) Separates system and user acceptance testing"
+        ],
+        "correct": "C",
+        "explanation": "Timebox management sets strict boundaries for time and cost, making it suitable for RAD and preventing cost overruns and delivery delays.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 443,
+        "question": "Which of the following should an IS auditor review to gain an understanding of the effectiveness of controls over the management of multiple projects?",
+        "options": [
+            "A) Project database",
+            "B) Policy documents",
+            "C) Project portfolio database",
+            "D) Program organization"
+        ],
+        "correct": "C",
+        "explanation": "A project portfolio database contains data such as project owner, schedules, objectives, type, status, and costs, which are necessary for managing multiple projects.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 444,
+        "question": "To minimize the cost of a software project, quality management techniques should be applied:",
+        "options": [
+            "A) As close to their writing (i.e., point of origination) as possible.",
+            "B) Primarily at project start-up to ensure that the project is established in accordance with organizational governance standards.",
+            "C) Continuously throughout the project with an emphasis on finding and fixing defects primarily during testing to maximize the defect detection rate.",
+            "D) Mainly at project close-down to capture lessons learned that can be applied to future projects."
+        ],
+        "correct": "A",
+        "explanation": "Quality management techniques are most cost-effective when applied early, close to the point of origination. The earlier defects are identified, the lower the cost to correct them.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 445,
+        "question": "When identifying an earlier project completion time, which is to be obtained by paying a premium for early completion, the activities that should be selected are those:",
+        "options": [
+            "A) Whose sum of activity time is the shortest.",
+            "B) That have zero slack time.",
+            "C) That give the longest possible completion time.",
+            "D) Whose sum of slack time is the shortest."
+        ],
+        "correct": "B",
+        "explanation": "Activities with zero slack time are on the critical path. Reducing time on these activities (crashing) can shorten the overall project duration.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 446,
+        "question": "At the completion of a system development project, a postproject review should include which of the following?",
+        "options": [
+            "A) Assessing risks that may lead to downtime after the production release",
+            "B) Identifying lessons learned that may be applicable to future projects",
+            "C) Verifying the controls in the delivered system are working",
+            "D) Ensuring that test data are deleted"
+        ],
+        "correct": "B",
+        "explanation": "A postproject review aims to gather lessons learned for future projects. Verifying controls and deleting test data are part of earlier phases.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 447,
+        "question": "An IS auditor has been asked to participate in project initiation meetings for a critical project. The IS auditor's MAIN concern should be that the:",
+        "options": [
+            "A) Complexity and risks associated with the project have been analyzed.",
+            "B) Resources needed throughout the project have been determined.",
+            "C) Project deliverables have been identified.",
+            "D) A contract for external parties involved in the project has been completed."
+        ],
+        "correct": "A",
+        "explanation": "At project initiation, the main focus should be on analyzing complexity and risks, as these are critical to the project's success.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 448,
+        "question": "An IS auditor invited to a development project meeting notes that no project risks have been documented. When the IS auditor raises this issue, the project manager responds that it is too early to identify risks and that, if risks do start impacting the project, a risk manager will be hired. The appropriate response of the IS auditor would be to:",
+        "options": [
+            "A) Stress the importance of spending time at this point in the project to consider and document risks, and to develop contingency plans.",
+            "B) Accept the project manager's position as the project manager is accountable for the outcome of the project.",
+            "C) Offer to work with the risk manager when one is appointed.",
+            "D) Inform the project manager that the IS auditor will conduct a review of the risks at the completion of the requirements definition phase of the project."
+        ],
+        "correct": "A",
+        "explanation": "Early risk identification and documentation are critical. The auditor should emphasise that risks should be considered from the start of the project.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 449,
+        "question": "While evaluating software development practices in an organization, an IS auditor notes that the quality assurance (QA) function reports to project management. The MOST important concern for an IS auditor is the:",
+        "options": [
+            "A) effectiveness of the QA function because it should interact between project management and user management.",
+            "B) efficiency of the QA function because it should interact with the project implementation team.",
+            "C) effectiveness of the project manager because the project manager should interact with the QA function.",
+            "D) efficiency of the project manager because the QA function will need to communicate with the project implementation team."
+        ],
+        "correct": "A",
+        "explanation": "For effectiveness, the QA function should be independent of project management. Reporting to project management compromises that independence.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 450,
+        "question": "When reviewing a project where quality is a major concern, an IS auditor should use the project management triangle to explain that:",
+        "options": [
+            "A) increases in quality can be achieved, even if resource allocation is decreased.",
+            "B) increases in quality are only achieved if resource allocation is increased.",
+            "C) decreases in delivery time can be achieved, even if resource allocation is decreased.",
+            "D) decreases in delivery time can only be achieved if quality is decreased."
+        ],
+        "correct": "A",
+        "explanation": "If resource allocation is decreased, quality can still be improved if there is flexibility in extending the project's delivery time. The project management triangle (scope, time, cost) shows that adjusting one dimension can affect others.",
+        "domain": "Acquisition, Development & Implementation"
+    }
+    {
+        "id": 451,
+        "question": "Which of the following should an IS auditor review to understand project progress in terms of time, budget, and deliverables for early detection of possible overruns and for projecting estimates at completion (EACs)?",
+        "options": [
+            "A) Function point analysis",
+            "B) Earned value analysis",
+            "C) Cost budget",
+            "D) Program Evaluation and Review Technique (PERT)"
+        ],
+        "correct": "B",
+        "explanation": "Earned value analysis (EVA) compares planned work with actual work completed to forecast completion time and costs, making it the best tool for this purpose.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 452,
+        "question": "When reviewing an active project, an IS auditor observed that, because of a reduction in anticipated benefits and increased costs, the business case was no longer valid. The IS auditor should recommend that the:",
+        "options": [
+            "A) project be discontinued.",
+            "B) business case be updated and possible corrective actions be identified.",
+            "C) project be returned to the project sponsor for reappraisal.",
+            "D) project be completed and the business case be updated later."
+        ],
+        "correct": "B",
+        "explanation": "The business case is a key input for decision‑making throughout the project's lifecycle. Updating it allows management to reassess the project's value before taking drastic action.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 453,
+        "question": "An organization is implementing an enterprise resource planning (ERP) application to meet its business objectives. Of the following, who is PRIMARILY responsible for overseeing the project to ensure that it is progressing in accordance with the project plan and that it will deliver the expected results?",
+        "options": [
+            "A) Project sponsor",
+            "B) System development project team (SPDT)",
+            "C) Project steering committee",
+            "D) User project team (UPT)"
+        ],
+        "correct": "C",
+        "explanation": "The project steering committee is responsible for overseeing the project's progress to ensure it meets business objectives. The project sponsor provides funding but does not oversee daily progress.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 454,
+        "question": "A legacy payroll application is migrated to a new application. Which of the following stakeholders should be PRIMARILY responsible for reviewing and signing off on the accuracy and completeness of the data before going live?",
+        "options": [
+            "A) IS auditor",
+            "B) Database administrator",
+            "C) Project manager",
+            "D) Data owner"
+        ],
+        "correct": "D",
+        "explanation": "The data owner is accountable for the accuracy and completeness of the data. The IS auditor verifies that the process is followed, but the sign‑off authority rests with the data owner.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 455,
+        "question": "A project manager of a project that is scheduled to take 18 months to complete announces that the project is in a healthy financial position because, after 6 months, only one‑sixth of the budget has been spent. The IS auditor should FIRST determine:",
+        "options": [
+            "A) what amount of progress against the schedule has been achieved.",
+            "B) if the project budget can be reduced.",
+            "C) if the project could be brought in ahead of schedule.",
+            "D) if the budget savings can be applied to increase the project scope."
+        ],
+        "correct": "A",
+        "explanation": "Spending less than planned could be due to slow progress. The auditor must first compare actual progress against the schedule to accurately assess the project's status.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 456,
+        "question": "A manager of a project was not able to implement all audit recommendations by the target date. The IS auditor should:",
+        "options": [
+            "A) recommend that the project be halted until the issues are resolved.",
+            "B) recommend that compensating controls be implemented.",
+            "C) evaluate risks associated with the unresolved issues.",
+            "D) recommend that the project manager reallocate test resources to resolve the issues."
+        ],
+        "correct": "C",
+        "explanation": "The auditor should first assess the risks posed by the unresolved recommendations. After evaluating the risks, management can decide on appropriate actions such as compensating controls or risk acceptance.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 457,
+        "question": "Which of the following techniques would BEST help an IS auditor gain reasonable assurance that a project can meet its target date?",
+        "options": [
+            "A) Estimation of the actual end date based on the completion percentages and estimated time to complete, taken from status reports.",
+            "B) Confirmation of the target date based on interviews with experienced managers and staff involved in the completion of the project deliverables.",
+            "C) Extrapolation of the overall end date based on completed work packages and current resources.",
+            "D) Calculation of the expected end date based on current resources and remaining available project budget."
+        ],
+        "correct": "C",
+        "explanation": "Extrapolating the end date from completed work packages and current resources provides a realistic, objective forecast based on actual progress, unlike subjective interviews or simple percentage estimates.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 458,
+        "question": "Which of the following situations would increase the likelihood of fraud?",
+        "options": [
+            "A) Application programmers are implementing changes to production programs.",
+            "B) Application programmers are implementing changes to test programs.",
+            "C) Operations support staff are implementing changes to batch schedules.",
+            "D) Database administrators are implementing changes to data structures."
+        ],
+        "correct": "A",
+        "explanation": "Allowing application programmers to implement changes directly to production programs bypasses segregation of duties and creates significant fraud risk.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 459,
+        "question": "The purpose of a checksum on an amount field in an electronic data interchange (EDI) communication of financial transactions is to ensure:",
+        "options": [
+            "A) integrity.",
+            "B) authenticity.",
+            "C) authorization.",
+            "D) nonrepudiation."
+        ],
+        "correct": "A",
+        "explanation": "A checksum is used to verify that the data has not been altered during transmission, thereby ensuring integrity.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 460,
+        "question": "Before implementing controls, management should FIRST ensure that the controls:",
+        "options": [
+            "A) satisfy a requirement in addressing a risk issue.",
+            "B) do not reduce productivity.",
+            "C) are based on a cost‑benefit analysis.",
+            "D) are detective or corrective."
+        ],
+        "correct": "A",
+        "explanation": "The primary purpose of a control is to mitigate a risk. Therefore, management must first confirm that the control effectively addresses the identified risk.",
+        "domain": "Governance & Management of IT"
+    },
+    {
+        "id": 461,
+        "question": "Information for detecting unauthorized input from a terminal would be BEST provided by the:",
+        "options": [
+            "A) Console log printout",
+            "B) Transaction journal",
+            "C) Automated suspense file listing",
+            "D) User error report"
+        ],
+        "correct": "B",
+        "explanation": "The transaction journal records all transactions, allowing comparison with authorized source documents to identify unauthorized input.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 462,
+        "question": "Which of the following types of data validation editing checks is used to determine if a field contains data and not zeros or blanks?",
+        "options": [
+            "A) Check digit",
+            "B) Existence check",
+            "C) Completeness check",
+            "D) Reasonableness check"
+        ],
+        "correct": "C",
+        "explanation": "A completeness check verifies that a field contains actual data (i.e., not zeros or blanks).",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 463,
+        "question": "The editing/validation of data entered at a remote site would be performed MOST effectively at the:",
+        "options": [
+            "A) Central processing site after running the application system",
+            "B) Central processing site during the running of the application system",
+            "C) Remote processing site after transmission of the data to the central processing site",
+            "D) Remote processing site prior to transmission of the data to the central processing site"
+        ],
+        "correct": "D",
+        "explanation": "Data should be validated as early as possible – ideally at the remote site before transmission – to prevent erroneous data from entering the central system.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 464,
+        "question": "To reduce the possibility of losing data during processing, the FIRST point at which control totals should be implemented is:",
+        "options": [
+            "A) During data preparation",
+            "B) In transit to the computer",
+            "C) Between related computer runs",
+            "D) During the return of the data to the user department"
+        ],
+        "correct": "A",
+        "explanation": "Control totals should be implemented at the earliest possible point – during data preparation – to ensure data integrity from the outset.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 465,
+        "question": "Functional acknowledgements are used:",
+        "options": [
+            "A) As an audit trail for EDI transactions",
+            "B) To functionally describe the IS department",
+            "C) To document user roles and responsibilities",
+            "D) As a functional description of application software"
+        ],
+        "correct": "A",
+        "explanation": "In EDI, functional acknowledgements confirm the receipt of electronic documents and serve as an audit trail.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 466,
+        "question": "A proposed transaction processing application will have many data capture sources and outputs in paper and electronic form. To ensure that transactions are not lost during processing, an IS auditor should recommend the inclusion of:",
+        "options": [
+            "A) Validation controls",
+            "B) Internal credibility checks",
+            "C) Clerical control procedures",
+            "D) Automated systems balancing"
+        ],
+        "correct": "D",
+        "explanation": "Automated systems balancing ensures that total inputs match total outputs, thereby detecting lost transactions.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 467,
+        "question": "What process uses test data as part of a comprehensive test of program controls in a continuous online manner?",
+        "options": [
+            "A) Test data/check",
+            "B) Base-case system evaluation",
+            "C) Integrated test facility (ITF)",
+            "D) Parallel simulation"
+        ],
+        "correct": "B",
+        "explanation": "A base‑case system evaluation uses test data to continuously validate program controls over time. ITF is a similar technique but is specifically for testing in a live environment; the question asks for the process that uses test data continuously, which is base‑case system evaluation.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 468,
+        "question": "What control detects transmission errors by appending calculated bits onto the end of each segment of data?",
+        "options": [
+            "A) Reasonableness check",
+            "B) Parity check",
+            "C) Redundancy check",
+            "D) Check digits"
+        ],
+        "correct": "C",
+        "explanation": "A redundancy check (such as a CRC) appends calculated bits to detect transmission errors. Parity checks are hardware‑oriented, and check digits detect transcription/transposition errors.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 469,
+        "question": "Which of the following data validation edits is effective in detecting transposition and transcription errors?",
+        "options": [
+            "A) Range check",
+            "B) Check digit",
+            "C) Validity check",
+            "D) Duplicate check"
+        ],
+        "correct": "B",
+        "explanation": "A check digit is mathematically calculated and appended to data; it effectively detects transposition and transcription errors.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 470,
+        "question": "Which of the following is the GREATEST risk when implementing a data warehouse?",
+        "options": [
+            "A) Increased response time on the production systems",
+            "B) Access controls that are not adequate to prevent data modification",
+            "C) Data duplication",
+            "D) Data that is not updated or current"
+        ],
+        "correct": "B",
+        "explanation": "In a data warehouse, data should be read‑only for analysis. Inadequate access controls that allow modification pose the greatest risk to data integrity and reliability.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 471,
+        "question": "Which of the following will BEST ensure the successful offshore development of business applications?",
+        "options": [
+            "A) Stringent contract management practices",
+            "B) Detailed and correctly applied specifications",
+            "C) Awareness of cultural and political differences",
+            "D) Postimplementation reviews"
+        ],
+        "correct": "B",
+        "explanation": "Detailed and correct specifications are essential to bridge the physical and cultural distance in offshore development, ensuring the final product meets business needs.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 472,
+        "question": "Which of the following is the GREATEST risk to the effectiveness of application system controls?",
+        "options": [
+            "A) Removal of manual processing steps",
+            "B) Inadequate procedure manuals",
+            "C) Collusion between employees",
+            "D) Unresolved regulatory compliance issues"
+        ],
+        "correct": "C",
+        "explanation": "Collusion can bypass even well‑designed controls, making it the greatest threat to control effectiveness.",
+        "domain": "Governance & Management of IT"
+    },
+    {
+        "id": 473,
+        "question": "The MAIN purpose of a transaction audit trail is to:",
+        "options": [
+            "A) Reduce the use of storage media",
+            "B) Determine accountability and responsibility for processed transactions",
+            "C) Help an IS auditor trace transactions",
+            "D) Provide useful information for capacity planning"
+        ],
+        "correct": "B",
+        "explanation": "The primary objective of an audit trail is to establish accountability and responsibility for processed transactions.",
+        "domain": "Information System Auditing Process"
+    },
+    {
+        "id": 474,
+        "question": "An appropriate control for ensuring the authenticity of orders received in an EDI application is to:",
+        "options": [
+            "A) Acknowledge receipt of electronic orders with a confirmation message",
+            "B) Perform reasonableness checks on quantities ordered before filling orders",
+            "C) Verify the identity of senders and determine if orders correspond to contract terms",
+            "D) Encrypt electronic orders"
+        ],
+        "correct": "C",
+        "explanation": "Verifying the sender's identity and matching the order to contract terms ensures that the order is authentic and from an authorized party.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 475,
+        "question": "A manufacturing firm wants to automate its invoice payment system. Objectives state that the system should require considerably less time for review and authorization, and the system should be capable of identifying errors that require follow‑up. Which of the following would BEST meet these objectives?",
+        "options": [
+            "A) Establishing an inter‑networked system of client servers with suppliers for increased efficiencies",
+            "B) Outsourcing the function to a firm specializing in automated payments and accounts receivable/invoice processing",
+            "C) Establishing an EDI system of electronic business documents and transactions with key suppliers, computer‑to‑computer, in a standard format",
+            "D) Reengineering the existing processing and redesigning the existing system"
+        ],
+        "correct": "C",
+        "explanation": "An EDI system enables real‑time, standardised exchange of business documents, automating invoice payment and quickly identifying errors.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 476,
+        "question": "An IS auditor is told by IS management that the organization has recently reached the highest level of the software capability maturity model (CMM). The software quality process MOST recently added by the organization is:",
+        "options": [
+            "A) Continuous improvement",
+            "B) Quantitative quality goals",
+            "C) A documented process",
+            "D) A process tailored to specific projects"
+        ],
+        "correct": "A",
+        "explanation": "At CMM Level 5 (Optimizing), the key characteristic is continuous process improvement.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 477,
+        "question": "During the audit of an acquired software package, an IS auditor learned that the software purchase was based on information obtained through the Internet, rather than from responses to a request for proposal (RFP). The IS auditor should FIRST:",
+        "options": [
+            "A) Test the software for compatibility with existing hardware",
+            "B) Perform a gap analysis",
+            "C) Review the licensing policy",
+            "D) Ensure that the procedure had been approved"
+        ],
+        "correct": "D",
+        "explanation": "The auditor should first verify that the acquisition procedure followed approved organizational policy. Deviations could indicate weakened controls.",
+        "domain": "Information System Auditing Process"
+    },
+    {
+        "id": 478,
+        "question": "Failure in which of the following testing stages would have the GREATEST impact on the implementation of new application software?",
+        "options": [
+            "A) System testing",
+            "B) Acceptance testing",
+            "C) Integration testing",
+            "D) Unit testing"
+        ],
+        "correct": "B",
+        "explanation": "Acceptance testing is the final stage before deployment; failure here causes the most significant delay and cost.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 479,
+        "question": "An organization has an integrated development environment (IDE) on which the program libraries reside on the server, but modification/development and testing are done from PC workstations. Which of the following would be a strength of an IDE?",
+        "options": [
+            "A) Controls the proliferation of multiple versions of programs",
+            "B) Expands the programming resources and aids available",
+            "C) Increases program and processing integrity",
+            "D) Prevents valid changes from being overwritten by other changes"
+        ],
+        "correct": "B",
+        "explanation": "An IDE provides programmers with enhanced tools and resources, aiding development and testing. Version control and change integrity are separate functions.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 480,
+        "question": "Which of the following is the most important element in the design of a data warehouse?",
+        "options": [
+            "A) Quality of the metadata",
+            "B) Speed of the transactions",
+            "C) Volatility of the data",
+            "D) Vulnerability of the system"
+        ],
+        "correct": "A",
+        "explanation": "Quality metadata defines the structure and meaning of data, enabling efficient queries and analysis. It is the cornerstone of a data warehouse.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 481,
+        "question": "Ideally, stress testing should be carried out in a:",
+        "options": [
+            "A) Test environment using test data",
+            "B) Production environment using live workloads",
+            "C) Test environment using live workloads",
+            "D) Production environment using test data"
+        ],
+        "correct": "C",
+        "explanation": "Stress testing should simulate real‑world conditions (live workloads) but in a safe test environment to avoid impacting production.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 482,
+        "question": "Which of the following is an object‑oriented technology characteristic that permits an enhanced degree of security over data?",
+        "options": [
+            "A) Inheritance",
+            "B) Dynamic warehousing",
+            "C) Encapsulation",
+            "D) Polymorphism"
+        ],
+        "correct": "C",
+        "explanation": "Encapsulation restricts direct access to an object's internal data, allowing interaction only through defined methods, thus enhancing security.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 483,
+        "question": "Which of the following is a dynamic analysis tool for the purpose of testing software modules?",
+        "options": [
+            "A) Black box test",
+            "B) Desk checking",
+            "C) Structured walkthrough",
+            "D) Design and code"
+        ],
+        "correct": "A",
+        "explanation": "A black box test is a dynamic analysis technique that tests software modules without knowledge of internal code, using input/output analysis.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 484,
+        "question": "The phases and deliverables of a system development life cycle (SDLC) project should be determined:",
+        "options": [
+            "A) During the initial planning stages of the project.",
+            "B) After early planning has been completed, but before work has begun.",
+            "C) Throughout the work stages, based on risks and exposures.",
+            "D) Only after all risks and exposures have been identified and the IS auditor has recommended appropriate controls."
+        ],
+        "correct": "A",
+        "explanation": "Phases and deliverables should be defined early during project planning to ensure structure and control from the start.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 485,
+        "question": "Which of the following is a management technique that enables organizations to develop strategically important systems faster, while reducing development costs and maintaining quality?",
+        "options": [
+            "A) Function point analysis",
+            "B) Critical path methodology",
+            "C) Rapid application development",
+            "D) Program evaluation review technique"
+        ],
+        "correct": "C",
+        "explanation": "Rapid Application Development (RAD) emphasizes speed, reduced costs, and quality through iterative prototyping.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 486,
+        "question": "When implementing an application software package, which of the following presents the GREATEST risk?",
+        "options": [
+            "A) Uncontrolled multiple software versions",
+            "B) Source programs that are not synchronized with object code",
+            "C) Incorrectly set parameters",
+            "D) Programming errors"
+        ],
+        "correct": "C",
+        "explanation": "Incorrect parameters can immediately cause the software to malfunction or produce erroneous results, making it the greatest risk during implementation.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 487,
+        "question": "Which of the following is an advantage of prototyping?",
+        "options": [
+            "A) The finished system normally has strong internal controls.",
+            "B) Prototype systems can provide significant time and cost savings.",
+            "C) Change control is often less complicated with prototype systems.",
+            "D) It ensures that functions or extras are not added to the intended system."
+        ],
+        "correct": "B",
+        "explanation": "Prototyping saves time and costs by allowing early user feedback and iterative changes, though it may weaken controls if not properly managed.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 488,
+        "question": "A decision support system (DSS):",
+        "options": [
+            "A) Is aimed at solving highly structured problems.",
+            "B) Combines the use of models with nontraditional data access and retrieval functions.",
+            "C) Emphasizes flexibility in the decision‑making approach of users.",
+            "D) Supports only structured decision‑making tasks."
+        ],
+        "correct": "C",
+        "explanation": "DSS is designed to support semi‑structured and unstructured decisions, emphasizing flexibility in user decision making.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 489,
+        "question": "An advantage of using sanitized live transactions in test data is that:",
+        "options": [
+            "A) All transaction types will be included.",
+            "B) Every error condition is likely to be tested.",
+            "C) No special routines are required to assess the results.",
+            "D) Test transactions are representative of live processing."
+        ],
+        "correct": "D",
+        "explanation": "Sanitized live data closely mirrors real production data, making tests more realistic without exposing sensitive information.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 490,
+        "question": "An IS auditor's PRIMARY concern when application developers wish to use a copy of yesterday's production transaction file for volume tests is that:",
+        "options": [
+            "A) Users may prefer to use contrived data for testing.",
+            "B) Unauthorized access to sensitive data may result.",
+            "C) Error handling and credibility checks may not be fully proven.",
+            "D) The full functionality of the new process may not necessarily be tested."
+        ],
+        "correct": "B",
+        "explanation": "Using live production data without proper sanitization risks exposing confidential information. The primary concern is data confidentiality.",
+        "domain": "Protection of Information Assets"
+    },
+    {
+        "id": 491,
+        "question": "Which of the following is the PRIMARY purpose for conducting parallel testing?",
+        "options": [
+            "A) To determine if the system is cost‑effective",
+            "B) To enable comprehensive unit and system testing",
+            "C) To highlight errors in the program interfaces with files",
+            "D) To ensure the new system meets user requirements"
+        ],
+        "correct": "D",
+        "explanation": "Parallel testing compares the new system's results with the old system to verify that the new system meets user requirements before cutover.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 492,
+        "question": "The knowledge base of an expert system that uses questionnaires to lead the user through a series of choices before a conclusion is reached is known as:",
+        "options": [
+            "A) Rules",
+            "B) Decision trees",
+            "C) Semantic nets",
+            "D) Dataflow diagrams"
+        ],
+        "correct": "B",
+        "explanation": "Decision trees use a series of questions to guide users to a conclusion, forming a key part of an expert system's knowledge base.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 493,
+        "question": "An advantage in using a bottom‑up vs. a top‑down approach to software testing is that:",
+        "options": [
+            "A) Interface errors are detected earlier.",
+            "B) Confidence in the system is achieved earlier.",
+            "C) Errors in critical modules are detected earlier.",
+            "D) Major functions and processing are tested earlier."
+        ],
+        "correct": "C",
+        "explanation": "Bottom‑up testing starts with individual modules, so errors in critical low‑level modules are found early.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 494,
+        "question": "During which of the following phases in system development would user acceptance test plans normally be prepared?",
+        "options": [
+            "A) Feasibility study",
+            "B) Requirements definition",
+            "C) Implementation planning",
+            "D) Postimplementation review"
+        ],
+        "correct": "B",
+        "explanation": "User acceptance test plans are developed during the requirements definition phase to ensure the system will satisfy user needs.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 495,
+        "question": "The use of object‑oriented design and development techniques would MOST likely:",
+        "options": [
+            "A) Facilitate the ability to reuse modules.",
+            "B) Improve system performance.",
+            "C) Enhance control effectiveness.",
+            "D) Speed up the system development life cycle."
+        ],
+        "correct": "A",
+        "explanation": "Object‑oriented design promotes reuse of code modules, which is its primary advantage.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 496,
+        "question": "Which of the following should be included in a feasibility study for a project to implement an EDI process?",
+        "options": [
+            "A) The encryption algorithm format",
+            "B) The detailed internal control procedures",
+            "C) The necessary communication protocols",
+            "D) The proposed trusted third‑party agreement"
+        ],
+        "correct": "C",
+        "explanation": "A feasibility study must assess technical requirements, and communication protocols are a key technical aspect of EDI.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 497,
+        "question": "When a new system is to be implemented within a short time frame, it is MOST important to:",
+        "options": [
+            "A) Finish writing user manuals.",
+            "B) Perform user acceptance testing.",
+            "C) Add last‑minute enhancements to functionalities.",
+            "D) Ensure that the code has been documented and reviewed."
+        ],
+        "correct": "B",
+        "explanation": "User acceptance testing verifies that the system meets requirements before going live. Even with time constraints, skipping UAT is extremely risky.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 498,
+        "question": "An organization has contracted with a vendor for a turnkey solution for their electronic toll collection system (ETCS). The vendor has provided its proprietary application software as part of the solution. The contract should require that:",
+        "options": [
+            "A) A backup server be available to run ETCS operations with up‑to‑date data.",
+            "B) A backup server be loaded with all the relevant software and data.",
+            "C) The systems staff of the organization be trained to handle any event.",
+            "D) Source code of the ETCS application be placed in escrow."
+        ],
+        "correct": "D",
+        "explanation": "Source code escrow protects the organization by ensuring access to the code if the vendor goes out of business or fails to support the product.",
+        "domain": "Acquisition, Development & Implementation"
+    },
+    {
+        "id": 499,
+        "question": "The MOST likely explanation for the use of applets in an Internet application is that:",
+        "options": [
+            "A) It is sent over the network from the server.",
+            "B) The server does not run the program and the output is not sent over the network.",
+            "C) They improve the performance of the web server and network.",
+            "D) It is a JAVA program downloaded through the web browser and executed by the web server of the client machine."
+        ],
+        "correct": "C",
+        "explanation": "Applets run on the client side, reducing server load and network traffic, thereby improving overall performance.",
+        "domain": "Operations and Business Resilience"
+    },
+    {
+        "id": 500,
+        "question": "A company has contracted with an external consulting firm to implement a commercial financial system to replace its existing system developed in‑house. In reviewing the proposed development approach, which of the following would be of GREATEST concern?",
+        "options": [
+            "A) Acceptance testing is to be managed by users.",
+            "B) A quality plan is not part of the contracted deliverables.",
+            "C) Not all business functions will be available on initial implementation.",
+            "D) Prototyping is being used to confirm that the system meets business requirements."
+        ],
+        "correct": "B",
+        "explanation": "A quality plan is essential to ensure the project meets its objectives. Its absence is a major risk to the overall quality and success of the implementation.",
+        "domain": "Acquisition, Development & Implementation"
+    }
+]
 ]
 import streamlit as st
 import random
