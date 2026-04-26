@@ -5824,8 +5824,8 @@ with st.sidebar:
             st.rerun()
 
     if st.button("🔄 Reset to All Questions", use_container_width=True):
-    # Use the prepare function to ensure all questions have shuffled_options
-    st.session_state.shuffled = prepare_quiz_questions(question_bank)
+    # Store raw questions – the main area will convert them on the fly
+    st.session_state.shuffled = question_bank.copy()
     st.session_state.current_index = 0
     st.session_state.answers = {}
     st.session_state.submitted = {}
