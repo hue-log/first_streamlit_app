@@ -5824,13 +5824,14 @@ with st.sidebar:
             st.rerun()
 
     if st.button("🔄 Reset to All Questions", use_container_width=True):
-        st.session_state.shuffled = question_bank.copy()
-        st.session_state.current_index = 0
-        st.session_state.answers = {}
-        st.session_state.submitted = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-        st.rerun()
+    # Use the prepare function to ensure all questions have shuffled_options
+    st.session_state.shuffled = prepare_quiz_questions(question_bank)
+    st.session_state.current_index = 0
+    st.session_state.answers = {}
+    st.session_state.submitted = {}
+    st.session_state.score = 0
+    st.session_state.total_answered = 0
+    st.rerun()
 
     total_q = len(st.session_state.shuffled)
 
@@ -5869,11 +5870,36 @@ st.title("CISA Exam Preparation – Domain Quiz")
 st.markdown("*Select domains, choose number of questions, and start.*")
 st.markdown("---")
 
+# Main area (safe conversion)
 total_q = len(st.session_state.shuffled)
 if total_q and 0 <= st.session_state.current_index < total_q:
+    # Get the current question (may be raw or prepared)
     q = st.session_state.shuffled[st.session_state.current_index]
+
+    # -----------------------------------------------------------------
+    # If the question is still in raw format, convert it on the fly
+    # -----------------------------------------------------------------
+    if 'shuffled_options' not in q:
+        orig_opts = q['options']
+        # Keep the original order (no shuffling) for this emergency fix.
+        # You can also shuffle if you prefer, but the main point is to have the keys.
+        shuffled_opts = []
+        new_correct = None
+        correct_letter = q['correct']
+        for idx, opt_text in enumerate(orig_opts):
+            letter = chr(ord('A') + idx)          # A, B, C, D
+            content = opt_text[3:].strip()         # remove "X) " prefix
+            shuffled_opts.append(f"{letter}) {content}")
+            if opt_text[0] == correct_letter:
+                new_correct = letter
+        # Store the converted version back into session state
+        q['shuffled_options'] = shuffled_opts
+        q['shuffled_correct'] = new_correct
+        st.session_state.shuffled[st.session_state.current_index] = q
+
+    # Now the question is guaranteed to be prepared
     qid = q['id']
-    domain = q['domain']
+    domain = q.get('domain', 'Uncategorized')
     st.markdown(f"""
     <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
         <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid}) 
@@ -5933,6 +5959,3 @@ if total_q and 0 <= st.session_state.current_index < total_q:
                 if st.session_state.current_index < total_q-1:
                     st.session_state.current_index += 1
                 st.rerun()
-
-st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA Domain Quiz | Study consistently 🎓</div>", unsafe_allow_html=True)
