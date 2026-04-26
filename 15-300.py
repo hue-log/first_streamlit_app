@@ -1794,10 +1794,8 @@ question_bank = [
         "correct": "A",
         "explanation": "Atomicity ensures a transaction is either completed in its entirety or not at all, part of the ACID test."
     },
-]
 
 # ─── Full Question Bank: IDs 150 to 300 ─────
-question_bank = [
     {
         "id": 150,
         "question": "Atomicity enforces data integrity by ensuring a transaction is completed entirely or not at all. True or false?",
