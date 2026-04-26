@@ -1451,18 +1451,84 @@ if 'total_answered' not in st.session_state: st.session_state.total_answered = 0
 if 'shuffled' not in st.session_state: st.session_state.shuffled = question_bank.copy()
 
 # Sidebar
-# ... imports and question_bank ...
-
-# Session state init (keep this!)
-if 'current_index' not in st.session_state:
-    st.session_state.current_index = 0
-# ... other session state defaults ...
-
-# Sidebar (replace this whole block)
+# Sidebar
 with st.sidebar:
     st.title("📋 CISA 150-300")
-    # --- New code (number input, mode, start button, etc.) ---
-    ...
+    st.markdown("---")
+    
+    # ─── Quiz settings ───
+    total_questions_in_bank = len(question_bank)
+    num_q = st.number_input(
+        "Number of questions:",
+        min_value=1,
+        max_value=total_questions_in_bank,
+        value=min(50, total_questions_in_bank),
+        step=1
+    )
+    
+    selection_mode = st.radio(
+        "Selection mode:",
+        ["Random", "Sequential (first N)"],
+        index=0
+    )
+    
+    # Start button
+    if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
+        if selection_mode == "Random":
+            st.session_state.shuffled = random.sample(question_bank, num_q)
+        else:
+            st.session_state.shuffled = question_bank[:num_q]
+        
+        # Reset progress
+        st.session_state.current_index = 0
+        st.session_state.answers = {}
+        st.session_state.submitted = {}
+        st.session_state.score = 0
+        st.session_state.total_answered = 0
+        st.rerun()
+    
+    st.markdown("---")
+    
+    # Reset button (full bank)
+    if st.button("🔄 Reset to All Questions", use_container_width=True):
+        st.session_state.shuffled = question_bank.copy()
+        st.session_state.current_index = 0
+        st.session_state.answers = {}
+        st.session_state.submitted = {}
+        st.session_state.score = 0
+        st.session_state.total_answered = 0
+        st.rerun()
+    
+    # Score card
+    total_q = len(st.session_state.shuffled) if 'shuffled' in st.session_state else 0
+    st.markdown(f"""
+    <div class="score-card">
+        <h3>📊 Score</h3>
+        <h1>{st.session_state.score} / {st.session_state.total_answered}</h1>
+        <p>{total_q} questions loaded</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Progress bar
+    if total_q > 0:
+        progress = (st.session_state.current_index + 1) / total_q
+        st.progress(progress, text=f"Q {st.session_state.current_index + 1}/{total_q}")
+    
+    # Navigation
+    col_nav = st.columns(3)
+    with col_nav[0]:
+        if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
+            st.session_state.current_index -= 1
+            st.rerun()
+    with col_nav[1]:
+        j = st.number_input("Jump", min_value=1, max_value=total_q, value=st.session_state.current_index+1, label_visibility="collapsed")
+        if st.button("Go"):
+            st.session_state.current_index = j - 1
+            st.rerun()
+    with col_nav[2]:
+        if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q - 1)):
+            st.session_state.current_index += 1
+            st.rerun()
 
 # Main display (unchanged)
 st.title("CISA Exam Prep: Questions 150–300")
