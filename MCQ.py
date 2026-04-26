@@ -4866,235 +4866,107 @@ question_bank = [
         "explanation": "A freezing point allows for a review of changes to ensure they are"
     },
 ]
-#-----
+import streamlit as st
+import random
 import re
-
-def assign_domains(questions):
-    # Domain mapping for known explanations that contain "Section: ..."
-    # We'll parse the explanation; if not present, assign based on question id or content.
-    domain_map = {}
-    for q in questions:
-        explanation = q.get('explanation', '')
-        match = re.search(r'Section:\s*(.*)', explanation)
-        if match:
-            domain = match.group(1).strip()
-        else:
-            # Manual assignment for the 150‑300 range (adjust if needed)
-            qid = q['id']
-            if qid <= 150:
-                # Questions 0‑150 are from the earlier PDFs; assign manually or leave as 'General'
-                domain = 'General'
-            elif 151 <= qid <= 300:
-                # Classify 150‑300 based on your earlier content
-                # (These are example assignments – adjust to your actual topics)
-                if qid <= 200:
-                    domain = 'IT Governance'
-                elif qid <= 240:
-                    domain = 'IS Audit Process'
-                elif qid <= 270:
-                    domain = 'Protection of Information Assets'
-                else:
-                    domain = 'Systems & Infrastructure Lifecycle'
-            else:
-                domain = 'Uncategorized'  # fallback
-        q['domain'] = domain
-
-# Apply the domain assignment once
-assign_domains(question_bank)
-# ─── Streamlit App ─────────────────────
+# -------------------------------------------------------------------
+# 2) DOMAIN ASSIGNMENT – map each question to official CISA domain
+# -------------------------------------------------------------------
 def assign_official_domains(questions):
-    # Map raw section names to official CISA domains
-    domain_mapping = {
+    mapping = {
         'is audit process': 'Information System Auditing Process',
         'it governance': 'Governance & Management of IT',
         'systems and infrastructure lifecycle management': 'Acquisition, Development & Implementation',
-        'protection of information assets': 'Protection of Information Assets',
-        # any other tags from PDFs
+        'protection of information assets': 'Protection of Information Assets'
     }
-
     for q in questions:
-        explanation = q.get('explanation', '')
-        # Try to extract Section: ... from the explanation
-        match = re.search(r'Section:\s*(.*)', explanation, re.IGNORECASE)
-        if match:
-            raw_section = match.group(1).strip().lower()
-            q['domain'] = domain_mapping.get(raw_section, 'Operations and Business Resilience')
+        expl = q.get('explanation', '')
+        m = re.search(r'Section:\s*(.*)', expl, re.IGNORECASE)
+        if m:
+            raw = m.group(1).strip().lower()
+            domain = mapping.get(raw, 'Operations and Business Resilience')
         else:
-            # For 150‑300 questions without tags, assign based on topic
+            # manual assign for older questions (150‑300)
             qid = q['id']
-            # Simple heuristic – you can adjust these ranges
             if qid <= 150:
-                # These are very early questions – many are general, but can be classified
-                # For simplicity, we'll put them into "Information System Auditing Process"
-                q['domain'] = 'Information System Auditing Process'
+                domain = 'Information System Auditing Process'
             elif 151 <= qid <= 200:
-                q['domain'] = 'Governance & Management of IT'
-            elif 201 <= qid <= 250:
-                q['domain'] = 'Information System Auditing Process'
-            elif 251 <= qid <= 300:
-                # Many are about testing, audit techniques → Auditing Process
-                q['domain'] = 'Information System Auditing Process'
+                domain = 'Governance & Management of IT'
+            elif 201 <= qid <= 240:
+                domain = 'Information System Auditing Process'
+            elif 241 <= qid <= 300:
+                domain = 'Protection of Information Assets'
             else:
-                # Fallback – in case some from 300+ didn't have a tag
-                # Check topic keywords
-                text = q['question'] + ' ' + explanation
-                if any(word in text.lower() for word in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
-                    q['domain'] = 'Operations and Business Resilience'
-                elif any(word in text.lower() for word in ['audit', 'auditor', 'sampling', 'evidence']):
-                    q['domain'] = 'Information System Auditing Process'
-                elif any(word in text.lower() for word in ['governance', 'policy', 'steering committee', 'board']):
-                    q['domain'] = 'Governance & Management of IT'
+                # fallback: detect keywords for 300+ without tags
+                text = q['question'] + ' ' + expl
+                if any(w in text.lower() for w in ['drp', 'bcp', 'disaster recovery', 'business continuity']):
+                    domain = 'Operations and Business Resilience'
+                elif any(w in text.lower() for w in ['audit', 'auditor', 'sampling', 'evidence']):
+                    domain = 'Information System Auditing Process'
+                elif any(w in text.lower() for w in ['governance', 'policy', 'steering committee', 'board']):
+                    domain = 'Governance & Management of IT'
                 else:
-                    q['domain'] = 'Protection of Information Assets'
+                    domain = 'Acquisition, Development & Implementation'
+        q['domain'] = domain
 
-# Call the function once
 assign_official_domains(question_bank)
-#----
-st.set_page_config(page_title="CISA Quiz", page_icon="📋", layout="wide")
 
-# Custom CSS
+# -------------------------------------------------------------------
+# 3) STREAMLIT APP
+# -------------------------------------------------------------------
+st.set_page_config(page_title="CISA 150‑450 Domain Quiz", layout="wide")
+
+# CSS (black explanations, etc.)
 st.markdown("""
 <style>
     .stButton > button { width: 100%; border-radius: 8px; font-weight: 600; }
-    .correct-answer { background-color: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 10px; color: #155724; }
-    .wrong-answer { background-color: #f8d7da; border: 2px solid #dc3545; border-radius: 8px; padding: 10px; color: #721c24; }
-    .explanation-box { background-color: #e7f3ff; border-left: 4px solid #2196F3; border-radius: 8px; padding: 15px; margin-top: 10px; color: black; }
+    .correct-answer { background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 10px; color: #155724; }
+    .wrong-answer { background: #f8d7da; border: 2px solid #dc3545; border-radius: 8px; padding: 10px; color: #721c24; }
+    .explanation-box { background: #e7f3ff; border-left: 4px solid #2196F3; border-radius: 8px; padding: 15px; margin-top: 10px; color: black; }
     .score-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; padding: 20px; text-align: center; }
 </style>
 """, unsafe_allow_html=True)
 
-# Session state initialisation
-if 'current_index' not in st.session_state:
-    st.session_state.current_index = 0
-if 'answers' not in st.session_state:
-    st.session_state.answers = {}
-if 'submitted' not in st.session_state:
-    st.session_state.submitted = {}
-if 'score' not in st.session_state:
-    st.session_state.score = 0
-if 'total_answered' not in st.session_state:
-    st.session_state.total_answered = 0
-if 'shuffled' not in st.session_state:
-    st.session_state.shuffled = question_bank.copy()
+# Session state
+for key, val in [('current_index',0), ('answers',{}), ('submitted',{}),
+                 ('score',0), ('total_answered',0), ('shuffled',[])]:
+    if key not in st.session_state:
+        st.session_state[key] = val
 
 # Sidebar
-# Inside with st.sidebar:
-
-st.title("📋 CISA Quiz ")
-st.markdown("---")
-
-# ─── Domain filtering ───
-# Get all unique domains (sorted)
-all_domains = sorted(list(set(q.get('domain', 'Unknown') for q in question_bank)))
-selected_domains = st.multiselect(
-    "Filter by CISA Domain:",
-    options=all_domains,
-    default=all_domains   # all are selected by default
-)
-
-# ─── Quiz settings ───
-total_questions_in_bank = len(question_bank)
-# Restrict max questions to the number allowed by the domain filter
-if selected_domains:
-    eligible_questions = [q for q in question_bank if q.get('domain', '') in selected_domains]
-else:
-    eligible_questions = question_bank
-
-max_possible = len(eligible_questions)
-if max_possible == 0:
-    st.warning("No questions match the selected domains.")
-    num_q = 0
-else:
-    num_q = st.number_input(
-        "Number of questions:",
-        min_value=1,
-        max_value=max_possible,
-        value=min(50, max_possible),
-        step=1
-    )
-
-selection_mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
-
-# Start quiz button
-if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
-    if max_possible == 0:
-        st.error("Please select at least one domain with questions.")
-    else:
-        if selection_mode == "Random":
-            st.session_state.shuffled = random.sample(eligible_questions, num_q)
-        else:
-            st.session_state.shuffled = eligible_questions[:num_q]
-        # Reset progress
-        st.session_state.current_index = 0
-        st.session_state.answers = {}
-        st.session_state.submitted = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-        st.rerun()
-
-# ... rest of sidebar (reset, score, navigation) unchanged ...
-    # ─── Domain filtering with official domains ───
-official_domains = [
-    'Information System Auditing Process',
-    'Governance & Management of IT',
-    'Acquisition, Development & Implementation',
-    'Operations and Business Resilience',
-    'Protection of Information Assets'
-]
-
-# Get only the domains that actually exist in the question bank
-available_domains = sorted(list(set(q.get('domain', '') for q in question_bank if q.get('domain', '') in official_domains)))
-selected_domains = st.multiselect(
-    "Filter by CISA Domain:",
-    options=available_domains,
-    default=available_domains   # all selected initially
-)
-
-# Filter eligible questions
-eligible_questions = [q for q in question_bank if q.get('domain', '') in selected_domains]
-
-max_possible = len(eligible_questions)
-if max_possible == 0:
-    st.warning("No questions match the selected domains.")
-    num_q = 0
-else:
-    num_q = st.number_input(
-        "Number of questions:",
-        min_value=1,
-        max_value=max_possible,
-        value=min(50, max_possible),
-        step=1
-    )
-    # Quiz settings
-    total_questions_in_bank = len(question_bank)
-    num_q = st.number_input(
-        "Number of questions:",
-        min_value=1,
-        max_value=total_questions_in_bank,
-        value=min(50, total_questions_in_bank),
-        step=1
-    )
-    
-    selection_mode = st.radio(
-        "Selection mode:",
-        ["Random", "Sequential (first N)"],
-        index=0
-    )
-    
-    if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
-        if selection_mode == "Random":
-            st.session_state.shuffled = random.sample(question_bank, num_q)
-        else:
-            st.session_state.shuffled = question_bank[:num_q]
-        st.session_state.current_index = 0
-        st.session_state.answers = {}
-        st.session_state.submitted = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-        st.rerun()
-    
+with st.sidebar:
+    st.title("📋 CISA 150‑450")
     st.markdown("---")
-    
+
+    # Official domains
+    all_domains = sorted(list(set(q['domain'] for q in question_bank)))
+    selected = st.multiselect("Filter by CISA Domain:", all_domains, default=all_domains)
+
+    eligible = [q for q in question_bank if q['domain'] in selected]
+    max_q = len(eligible)
+    if max_q == 0:
+        st.warning("No questions for the chosen domains.")
+        num_q = 0
+    else:
+        num_q = st.number_input("Number of questions:", 1, max_q, min(50, max_q))
+
+    mode = st.radio("Selection mode:", ["Random", "Sequential (first N)"], index=0)
+
+    if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
+        if max_q == 0:
+            st.error("Select at least one domain with questions.")
+        else:
+            if mode == "Random":
+                st.session_state.shuffled = random.sample(eligible, num_q)
+            else:
+                st.session_state.shuffled = eligible[:num_q]
+            st.session_state.current_index = 0
+            st.session_state.answers = {}
+            st.session_state.submitted = {}
+            st.session_state.score = 0
+            st.session_state.total_answered = 0
+            st.rerun()
+
     if st.button("🔄 Reset to All Questions", use_container_width=True):
         st.session_state.shuffled = question_bank.copy()
         st.session_state.current_index = 0
@@ -5103,7 +4975,7 @@ else:
         st.session_state.score = 0
         st.session_state.total_answered = 0
         st.rerun()
-    
+
     total_q = len(st.session_state.shuffled)
     if total_q:
         st.markdown(f"""
@@ -5113,98 +4985,86 @@ else:
             <p>{total_q} questions loaded</p>
         </div>
         """, unsafe_allow_html=True)
-    
-        progress = (st.session_state.current_index + 1) / total_q
-        st.progress(progress, text=f"Q {st.session_state.current_index + 1}/{total_q}")
-    
-    col_nav = st.columns(3)
-    with col_nav[0]:
-        if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
-            st.session_state.current_index -= 1
-            st.rerun()
-    with col_nav[1]:
-        j = st.number_input("Jump", min_value=1, max_value=total_q, value=st.session_state.current_index+1, label_visibility="collapsed")
-        if st.button("Go"):
-            st.session_state.current_index = j - 1
-            st.rerun()
-    with col_nav[2]:
-        if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q - 1)):
-            st.session_state.current_index += 1
-            st.rerun()
+        st.progress((st.session_state.current_index+1)/total_q,
+                     text=f"Q {st.session_state.current_index+1}/{total_q}")
 
-# Main display
-st.title("CISA Exam Prep:Questions")
-st.markdown("*Interactive quiz with domain filtering*")
+    # Navigation
+    c1,c2,c3 = st.columns(3)
+    with c1:
+        if st.button("⬅️ Prev", disabled=(st.session_state.current_index==0)):
+            st.session_state.current_index -= 1; st.rerun()
+    with c2:
+        j = st.number_input("Jump",1,total_q,st.session_state.current_index+1,label_visibility="collapsed")
+        if st.button("Go"): st.session_state.current_index=j-1; st.rerun()
+    with c3:
+        if st.button("Next ➡️", disabled=(st.session_state.current_index>=total_q-1)):
+            st.session_state.current_index += 1; st.rerun()
+
+# Main
+st.title("CISA Exam Prep (150‑450) – Official Domains")
+st.markdown("*Select domains in the sidebar, choose number of questions, and start.*")
 st.markdown("---")
 
-# Ensure total_q is defined
-total_q = len(st.session_state.shuffled) if 'shuffled' in st.session_state else 0
-
+total_q = len(st.session_state.shuffled)  # safe definition
 if total_q and 0 <= st.session_state.current_index < total_q:
     q = st.session_state.shuffled[st.session_state.current_index]
     qid = q['id']
-    domain = q.get('domain', 'Uncategorized')
+    domain = q['domain']
     st.markdown(f"""
     <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
         <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid}) 
-        <small style="color:#666;">- Domain: {domain}</small></h3>
+        <small style="color:#666;">- {domain}</small></h3>
         <p style="font-size:18px; color:black; font-weight:500;">{q['question']}</p>
     </div>
     """, unsafe_allow_html=True)
-    # ... rest of the question display and answer logic
 
-    labels = [opt[0] for opt in q['options']]
-    texts = [opt[3:].strip() for opt in q['options']]
+    labels = [o[0] for o in q['options']]
+    texts  = [o[3:].strip() for o in q['options']]
 
     if qid not in st.session_state.submitted:
-        selected = st.radio("Choose:", options=labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}", key=f"r{qid}", index=None)
-        c1, c2 = st.columns([1, 1])
+        sel = st.radio("Your answer:", labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}",
+                       key=f"r{qid}", index=None)
+        c1,c2 = st.columns(2)
         with c1:
-            if st.button("✅ Submit", use_container_width=True, type="primary", disabled=(selected is None)):
-                if selected:
-                    correct = (selected == q['correct'])
-                    st.session_state.submitted[qid] = {'selected': selected, 'correct': correct}
-                    st.session_state.answers[qid] = selected
-                    st.session_state.total_answered += 1
-                    if correct:
-                        st.session_state.score += 1
-                    st.rerun()
+            if st.button("✅ Submit", disabled=(sel is None), use_container_width=True, type="primary"):
+                correct = (sel == q['correct'])
+                st.session_state.submitted[qid] = {'selected':sel, 'correct':correct}
+                st.session_state.answers[qid] = sel
+                st.session_state.total_answered += 1
+                if correct: st.session_state.score += 1
+                st.rerun()
         with c2:
             if st.button("⏭️ Skip", use_container_width=True):
-                st.session_state.current_index = min(total_q - 1, st.session_state.current_index + 1)
+                st.session_state.current_index = min(total_q-1, st.session_state.current_index+1)
                 st.rerun()
     else:
         sub = st.session_state.submitted[qid]
-        selected, correct = sub['selected'], sub['correct']
-        st.markdown("### Your Answer:")
-        for i, (lbl, txt) in enumerate(zip(labels, texts)):
+        sel, ok = sub['selected'], sub['correct']
+        st.markdown("### Result:")
+        for i,(lbl,txt) in enumerate(zip(labels,texts)):
             if lbl == q['correct']:
-                st.markdown(f'<div class="correct-answer">✅ {lbl}) {txt} ← Correct</div>', unsafe_allow_html=True)
-            elif lbl == selected and not correct:
-                st.markdown(f'<div class="wrong-answer">❌ {lbl}) {txt} ← Your Answer</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="correct-answer">✅ {lbl}) {txt} – Correct</div>', unsafe_allow_html=True)
+            elif lbl == sel and not ok:
+                st.markdown(f'<div class="wrong-answer">❌ {lbl}) {txt} – Your answer</div>', unsafe_allow_html=True)
             else:
                 st.markdown(f"{lbl}) {txt}")
-        if correct:
+        if ok:
             st.success("🎉 Correct!")
         else:
             st.error("😔 Incorrect.")
         st.markdown(f"""
-        <div class="explanation-box">
-            <h4>📖 Explanation:</h4>
-            <p>{q['explanation']}</p>
-        </div>
+        <div class="explanation-box"><b>📖 Explanation:</b><br>{q['explanation']}</div>
         """, unsafe_allow_html=True)
-        bc1, bc2 = st.columns([1, 1])
-        with bc1:
+        c1,c2 = st.columns(2)
+        with c1:
             if st.button("⬅️ Previous Q", use_container_width=True):
-                st.session_state.current_index -= 1
-                st.rerun()
-        with bc2:
-            nxt = "Next ➡️" if st.session_state.current_index < total_q - 1 else "🏁 Finish"
-            if st.button(nxt, use_container_width=True, type="primary"):
-                if st.session_state.current_index < total_q - 1:
+                st.session_state.current_index -= 1; st.rerun()
+        with c2:
+            nxt = "Next ➡️" if st.session_state.current_index < total_q-1 else "🏁 Finish"
+            if st.button(nxt, use_container_width=True):
+                if st.session_state.current_index < total_q-1:
                     st.session_state.current_index += 1
                 st.rerun()
 
 st.markdown("---")
-st.markdown("<div style='text-align:center; color:#666;'>CISA 01-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center; color:#666;'>CISA 150‑450 | Official domains | Study consistently 🎓</div>", unsafe_allow_html=True)
