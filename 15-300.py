@@ -430,7 +430,7 @@ question_bank = [
         "correct": "C",
         "explanation": "Redundancy provides both integrity and availability."
     },
-    # ---- Questions 201-300 from the third PDF ----
+    # ---- Questions 201-300 ----
     {
         "id": 201,
         "question": "The purpose of business continuity planning and disaster-recovery planning is to:",
@@ -1428,10 +1428,10 @@ question_bank = [
     }
 ]
 
-# ─── Streamlit App Layout (same as before) ─────
+# ─── Streamlit App ─────────────────────
 st.set_page_config(page_title="CISA 150-300 Quiz", page_icon="📋", layout="wide")
 
-# Custom CSS (including black explanation text)
+# Custom CSS
 st.markdown("""
 <style>
     .stButton > button { width: 100%; border-radius: 8px; font-weight: 600; }
@@ -1442,21 +1442,26 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Session state
-if 'current_index' not in st.session_state: st.session_state.current_index = 0
-if 'answers' not in st.session_state: st.session_state.answers = {}
-if 'submitted' not in st.session_state: st.session_state.submitted = {}
-if 'score' not in st.session_state: st.session_state.score = 0
-if 'total_answered' not in st.session_state: st.session_state.total_answered = 0
-if 'shuffled' not in st.session_state: st.session_state.shuffled = question_bank.copy()
+# Session state initialisation
+if 'current_index' not in st.session_state:
+    st.session_state.current_index = 0
+if 'answers' not in st.session_state:
+    st.session_state.answers = {}
+if 'submitted' not in st.session_state:
+    st.session_state.submitted = {}
+if 'score' not in st.session_state:
+    st.session_state.score = 0
+if 'total_answered' not in st.session_state:
+    st.session_state.total_answered = 0
+if 'shuffled' not in st.session_state:
+    st.session_state.shuffled = question_bank.copy()
 
-# Sidebar
 # Sidebar
 with st.sidebar:
     st.title("📋 CISA 150-300")
     st.markdown("---")
     
-    # ─── Quiz settings ───
+    # Quiz settings
     total_questions_in_bank = len(question_bank)
     num_q = st.number_input(
         "Number of questions:",
@@ -1472,14 +1477,11 @@ with st.sidebar:
         index=0
     )
     
-    # Start button
     if st.button("🚀 Start Quiz", use_container_width=True, type="primary"):
         if selection_mode == "Random":
             st.session_state.shuffled = random.sample(question_bank, num_q)
         else:
             st.session_state.shuffled = question_bank[:num_q]
-        
-        # Reset progress
         st.session_state.current_index = 0
         st.session_state.answers = {}
         st.session_state.submitted = {}
@@ -1489,7 +1491,6 @@ with st.sidebar:
     
     st.markdown("---")
     
-    # Reset button (full bank)
     if st.button("🔄 Reset to All Questions", use_container_width=True):
         st.session_state.shuffled = question_bank.copy()
         st.session_state.current_index = 0
@@ -1499,22 +1500,19 @@ with st.sidebar:
         st.session_state.total_answered = 0
         st.rerun()
     
-    # Score card
-    total_q = len(st.session_state.shuffled) if 'shuffled' in st.session_state else 0
-    st.markdown(f"""
-    <div class="score-card">
-        <h3>📊 Score</h3>
-        <h1>{st.session_state.score} / {st.session_state.total_answered}</h1>
-        <p>{total_q} questions loaded</p>
-    </div>
-    """, unsafe_allow_html=True)
+    total_q = len(st.session_state.shuffled)
+    if total_q:
+        st.markdown(f"""
+        <div class="score-card">
+            <h3>📊 Score</h3>
+            <h1>{st.session_state.score} / {st.session_state.total_answered}</h1>
+            <p>{total_q} questions loaded</p>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # Progress bar
-    if total_q > 0:
         progress = (st.session_state.current_index + 1) / total_q
         st.progress(progress, text=f"Q {st.session_state.current_index + 1}/{total_q}")
     
-    # Navigation
     col_nav = st.columns(3)
     with col_nav[0]:
         if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
@@ -1529,55 +1527,19 @@ with st.sidebar:
         if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q - 1)):
             st.session_state.current_index += 1
             st.rerun()
-    mode = st.radio("Mode:", ["📝 Practice", "🔀 Random 50"], help="Practice: all 151 questions. Random: 50 questions.")
-    if st.button("🔄 Reset Progress", use_container_width=True):
-        st.session_state.current_index = 0
-        st.session_state.answers = {}
-        st.session_state.submitted = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-        st.session_state.shuffled = question_bank.copy()
-        random.shuffle(st.session_state.shuffled)
-        st.rerun()
-    if mode == "🔀 Random 50" and len(st.session_state.shuffled) == len(question_bank):
-        st.session_state.shuffled = random.sample(question_bank, 50)
-        st.session_state.current_index = 0
-        st.session_state.submitted = {}
-        st.session_state.answers = {}
-        st.session_state.score = 0
-        st.session_state.total_answered = 0
-    total_q = len(st.session_state.shuffled)
-    st.markdown(f"""
-    <div class="score-card">
-        <h3>📊 Score</h3>
-        <h1>{st.session_state.score} / {st.session_state.total_answered}</h1>
-    </div>
-    """, unsafe_allow_html=True)
-    progress = (st.session_state.current_index + 1) / total_q if total_q else 0
-    st.progress(progress, text=f"Q {st.session_state.current_index + 1}/{total_q}")
-    col_nav = st.columns(3)
-    with col_nav[0]:
-        if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
-            st.session_state.current_index -= 1; st.rerun()
-    with col_nav[1]:
-        j = st.number_input("Jump", min_value=1, max_value=total_q, value=st.session_state.current_index+1, label_visibility="collapsed")
-        if st.button("Go"): st.session_state.current_index = j-1; st.rerun()
-    with col_nav[2]:
-        if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q-1)):
-            st.session_state.current_index += 1; st.rerun()
 
 # Main display
 st.title("CISA Exam Prep: Questions 150–300")
 st.markdown("*Interactive quiz with answers, feedback, and black-explanation text*")
 st.markdown("---")
 
-if total_q:
+if total_q and 0 <= st.session_state.current_index < total_q:
     q = st.session_state.shuffled[st.session_state.current_index]
     qid = q['id']
     st.markdown(f"""
     <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin-bottom:20px; border:1px solid #dee2e6;">
-        <h3>Q{st.session_state.current_index+1} (ID:{qid})</h3>
-        <p style="font-size:18px; font-weight:500;">{q['question']}</p>
+        <h3 style="color:black;">Q{st.session_state.current_index+1} (ID:{qid})</h3>
+        <p style="font-size:18px; color:black; font-weight:500;">{q['question']}</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1586,7 +1548,7 @@ if total_q:
 
     if qid not in st.session_state.submitted:
         selected = st.radio("Choose:", options=labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}", key=f"r{qid}", index=None)
-        c1, c2 = st.columns([1,1])
+        c1, c2 = st.columns([1, 1])
         with c1:
             if st.button("✅ Submit", use_container_width=True, type="primary", disabled=(selected is None)):
                 if selected:
@@ -1594,11 +1556,12 @@ if total_q:
                     st.session_state.submitted[qid] = {'selected': selected, 'correct': correct}
                     st.session_state.answers[qid] = selected
                     st.session_state.total_answered += 1
-                    if correct: st.session_state.score += 1
+                    if correct:
+                        st.session_state.score += 1
                     st.rerun()
         with c2:
             if st.button("⏭️ Skip", use_container_width=True):
-                st.session_state.current_index = min(total_q-1, st.session_state.current_index+1)
+                st.session_state.current_index = min(total_q - 1, st.session_state.current_index + 1)
                 st.rerun()
     else:
         sub = st.session_state.submitted[qid]
@@ -1611,21 +1574,26 @@ if total_q:
                 st.markdown(f'<div class="wrong-answer">❌ {lbl}) {txt} ← Your Answer</div>', unsafe_allow_html=True)
             else:
                 st.markdown(f"{lbl}) {txt}")
-        if correct: st.success("🎉 Correct!")
-        else: st.error("😔 Incorrect.")
+        if correct:
+            st.success("🎉 Correct!")
+        else:
+            st.error("😔 Incorrect.")
         st.markdown(f"""
         <div class="explanation-box">
             <h4>📖 Explanation:</h4>
             <p>{q['explanation']}</p>
         </div>
         """, unsafe_allow_html=True)
-        bc1, bc2 = st.columns([1,1])
+        bc1, bc2 = st.columns([1, 1])
         with bc1:
-            if st.button("⬅️ Previous Q", use_container_width=True): st.session_state.current_index -= 1; st.rerun()
+            if st.button("⬅️ Previous Q", use_container_width=True):
+                st.session_state.current_index -= 1
+                st.rerun()
         with bc2:
-            nxt = "Next ➡️" if st.session_state.current_index < total_q-1 else "🏁 Finish"
+            nxt = "Next ➡️" if st.session_state.current_index < total_q - 1 else "🏁 Finish"
             if st.button(nxt, use_container_width=True, type="primary"):
-                if st.session_state.current_index < total_q-1: st.session_state.current_index += 1
+                if st.session_state.current_index < total_q - 1:
+                    st.session_state.current_index += 1
                 st.rerun()
 
 st.markdown("---")
