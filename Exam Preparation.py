@@ -3345,3 +3345,288 @@ if total_q:
 
 st.markdown("---")
 st.markdown("<div style='text-align:center; color:#666;'>CISA 150-300 Prep Tool | Study consistently 🎓</div>", unsafe_allow_html=True)
+# ─── Streamlit App ─────────────────────────────
+st.set_page_config(
+    page_title="CISA Exam Prep - Interactive Quiz",
+    page_icon="📋",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Custom CSS for better styling
+st.markdown("""
+<style>
+    .stButton > button {
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .correct-answer {
+        background-color: #d4edda;
+        border: 2px solid #28a745;
+        border-radius: 8px;
+        padding: 10px;
+        color: #155724;
+    }
+    .wrong-answer {
+        background-color: #f8d7da;
+        border: 2px solid #dc3545;
+        border-radius: 8px;
+        padding: 10px;
+        color: #721c24;
+    }
+    .explanation-box {
+        background-color: #e7f3ff;
+        border-left: 4px solid #2196F3;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+    .score-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Sidebar
+with st.sidebar:
+    st.title("📋 CISA Exam Prep")
+    st.markdown("---")
+    
+    # Mode selection
+    mode = st.radio(
+        "Select Mode:",
+        ["📝 Practice Mode", "🎯 Exam Simulation", "🔀 Random 50 Questions"],
+        help="Practice: one question at a time with feedback. Exam: timed session. Random: 50 random questions."
+    )
+    
+    st.markdown("---")
+    
+    # Session state management
+    if 'current_index' not in st.session_state:
+        st.session_state.current_index = 0
+    if 'answers' not in st.session_state:
+        st.session_state.answers = {}
+    if 'submitted' not in st.session_state:
+        st.session_state.submitted = {}
+    if 'score' not in st.session_state:
+        st.session_state.score = 0
+    if 'total_answered' not in st.session_state:
+        st.session_state.total_answered = 0
+    if 'shuffled_questions' not in st.session_state:
+        st.session_state.shuffled_questions = question_bank.copy()
+    
+    # Reset button
+    if st.button("🔄 Reset All Progress", use_container_width=True):
+        st.session_state.current_index = 0
+        st.session_state.answers = {}
+        st.session_state.submitted = {}
+        st.session_state.score = 0
+        st.session_state.total_answered = 0
+        st.session_state.shuffled_questions = question_bank.copy()
+        random.shuffle(st.session_state.shuffled_questions)
+        st.rerun()
+    
+    # Handle random 50 mode
+    if mode == "🔀 Random 50 Questions":
+        if len(st.session_state.shuffled_questions) == len(question_bank):
+            sampled = random.sample(question_bank, min(50, len(question_bank)))
+            st.session_state.shuffled_questions = sampled
+            st.session_state.current_index = 0
+            st.session_state.answers = {}
+            st.session_state.submitted = {}
+            st.session_state.score = 0
+            st.session_state.total_answered = 0
+    else:
+        if len(st.session_state.shuffled_questions) != len(question_bank):
+            st.session_state.shuffled_questions = question_bank.copy()
+    
+    total_questions = len(st.session_state.shuffled_questions)
+    
+    # Score display
+    st.markdown(f"""
+    <div class="score-card">
+        <h3>📊 Your Score</h3>
+        <h1>{st.session_state.score} / {st.session_state.total_answered}</h1>
+        <p>{'🌟 ' + str(round(st.session_state.score/st.session_state.total_answered*100, 1)) + '%' if st.session_state.total_answered > 0 else '0%'}</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Progress bar
+    progress = (st.session_state.current_index + 1) / total_questions if total_questions > 0 else 0
+    st.progress(progress, text=f"Question {st.session_state.current_index + 1} of {total_questions}")
+    
+    # Navigation
+    st.markdown("### 📍 Navigation")
+    col_nav1, col_nav2, col_nav3 = st.columns(3)
+    with col_nav1:
+        if st.button("⬅️ Previous", use_container_width=True, disabled=(st.session_state.current_index == 0)):
+            st.session_state.current_index = max(0, st.session_state.current_index - 1)
+            st.rerun()
+    with col_nav2:
+        jump_to = st.number_input("Jump to:", min_value=1, max_value=total_questions, value=st.session_state.current_index + 1, label_visibility="collapsed")
+        if st.button("🎯 Go", use_container_width=True):
+            st.session_state.current_index = jump_to - 1
+            st.rerun()
+    with col_nav3:
+        if st.button("Next ➡️", use_container_width=True, disabled=(st.session_state.current_index >= total_questions - 1)):
+            st.session_state.current_index = min(total_questions - 1, st.session_state.current_index + 1)
+            st.rerun()
+
+# Main content
+st.title("🔐 CISA Certification Exam Preparation")
+st.markdown("*Interactive multiple-choice quiz with instant feedback and explanations*")
+st.markdown("---")
+
+# Get current question
+if total_questions > 0 and 0 <= st.session_state.current_index < total_questions:
+    q = st.session_state.shuffled_questions[st.session_state.current_index]
+    q_id = q['id']
+    
+    # Question display
+    st.markdown(f"""
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #dee2e6;">
+        <h3 style="color: #333; margin-top: 0;">Question {st.session_state.current_index + 1} (ID: {q_id})</h3>
+        <p style="font-size: 18px; color: #1a1a1a; font-weight: 500;">{q['question']}</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Options
+    option_labels = [opt[0] for opt in q['options']]  # A, B, C, D
+    option_texts = [opt[3:].strip() for opt in q['options']]  # Text without prefix
+    
+    # Check if already submitted
+    is_submitted = q_id in st.session_state.submitted
+    
+    if not is_submitted:
+        selected = st.radio(
+            "Select your answer:",
+            options=option_labels,
+            format_func=lambda x: f"{x}) {option_texts[option_labels.index(x)]}",
+            key=f"radio_{q_id}",
+            index=None
+        )
+        
+        col_submit, col_skip = st.columns([1, 1])
+        with col_submit:
+            if st.button("✅ Submit Answer", use_container_width=True, type="primary", disabled=(selected is None)):
+                if selected:
+                    is_correct = (selected == q['correct'])
+                    st.session_state.submitted[q_id] = {
+                        'selected': selected,
+                        'correct': is_correct
+                    }
+                    st.session_state.answers[q_id] = selected
+                    st.session_state.total_answered += 1
+                    if is_correct:
+                        st.session_state.score += 1
+                    st.rerun()
+        with col_skip:
+            if st.button("⏭️ Skip", use_container_width=True):
+                st.session_state.current_index = min(total_questions - 1, st.session_state.current_index + 1)
+                st.rerun()
+    else:
+        # Show results
+        submission = st.session_state.submitted[q_id]
+        selected = submission['selected']
+        is_correct = submission['correct']
+        
+        # Display options with color coding
+        st.markdown("### Your Answer:")
+        for i, (label, text) in enumerate(zip(option_labels, option_texts)):
+            if label == q['correct']:
+                st.markdown(f"""
+                <div class="correct-answer">
+                    ✅ <strong>{label}) {text}</strong> ← Correct Answer
+                </div>
+                """, unsafe_allow_html=True)
+            elif label == selected and not is_correct:
+                st.markdown(f"""
+                <div class="wrong-answer">
+                    ❌ <strong>{label}) {text}</strong> ← Your Answer (Incorrect)
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown(f"{label}) {text}")
+        
+        # Result banner
+        if is_correct:
+            st.success("🎉 Correct! Well done!")
+        else:
+            st.error("😔 Incorrect. Review the explanation below.")
+        
+        # Explanation
+        st.markdown(f"""
+        <div class="explanation-box">
+            <h4>📖 Explanation:</h4>
+            <p>{q['explanation']}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Navigation buttons
+        col_next1, col_next2 = st.columns([1, 1])
+        with col_next1:
+            if st.button("⬅️ Previous Question", use_container_width=True):
+                st.session_state.current_index = max(0, st.session_state.current_index - 1)
+                st.rerun()
+        with col_next2:
+            next_btn_text = "Next Question ➡️" if st.session_state.current_index < total_questions - 1 else "🏁 Finish"
+            if st.button(next_btn_text, use_container_width=True, type="primary"):
+                if st.session_state.current_index < total_questions - 1:
+                    st.session_state.current_index += 1
+                st.rerun()
+
+else:
+    st.info("No questions available. Click 'Reset All Progress' to reload the question bank.")
+
+# Footer
+st.markdown("---")
+st.markdown("""
+<div style="text-align: center; color: #666; padding: 10px;">
+    <p>📋 <strong>CISA Exam Preparation Tool</strong> | Study smart, pass with confidence! 🎓</p>
+    <p>Tips: Review explanations carefully. Focus on understanding concepts rather than memorizing answers.</p>
+</div>
+""", unsafe_allow_html=True)
+# Custom CSS for better styling
+st.markdown("""
+<style>
+    .stButton > button {
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    .correct-answer {
+        background-color: #d4edda;
+        border: 2px solid #28a745;
+        border-radius: 8px;
+        padding: 10px;
+        color: #155724;
+    }
+    .wrong-answer {
+        background-color: #f8d7da;
+        border: 2px solid #dc3545;
+        border-radius: 8px;
+        padding: 10px;
+        color: #721c24;
+    }
+    .explanation-box {
+        background-color: #e7f3ff;
+        border-left: 4px solid #2196F3;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 10px;
+        color: black;   /* Change added here */
+    }
+    .score-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+""", unsafe_allow_html=True)
