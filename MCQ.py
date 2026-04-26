@@ -5689,10 +5689,40 @@ import streamlit as st
 import random
 import re
 
-# ────────────────────────────────────────────────────────────────────
-# 2) DOMAIN ASSIGNMENT FUNCTION – called once to tag every question
-# ────────────────────────────────────────────────────────────────────
+# =====================================================================
+# 1) QUESTION BANK – insert your complete 150‑500 list here.
+#    The format must be exactly like the samples below.
+#    Ensure every entry has: id, question, options (list of 4 strings starting with A), B), etc.),
+#    correct (single letter "A".."D"), explanation (may contain "Section: ...").
+# =====================================================================
+question_bank = [
+    # --- EXAMPLE ENTRIES (replace with your real data) ---
+    {"id": 150, "question": "Atomicity ... True or false?",
+     "options": ["A) True", "B) False"], "correct": "A",
+     "explanation": "Atomicity ensures a transaction is completed or not at all; part of ACID."},
+    {"id": 151, "question": "If an IS auditor finds risk in segregation of duties...",
+     "options": ["A) To advise senior management.", "B) To reassign jobs.",
+                 "C) Implement compensator controls.", "D) Segregation of duties is administrative."],
+     "correct": "A", "explanation": "Primary responsibility is to advise senior management."},
+    {"id": 201, "question": "Purpose of BCP & DRP is to:",
+     "options": ["A) Transfer risk", "B) Mitigate risk", "C) Accept risk", "D) Eliminate risk"],
+     "correct": "B", "explanation": "Mitigate risk. Section: IT GOVERNANCE"},
+    {"id": 301, "question": "Management says no unlicensed software, auditor suspects...",
+     "options": ["A) Include management statement", "B) Identify if software is being used",
+                 "C) Reconfirm with management", "D) Discuss with senior management"],
+     "correct": "B", "explanation": "Independent verification needed. Section: IS AUDIT PROCESS"},
+    # ... Paste all 351 questions here (IDs 150 to 500) with the exact same structure.
+    # The script will assign domains automatically.
+]
+
+# =====================================================================
+# 2) DOMAIN ASSIGNMENT (official ISACA categories)
+# =====================================================================
 def assign_official_domains(questions):
+    """
+    Uses Section: tag from explanation; otherwise assigns based on ID range or keywords.
+    Guarantees every question gets a 'domain' key.
+    """
     mapping = {
         'is audit process': 'Information System Auditing Process',
         'it governance': 'Governance & Management of IT',
@@ -5700,8 +5730,7 @@ def assign_official_domains(questions):
         'protection of information assets': 'Protection of Information Assets'
     }
     for q in questions:
-        # Skip if already tagged manually
-        if 'domain' in q:
+        if 'domain' in q:  # already assigned
             continue
         expl = q.get('explanation', '')
         m = re.search(r'Section:\s*(.*)', expl, re.IGNORECASE)
@@ -5709,7 +5738,7 @@ def assign_official_domains(questions):
             raw = m.group(1).strip().lower()
             q['domain'] = mapping.get(raw, 'Operations and Business Resilience')
         else:
-            # Manual fallback for older questions without Section: tag
+            # fallback manual assignment (for older 150‑300 set without tags)
             qid = q['id']
             if qid <= 150:
                 q['domain'] = 'Information System Auditing Process'
@@ -5720,7 +5749,7 @@ def assign_official_domains(questions):
             elif 251 <= qid <= 300:
                 q['domain'] = 'Information System Auditing Process'
             else:
-                # 300+ with no tag – guess from text
+                # for 300+ without tags, guess from content
                 text = q['question'] + ' ' + expl
                 if any(w in text.lower() for w in ['bcp','drp','disaster recovery','business continuity']):
                     q['domain'] = 'Operations and Business Resilience'
@@ -5733,37 +5762,41 @@ def assign_official_domains(questions):
 
 assign_official_domains(question_bank)
 
-# ────────────────────────────────────────────────────────────────────
-# 3) OPTION SHUFFLER – randomises choices for each quiz start
-# ────────────────────────────────────────────────────────────────────
+# =====================================================================
+# 3) OPTION SHUFFLER – run every time a new quiz is started
+# =====================================================================
 def prepare_quiz_questions(questions):
+    """
+    Takes a list of question dicts (with original options) and returns new dicts
+    where the options are shuffled and the correct answer letter is updated.
+    """
     prepared = []
     for q in questions:
-        original_options = q['options']
-        indexed = list(enumerate(original_options))
+        orig_opts = q['options']
+        indexed = list(enumerate(orig_opts))
         random.shuffle(indexed)
-        new_labels = ['A','B','C','D']
-        shuffled_options = []
+        new_labels = ['A', 'B', 'C', 'D']
+        shuffled_opts = []
         new_correct = None
-        original_correct_letter = q['correct']
+        correct_letter = q['correct']
         for new_idx, (orig_idx, opt_text) in enumerate(indexed):
-            content = opt_text[3:].strip()          # remove original prefix
-            shuffled_options.append(f"{new_labels[new_idx]}) {content}")
-            if opt_text[0] == original_correct_letter:
+            content = opt_text[3:].strip()          # remove "A) " prefix
+            shuffled_opts.append(f"{new_labels[new_idx]}) {content}")
+            if opt_text[0] == correct_letter:
                 new_correct = new_labels[new_idx]
         prepared.append({
             'id': q['id'],
             'question': q['question'],
-            'shuffled_options': shuffled_options,
+            'shuffled_options': shuffled_opts,
             'shuffled_correct': new_correct,
             'explanation': q.get('explanation', ''),
             'domain': q.get('domain', 'Uncategorized')
         })
     return prepared
 
-# ────────────────────────────────────────────────────────────────────
+# =====================================================================
 # 4) STREAMLIT APP
-# ────────────────────────────────────────────────────────────────────
+# =====================================================================
 st.set_page_config(page_title="CISA Domain Quiz", layout="wide")
 st.markdown("""
 <style>
@@ -5775,7 +5808,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Session state initialisation
+# Session state
 for key, val in [('current_index',0), ('answers',{}), ('submitted',{}),
                  ('score',0), ('total_answered',0), ('shuffled',[])]:
     if key not in st.session_state:
@@ -5793,7 +5826,7 @@ with st.sidebar:
     max_q = len(eligible)
 
     if max_q == 0:
-        st.warning("No questions for the selected domains.")
+        st.warning("No questions for selected domains.")
         num_q = 0
     else:
         num_q = st.number_input("Number of questions:", 1, max_q, min(50, max_q))
@@ -5826,8 +5859,8 @@ with st.sidebar:
         st.rerun()
 
     total_q = len(st.session_state.shuffled)
-if total_q and 0 <= st.session_state.current_index < total_q:
-    # --- Score & progress (always show if total_q > 0) ---
+
+    # Score & progress (only when quiz active)
     if total_q:
         st.markdown(f"""
         <div class="score-card">
@@ -5839,39 +5872,27 @@ if total_q and 0 <= st.session_state.current_index < total_q:
         st.progress((st.session_state.current_index+1)/total_q,
                      text=f"Q {st.session_state.current_index+1}/{total_q}")
 
-        # --- Navigation (only when there are questions) ---
+        # Navigation
         c1, c2, c3 = st.columns(3)
         with c1:
             if st.button("⬅️ Prev", disabled=(st.session_state.current_index == 0)):
                 st.session_state.current_index -= 1
                 st.rerun()
         with c2:
-            # Safe Jump input: value clamped between 1 and total_q
-            safe_value = max(1, min(st.session_state.current_index + 1, total_q))
+            safe_val = max(1, min(st.session_state.current_index+1, total_q))
             j = st.number_input("Jump", min_value=1, max_value=total_q,
-                                value=safe_value, label_visibility="collapsed")
+                                value=safe_val, label_visibility="collapsed")
             if st.button("Go"):
                 st.session_state.current_index = j - 1
                 st.rerun()
         with c3:
-            if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q - 1)):
+            if st.button("Next ➡️", disabled=(st.session_state.current_index >= total_q-1)):
                 st.session_state.current_index += 1
                 st.rerun()
-    # Navigation
-    c1,c2,c3 = st.columns(3)
-    with c1:
-        if st.button("⬅️ Prev", disabled=(st.session_state.current_index==0)):
-            st.session_state.current_index -= 1; st.rerun()
-    with c2:
-        j = st.number_input("Jump",1,total_q,st.session_state.current_index+1,label_visibility="collapsed")
-        if st.button("Go"): st.session_state.current_index=j-1; st.rerun()
-    with c3:
-        if st.button("Next ➡️", disabled=(st.session_state.current_index>=total_q-1)):
-            st.session_state.current_index += 1; st.rerun()
 
 # Main area
 st.title("CISA Exam Preparation – Domain Quiz")
-st.markdown("*Select domains in the sidebar, choose the number of questions, and start.*")
+st.markdown("*Select domains, choose number of questions, and start.*")
 st.markdown("---")
 
 total_q = len(st.session_state.shuffled)
@@ -5895,7 +5916,7 @@ if total_q and 0 <= st.session_state.current_index < total_q:
     if qid not in st.session_state.submitted:
         sel = st.radio("Choose:", options=labels, format_func=lambda x: f"{x}) {texts[labels.index(x)]}",
                        key=f"r{qid}", index=None)
-        c1,c2 = st.columns(2)
+        c1, c2 = st.columns(2)
         with c1:
             if st.button("✅ Submit", disabled=(sel is None), use_container_width=True, type="primary"):
                 ok = (sel == correct_letter)
@@ -5913,22 +5934,25 @@ if total_q and 0 <= st.session_state.current_index < total_q:
         sel = sub['selected']
         ok = sub['correct']
         st.markdown("### Result:")
-        for i,(lbl,txt) in enumerate(zip(labels,texts)):
+        for i, (lbl, txt) in enumerate(zip(labels, texts)):
             if lbl == correct_letter:
                 st.markdown(f'<div class="correct-answer">✅ {lbl}) {txt} – Correct</div>', unsafe_allow_html=True)
             elif lbl == sel and not ok:
                 st.markdown(f'<div class="wrong-answer">❌ {lbl}) {txt} – Your answer</div>', unsafe_allow_html=True)
             else:
                 st.markdown(f"{lbl}) {txt}")
-        if ok: st.success("🎉 Correct!")
-        else: st.error("😔 Incorrect.")
+        if ok:
+            st.success("🎉 Correct!")
+        else:
+            st.error("😔 Incorrect.")
         st.markdown(f"""
         <div class="explanation-box"><b>📖 Explanation:</b><br>{q['explanation']}</div>
         """, unsafe_allow_html=True)
-        c1,c2 = st.columns(2)
+        c1, c2 = st.columns(2)
         with c1:
             if st.button("⬅️ Previous Q", use_container_width=True):
-                st.session_state.current_index -= 1; st.rerun()
+                st.session_state.current_index -= 1
+                st.rerun()
         with c2:
             nxt = "Next ➡️" if st.session_state.current_index < total_q-1 else "🏁 Finish"
             if st.button(nxt, use_container_width=True):
