@@ -5834,6 +5834,7 @@ with st.sidebar:
     
     total_q = len(st.session_state.shuffled)
 
+
     # Score & progress (only when quiz active)
     if total_q:
         st.markdown(f"""
