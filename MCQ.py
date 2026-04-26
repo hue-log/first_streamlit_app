@@ -4863,7 +4863,8 @@ question_bank = [
             "D) provide the project management team with more control over the project design."
         ],
         "correct": "C",
-        "explanation": "A freezing point allows for a review of changes to ensure they are
+        "explanation": "A freezing point allows for a review of changes to ensure they are"
+    },
 ]
 # ─── Streamlit App ─────────────────────
 st.set_page_config(page_title="CISA 150-300 Quiz", page_icon="📋", layout="wide")
