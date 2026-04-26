@@ -1,3 +1,6 @@
+pip install streamlit PyPDF2 openai
+
+
 import streamlit as st
 import PyPDF2
 import openai
