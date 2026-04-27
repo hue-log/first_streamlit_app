@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 
-# ========== SAMPLE QUESTIONS WITH PER-OPTION EXPLANATIONS ==========
+# ========== SAMPLE QUESTIONS (with per-option explanations) ==========
 QUESTIONS = [
     # Domain 1 – The Audit Process
     {
@@ -100,7 +100,7 @@ QUESTIONS = [
     }
 ]
 
-# ========== STREAMLIT APP ==========
+# ========== STREAMLIT APP (with robust explanation handling) ==========
 st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
 # Session state init
@@ -116,7 +116,7 @@ if "answered" not in st.session_state:
 if "selected_idx" not in st.session_state:
     st.session_state.selected_idx = None
 if "shuffled_data" not in st.session_state:
-    st.session_state.shuffled_data = None  # [(text, is_correct), ...]
+    st.session_state.shuffled_data = None
 
 # Domain filter
 all_domains = sorted({q["domain"] for q in QUESTIONS})
@@ -146,7 +146,7 @@ if total == 0:
 # Current question
 q = st.session_state.questions[st.session_state.idx]
 
-# Prepare shuffled options (stable until next question)
+# Shuffle options (stable until next question)
 if st.session_state.shuffled_data is None:
     correct_text = q["options"][ord(q["correct"]) - ord("A")]
     opts_with_flag = [(opt, opt == correct_text) for opt in q["options"]]
@@ -179,11 +179,11 @@ col1, col2 = st.columns([1, 2])
 if not st.session_state.answered:
     if col1.button("Submit", use_container_width=True):
         if selected is not None:
-            selected_label = selected[0]           # e.g., "A"
+            selected_label = selected[0]
             selected_idx = labels.index(selected_label)
             st.session_state.selected_idx = selected_idx
             st.session_state.answered = True
-            if shuffled[selected_idx][1]:          # is correct?
+            if shuffled[selected_idx][1]:
                 st.session_state.score += 1
             st.rerun()
         else:
@@ -194,19 +194,20 @@ else:
     selected_text = shuffled[st.session_state.selected_idx][0]
     correct_text = next(text for text, is_correct in shuffled if is_correct)
 
+    # Retrieve per-option explanations (fallback if missing)
+    explanations = q.get("option_explanations", {})
+
     for i, (text, is_correct) in enumerate(shuffled):
         letter = labels[i]
         option_text = f"{letter}) {text}"
-        explanation = q["option_explanations"].get(text, "")
+        # Use explanation from the dictionary, or a generic one
+        explanation = explanations.get(text, "No detailed explanation available.")
 
         if is_correct:
-            # Correct answer: green background
             st.success(f"**{option_text}**  \n{explanation}")
         elif text == selected_text and not is_correct:
-            # User's incorrect choice: red background
             st.error(f"**{option_text}** (your answer)  \n{explanation}")
         else:
-            # Other incorrect options
             st.error(f"**{option_text}**  \n{explanation}")
 
     # Navigation
@@ -228,8 +229,7 @@ else:
         st.subheader("🎉 Quiz Completed!")
         st.write(f"Final Score: **{st.session_state.score} / {total}**")
         if st.button("Restart Quiz"):
-            filtered_again = [q for q in QUESTIONS if q["domain"] in selected_domains]
-            st.session_state.questions = filtered_again.copy()
+            st.session_state.questions = [q for q in QUESTIONS if q["domain"] in selected_domains]
             random.shuffle(st.session_state.questions)
             st.session_state.idx = 0
             st.session_state.score = 0
