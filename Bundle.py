@@ -5455,6 +5455,15 @@ if st.sidebar.button("Start Quiz"):
     st.session_state.shuffled_data = None
     st.session_state.filtered = True
 
+    # Initialize domain statistics
+    domain_stats = {}
+    for q in st.session_state.questions:
+        d = q["domain"]
+        if d not in domain_stats:
+            domain_stats[d] = {"total": 0, "correct": 0}
+        domain_stats[d]["total"] += 1
+    st.session_state.domain_stats = domain_stats
+
 # Fallback for first load / no quiz started yet
 if "questions" not in st.session_state or len(st.session_state.questions) == 0:
     default_size = min(20, total_available)
@@ -5467,6 +5476,15 @@ if "questions" not in st.session_state or len(st.session_state.questions) == 0:
     st.session_state.answered = False
     st.session_state.score = 0
     st.session_state.shuffled_data = None
+
+    # Initialize domain statistics for the default quiz
+    domain_stats = {}
+    for q in st.session_state.questions:
+        d = q["domain"]
+        if d not in domain_stats:
+            domain_stats[d] = {"total": 0, "correct": 0}
+        domain_stats[d]["total"] += 1
+    st.session_state.domain_stats = domain_stats
 
 total = len(st.session_state.questions)
 if total == 0:
@@ -5521,6 +5539,9 @@ if not st.session_state.answered:
             st.session_state.answered = True
             if shuffled[selected_idx][2]:   # is_correct
                 st.session_state.score += 1
+                # Update domain stats
+                d = q["domain"]
+                st.session_state.domain_stats[d]["correct"] += 1
             st.rerun()
         else:
             st.warning("Please select an answer first.")
@@ -5565,10 +5586,17 @@ else:
             st.session_state.shuffled_data = None
             st.rerun()
     else:
-        # Last question: show final score and restart button
+        # Last question: show final score, domain breakdown, and restart button
         st.markdown("---")
         st.subheader("🎉 Quiz Completed!")
-        st.write(f"Final Score: **{st.session_state.score} / {total}**")
+        st.write(f"Overall Score: **{st.session_state.score} / {total}**")
+        
+        # Domain breakdown
+        if st.session_state.get("domain_stats"):
+            st.write("### Domain Breakdown")
+            for d, stats in st.session_state.domain_stats.items():
+                st.write(f"- {d}: **{stats['correct']}/{stats['total']}**")
+        
         if st.button("Restart Quiz"):
             sample_size = min(num_questions, total_available)
             st.session_state.questions = random.sample(filtered_pool, sample_size)
@@ -5577,4 +5605,12 @@ else:
             st.session_state.score = 0
             st.session_state.answered = False
             st.session_state.shuffled_data = None
+            # Reinitialize domain stats for the new quiz
+            domain_stats = {}
+            for q in st.session_state.questions:
+                d = q["domain"]
+                if d not in domain_stats:
+                    domain_stats[d] = {"total": 0, "correct": 0}
+                domain_stats[d]["total"] += 1
+            st.session_state.domain_stats = domain_stats
             st.rerun()
