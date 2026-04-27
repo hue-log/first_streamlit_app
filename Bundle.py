@@ -5418,6 +5418,26 @@ st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 def strip_option_prefix(text):
     return re.sub(r"^[A-D]\)\s*", "", text)
 
+import streamlit as st
+import random
+import re
+
+# ==================== QUESTION BANK ====================
+# Paste your full QUESTIONS list here (each dict must include:
+#   "domain", "question", "options" (list of "A) text", etc.),
+#   "correct" (letter), "option_explanations" (dict mapping full option text -> explanation)
+# )
+QUESTIONS = [
+    # ... your question list ...
+]
+
+# ========== STREAMLIT APP ==========
+st.set_page_config(page_title="CISA Practice Exam", layout="wide")
+
+# Helper: remove "A) " or "A)" prefix from option text
+def strip_option_prefix(text):
+    return re.sub(r"^[A-D]\)\s*", "", text)
+
 # ------------------------------------------------------------
 # Sidebar: Domain filter + number-of-questions + start button
 # ------------------------------------------------------------
@@ -5546,9 +5566,23 @@ if not st.session_state.answered:
         else:
             st.warning("Please select an answer first.")
 else:
+    # Check if this is the last question AND the quiz is completed
+    is_last = (st.session_state.idx == total - 1)
+
+    # ----- IF LAST QUESTION: Show summary at the TOP before feedback -----
+    if is_last:
+        st.markdown("---")
+        st.subheader("🎉 Quiz Completed!")
+        st.write(f"Overall Score: **{st.session_state.score} / {total}**")
+
+        # Domain breakdown
+        if st.session_state.get("domain_stats"):
+            st.write("### Domain Breakdown")
+            for dom, stats in st.session_state.domain_stats.items():
+                st.write(f"- {dom}: **{stats['correct']}/{stats['total']}**")
+
     # ----- AFTER SUBMISSION: Show result header + inline feedback -----
     selected_idx = st.session_state.selected_idx
-    # Unpack all three elements of each tuple (orig_text, stripped_text, is_correct)
     correct_pos = next(i for i, (_, _, is_c) in enumerate(shuffled) if is_c)
 
     # Detailed overall result message
@@ -5571,32 +5605,23 @@ else:
         else:
             st.error(f"**{display_text}**  \n{explanation}")
 
-    # Navigation
-    nav1, nav2, nav3 = st.columns([1, 2, 1])
-    if st.session_state.idx > 0:
-        if nav1.button("⬅ Previous", use_container_width=True):
-            st.session_state.idx -= 1
-            st.session_state.answered = False
-            st.session_state.shuffled_data = None
-            st.rerun()
-    if st.session_state.idx < total - 1:
+    # Navigation (only if not the last question)
+    if not is_last:
+        nav1, nav2, nav3 = st.columns([1, 2, 1])
+        if st.session_state.idx > 0:
+            if nav1.button("⬅ Previous", use_container_width=True):
+                st.session_state.idx -= 1
+                st.session_state.answered = False
+                st.session_state.shuffled_data = None
+                st.rerun()
         if nav2.button("Next ➡", use_container_width=True):
             st.session_state.idx += 1
             st.session_state.answered = False
             st.session_state.shuffled_data = None
             st.rerun()
     else:
-        # Last question: show final score, domain breakdown, and restart button
+        # Restart button at the bottom (after feedback)
         st.markdown("---")
-        st.subheader("🎉 Quiz Completed!")
-        st.write(f"Overall Score: **{st.session_state.score} / {total}**")
-        
-        # Domain breakdown
-        if st.session_state.get("domain_stats"):
-            st.write("### Domain Breakdown")
-            for d, stats in st.session_state.domain_stats.items():
-                st.write(f"- {d}: **{stats['correct']}/{stats['total']}**")
-        
         if st.button("Restart Quiz"):
             sample_size = min(num_questions, total_available)
             st.session_state.questions = random.sample(filtered_pool, sample_size)
