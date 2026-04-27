@@ -5414,7 +5414,7 @@ QUESTIONS = [
 # ========== STREAMLIT APP ==========
 st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
-# Helper: remove "A) " or "A)" prefix
+# Helper: remove "A) " or "A)" prefix from option text
 def strip_option_prefix(text):
     return re.sub(r"^[A-D]\)\s*", "", text)
 
@@ -5423,7 +5423,6 @@ def strip_option_prefix(text):
 # ------------------------------------------------------------
 all_domains = sorted({q["domain"] for q in QUESTIONS})
 
-# Always show the multiselect
 selected_domains = st.sidebar.multiselect(
     "Filter by Domain",
     options=all_domains,
@@ -5431,7 +5430,7 @@ selected_domains = st.sidebar.multiselect(
     key="domain_filter"
 )
 
-# Determine the pool of questions that match the selected domains
+# Filter pool
 filtered_pool = [q for q in QUESTIONS if q["domain"] in selected_domains]
 total_available = len(filtered_pool)
 
@@ -5439,15 +5438,14 @@ total_available = len(filtered_pool)
 num_questions = st.sidebar.slider(
     "Number of questions",
     min_value=1,
-    max_value=max(1, total_available),       # max must be at least 1
+    max_value=max(1, total_available),
     value=min(20, total_available),
     step=1,
     key="num_questions_slider"
 )
 
-# Start button: create a new random sample from the pool
+# Start quiz button
 if st.sidebar.button("Start Quiz"):
-    # Take a random sample (if the desired number <= total_available)
     sample_size = min(num_questions, total_available)
     st.session_state.questions = random.sample(filtered_pool, sample_size)
     random.shuffle(st.session_state.questions)
@@ -5455,11 +5453,10 @@ if st.sidebar.button("Start Quiz"):
     st.session_state.answered = False
     st.session_state.score = 0
     st.session_state.shuffled_data = None
-    st.session_state.filtered = True   # mark that a quiz is active
+    st.session_state.filtered = True
 
-# Fallback: if the session hasn't been initialised (first load) or the button hasn't been pressed yet
+# Fallback for first load / no quiz started yet
 if "questions" not in st.session_state or len(st.session_state.questions) == 0:
-    # Default: take up to 20 questions from the whole pool
     default_size = min(20, total_available)
     if default_size > 0:
         st.session_state.questions = random.sample(filtered_pool, default_size)
@@ -5472,17 +5469,16 @@ if "questions" not in st.session_state or len(st.session_state.questions) == 0:
     st.session_state.shuffled_data = None
 
 total = len(st.session_state.questions)
-
 if total == 0:
     st.warning("No questions available for the selected domains.")
     st.stop()
 
 # ------------------------------------------------------------
-# The rest of the quiz
+# Current question and options
 # ------------------------------------------------------------
 q = st.session_state.questions[st.session_state.idx]
 
-# Prepare shuffled options (if not already set)
+# Shuffle options once per question
 if st.session_state.shuffled_data is None:
     correct_letter = q["correct"]
     correct_raw = q["options"][ord(correct_letter) - ord("A")]
@@ -5523,7 +5519,7 @@ if not st.session_state.answered:
             selected_idx = labels.index(selected_label)
             st.session_state.selected_idx = selected_idx
             st.session_state.answered = True
-            if shuffled[selected_idx][2]:
+            if shuffled[selected_idx][2]:   # is_correct
                 st.session_state.score += 1
             st.rerun()
         else:
@@ -5531,9 +5527,10 @@ if not st.session_state.answered:
 else:
     # ----- AFTER SUBMISSION: Show result header + inline feedback -----
     selected_idx = st.session_state.selected_idx
-    correct_pos = next(i for i, (_, is_c) in enumerate(shuffled) if is_c)
+    # Fix: unpack all three elements (orig, stripped, is_c)
+    correct_pos = next(i for i, (_, _, is_c) in enumerate(shuffled) if is_c)
 
-    # Overall result message (appears at the top of the options area)
+    # Overall result message
     if selected_idx == correct_pos:
         st.success("✅ You have selected the correct answer!")
     else:
@@ -5572,7 +5569,6 @@ else:
         st.subheader("🎉 Quiz Completed!")
         st.write(f"Final Score: **{st.session_state.score} / {total}**")
         if st.button("Restart Quiz"):
-            # Restart with the same pool and settings
             sample_size = min(num_questions, total_available)
             st.session_state.questions = random.sample(filtered_pool, sample_size)
             random.shuffle(st.session_state.questions)
