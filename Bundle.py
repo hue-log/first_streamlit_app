@@ -2708,8 +2708,9 @@ QUESTIONS = [
         }
     },
     # Domain 4 – IT Service Management and Continuity
+[
     {
-        "id": 4,
+        "id": 1,
         "domain": "Domain 4 – IT Service Management and Continuity",
         "question": "A device that forwards packets to their destination based on their destination IP address is known as:",
         "options": [
@@ -2720,10 +2721,1216 @@ QUESTIONS = [
         ],
         "correct": "C",
         "option_explanations": {
-            "A) Bridge": "Incorrect – A bridge forwards all packets regardless of destination.",
-            "B) Gateway": "Incorrect – A gateway translates between protocols, not IP forwarding.",
-            "C) Router": "Correct – Routers forward packets based on destination IP addresses.",
-            "D) Switch": "Incorrect – A switch forwards based on MAC addresses, not IP."
+            "A) Bridge": "Incorrect – A bridge forwards all packets regardless of their destination.",
+            "B) Gateway": "Incorrect – A gateway is an application-layer device that transforms packets from one protocol to another.",
+            "C) Router": "Correct – A router is a network device that forwards packets towards their destination.",
+            "D) Switch": "Incorrect – A switch forwards packets based on their MAC or IP address."
+        }
+    },
+    {
+        "id": 2,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A security manager is planning to implement a first-time use of a vulnerability scanning tool in an organization. What method should the security manager use to confirm that all assets are scanned?",
+        "options": [
+            "A) Compare the scan results with the accounting department asset inventory.",
+            "B) Compare the scan results with the contents of the CMDB.",
+            "C) Compare the scan results with a discovery scan performed by the vulnerability scanning tool.",
+            "D) Compare the scan results with the latest network diagram."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Compare the scan results with the accounting department asset inventory.": "Incorrect – Business asset inventories are not regarded as accurately reflecting all working systems in an environment. Further, a business asset inventory will not account for virtual machines.",
+            "B) Compare the scan results with the contents of the CMDB.": "Correct – The best option is to compare it with a well-managed configuration management database (CMDB).",
+            "C) Compare the scan results with a discovery scan performed by the vulnerability scanning tool.": "Incorrect – A discovery scan will only find what is present on the network at the time the scan is performed. Assets that are not running at the time of the scan, and assets not reachable because of network ACLs, will not be identified. Further, unauthorized devices will show up in a discovery scan.",
+            "D) Compare the scan results with the latest network diagram.": "Incorrect – Network diagrams often do not include every individual device in an environment."
+        }
+    },
+    {
+        "id": 3,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following methods should be used to create a point-in-time copy of a large production database?",
+        "options": [
+            "A) Storage system snapshot",
+            "B) Storage system replication",
+            "C) E-vaulting",
+            "D) Export to a flat file that is backed up to tape"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Storage system snapshot": "Correct – A storage system snapshot is nearly instantaneous and is the best method for producing a 'point-in-time' backup of a large database.",
+            "B) Storage system replication": "Incorrect – Replication is not used to create a backup copy, but rather a live second copy of a data set.",
+            "C) E-vaulting": "Incorrect – E-vaulting does not necessarily create a point-in-time backup.",
+            "D) Export to a flat file that is backed up to tape": "Incorrect – An export to a flat file and backup to tape would not be a point-in-time backup unless the database management system was quiesced."
+        }
+    },
+    {
+        "id": 4,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "All of the following protocols are used for federated authentication except:",
+        "options": [
+            "A) OAuth",
+            "B) SAML",
+            "C) WSDL",
+            "D) HMAC"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) OAuth": "Incorrect – OAuth is a protocol found in federated authentication.",
+            "B) SAML": "Incorrect – SAML is a protocol found in federated authentication.",
+            "C) WSDL": "Correct – WSDL is a protocol used to describe the functionality of a web service.",
+            "D) HMAC": "Incorrect – HMAC is a protocol found in federated authentication, although it has fallen out of common use."
+        }
+    },
+    {
+        "id": 5,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is typically the most significant risk associated with end users being local administrators on their workstations?",
+        "options": [
+            "A) End users will have access to all confidential information.",
+            "B) End users can install unauthorized software.",
+            "C) Malware can run at the highest privilege level.",
+            "D) End users can use tools to crack all domain passwords."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) End users will have access to all confidential information.": "Incorrect – Local administrative privileges should not ever result in end users having access to data on other systems.",
+            "B) End users can install unauthorized software.": "Incorrect – While it is correct that end users who are local administrators can install software, this is generally not as severe a risk as a malware infection.",
+            "C) Malware can run at the highest privilege level.": "Correct – If malware is introduced by the end user in a phishing or watering hole attack, the malware will run as an administrator, which is the highest privilege level on the system. Malware would have access to all files, data, and devices on the machine.",
+            "D) End users can use tools to crack all domain passwords.": "Incorrect – End users should not be able to access the encrypted password file for all users in the organization."
+        }
+    },
+    {
+        "id": 6,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following persons is best suited to approve users' access to sensitive data in a customer database?",
+        "options": [
+            "A) Customer service manager",
+            "B) IT service desk personnel",
+            "C) Information security manager",
+            "D) IT manager"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Customer service manager": "Correct – The customer service manager is the best available choice because a business leader is almost always more familiar with business processes than are IT and information security personnel. Further, because the customer service manager is responsible for customer service, this is the person who should be specifying which persons in the organization are permitted to access customer service data.",
+            "B) IT service desk personnel": "Incorrect – IT service desk personnel have insufficient knowledge about business operations and the persons using them.",
+            "C) Information security manager": "Incorrect – Information security managers have insufficient knowledge about business operations and the persons using them.",
+            "D) IT manager": "Incorrect – IT and IT security-related personnel are not going to be as familiar with business unit or business department operations as the leaders of business units or business departments."
+        }
+    },
+    {
+        "id": 7,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization is planning a new SaaS service offering and is uncertain about the resources required to support the service. How should the organization proceed?",
+        "options": [
+            "A) Calculate projected performance using CMMI tools.",
+            "B) Calculate projected performance using Zachman tools.",
+            "C) Measure actual performance metrics in production.",
+            "D) Build a working prototype and perform load tests."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Calculate projected performance using CMMI tools.": "Incorrect – CMMI tools are used to measure process maturity, not system performance.",
+            "B) Calculate projected performance using Zachman tools.": "Incorrect – Zachman tools are used to develop an enterprise architecture, not system performance.",
+            "C) Measure actual performance metrics in production.": "Incorrect – While this technique will provide the most accurate data, it is better to get estimates earlier in the development process so that changes in architecture, coding, or business models can be made prior to completion of the project.",
+            "D) Build a working prototype and perform load tests.": "Correct – The best choice here is to build a prototype system that closely resembles the network, computing, and database activities and perform load testing. This will give the organization an idea of the capacity of the planned system."
+        }
+    },
+    {
+        "id": 8,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the best definition of a problem in ITIL-based service management?",
+        "options": [
+            "A) Chronic exceptions in audits of IT systems",
+            "B) The same incident that occurs repeatedly",
+            "C) Repeated unscheduled downtime",
+            "D) Unscheduled downtime that exceeds SLAs"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Chronic exceptions in audits of IT systems": "Incorrect – This is not the definition of a problem in ITIL.",
+            "B) The same incident that occurs repeatedly": "Correct – In ITIL, a problem is the same incident that occurs repeatedly, indicating a root cause that needs to be addressed.",
+            "C) Repeated unscheduled downtime": "Incorrect – This is too narrow; a problem could involve recurring incidents of any type.",
+            "D) Unscheduled downtime that exceeds SLAs": "Incorrect – This is a metric, not the definition of a problem."
+        }
+    },
+    {
+        "id": 9,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following is the best relationship between system security and the use of vulnerability scanning tools?",
+        "options": [
+            "A) Vulnerability scanning is performed proactively, and it drives the security patching and hardening functions.",
+            "B) Vulnerability scanning is performed proactively, and it drives the security patching function.",
+            "C) Patching and hardening are performed proactively, and vulnerability scanning is used to verify their effectiveness.",
+            "D) Patching is performed proactively, and vulnerability scanning is used to verify its effectiveness."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Vulnerability scanning is performed proactively, and it drives the security patching and hardening functions.": "Incorrect – System security should not be driven by the vulnerability scanning function. Instead, system security should be proactively performed, with vulnerability scanning serving as a means for verifying that they are effective.",
+            "B) Vulnerability scanning is performed proactively, and it drives the security patching function.": "Incorrect – Patching and hardening should be proactive, with scanning used to verify their effectiveness.",
+            "C) Patching and hardening are performed proactively, and vulnerability scanning is used to verify their effectiveness.": "Correct – The best use of vulnerability scanning is its functioning as a quality assurance activity, to ensure that security patching and system hardening are being performed effectively.",
+            "D) Patching is performed proactively, and vulnerability scanning is used to verify its effectiveness.": "Incorrect – System hardening should also be proactive; scanning should verify both."
+        }
+    },
+    {
+        "id": 10,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A SaaS provider and a customer are having a dispute about the availability of service, quality of service, and issue resolution provided by the SaaS provider. What type of a legal agreement should the parties add to their contract to better define these problems and their resolution?",
+        "options": [
+            "A) Pricing table",
+            "B) Exit clause",
+            "C) Performance addendum",
+            "D) Service level agreement"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Pricing table": "Incorrect – Pricing is not the core problem in this example.",
+            "B) Exit clause": "Incorrect – An exit clause only addresses terms in which the parties can terminate the agreement; it does not address service quality.",
+            "C) Performance addendum": "Incorrect – A performance addendum is not the appropriate term for an agreement that addresses these problems.",
+            "D) Service level agreement": "Correct – A service level agreement (SLA) is used to define the quantity and quality of service to be provided by a service provider to its customers. An SLA can cover issues such as transaction volume, service quality, issue resolution, and service availability."
+        }
+    },
+    {
+        "id": 11,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the purpose of a business impact analysis?",
+        "options": [
+            "A) It defines the most critical business processes.",
+            "B) It defines the most critical IT applications.",
+            "C) It defines the most critical service providers.",
+            "D) It defines the disaster recovery plan."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) It defines the most critical business processes.": "Correct – A business impact analysis (BIA) defines the most critical business processes in the organization. The BIA reveals which business processes warrant the development of emergency contingency planning and disaster recovery planning.",
+            "B) It defines the most critical IT applications.": "Incorrect – A BIA does not directly define the most critical IT applications.",
+            "C) It defines the most critical service providers.": "Incorrect – A BIA does not directly define the most critical service providers; however, a BIA will reveal service providers required by the most critical business processes.",
+            "D) It defines the disaster recovery plan.": "Incorrect – The BIA does not define the disaster recovery plan (DRP), but the BIA will help to drive development of the DRP."
+        }
+    },
+    {
+        "id": 12,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT architect needs to increase the resilience of a single application server. Which of the following choices will least benefit the server's resilience?",
+        "options": [
+            "A) Active-active cluster",
+            "B) Active-passive cluster",
+            "C) Geo-cluster",
+            "D) Redundant power supply"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Active-active cluster": "Incorrect – An active-active cluster provides failover and load balancing, significantly improving resilience.",
+            "B) Active-passive cluster": "Incorrect – An active-passive cluster provides failover capability, improving resilience.",
+            "C) Geo-cluster": "Incorrect – A geo-cluster distributes servers across locations, providing geographic resilience.",
+            "D) Redundant power supply": "Correct – A redundant power supply only addresses the problem of a power supply failure but does not address other failures such as storage or CPU."
+        }
+    },
+    {
+        "id": 13,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following backup schemes best protects an organization from ransomware?",
+        "options": [
+            "A) Storage system replication",
+            "B) Storage system mirroring",
+            "C) Storage system snapshots",
+            "D) RAID-5"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Storage system replication": "Incorrect – Replication will effectively replicate the damaging effects of ransomware from the primary storage system to other storage systems through their replication.",
+            "B) Storage system mirroring": "Incorrect – Mirroring will effectively replicate the damaging effects of ransomware from primary storage to mirrored storage.",
+            "C) Storage system snapshots": "Correct – Storage system snapshots effectively store the state of a storage system from time to time; if ransomware destroys files in the storage system, the system can be rolled back to a recent snapshot, effectively restoring damaged files.",
+            "D) RAID-5": "Incorrect – RAID-5 is used to improve storage system performance and would effectively allow ransomware to damage files more quickly."
+        }
+    },
+    {
+        "id": 14,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A mail order organization wants to develop procedures to be followed in the event that the main office building cannot be occupied, so that customer orders can still be fulfilled. What kind of a plan does the organization need to develop?",
+        "options": [
+            "A) Business impact analysis",
+            "B) Business continuity plan",
+            "C) Disaster recovery plan",
+            "D) Emergency evacuation plan"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Business impact analysis": "Incorrect – A business impact analysis is used to determine which business processes are most critical and warrant the development of business continuity plans.",
+            "B) Business continuity plan": "Correct – A business continuity plan is the document that describes procedures to be followed when events such as local and regional disasters prevent normal business operations.",
+            "C) Disaster recovery plan": "Incorrect – A disaster recovery plan is used to survey damage and salvage business equipment, as well as direct the initiation of procedures to activate alternative resources, such as IT systems in alternative locations if IT equipment in primary locations is inoperable.",
+            "D) Emergency evacuation plan": "Incorrect – An emergency evacuation plan, while important during disasters, does not contribute to the ability for an organization to continue the fulfillment of customer orders."
+        }
+    },
+    {
+        "id": 15,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT department is planning on implementing disaster recovery capabilities in some of its business systems. What means should be used to determine which applications require DR capabilities and to what level of recoverability?",
+        "options": [
+            "A) Business continuity plan",
+            "B) Disaster recovery plan",
+            "C) Risk assessment",
+            "D) Business impact analysis"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Business continuity plan": "Incorrect – While a business continuity plan and a disaster recovery plan are closely related, the BIA is the tool that defines which business processes warrant the development of supporting DR capabilities.",
+            "B) Disaster recovery plan": "Incorrect – A DR plan does not define which systems are to be covered or what recovery targets are to be met.",
+            "C) Risk assessment": "Incorrect – A risk assessment, while valuable, does not define which business processes warrant the development of DR plans.",
+            "D) Business impact analysis": "Correct – A business impact analysis (BIA) is used to determine which business processes are most critical, and this leads to the development of recovery objectives, which in turn leads to the development of DR capabilities that meet those objectives."
+        }
+    },
+    {
+        "id": 16,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following is the most compelling reason for an organization to not automate its data purging jobs in support of data retention policies?",
+        "options": [
+            "A) DR planning",
+            "B) Referential integrity",
+            "C) Privacy breaches",
+            "D) Legal holds"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) DR planning": "Incorrect – DR planning has little or no bearing on automatic purging of stale data.",
+            "B) Referential integrity": "Incorrect – Referential integrity is a matter that can often be solved through structured data removal, but it's not relevant to the automated starting of purge jobs.",
+            "C) Privacy breaches": "Incorrect – Privacy breaches on their own should have no bearing on the automatic purging of data.",
+            "D) Legal holds": "Correct – Legal holds in most organizations are manual processes and involve the cessation of data purging for arbitrary sets of information. A better approach would be a manually initiated data purging process that is started only after it is determined that no legal holds exist for the data to be purged."
+        }
+    },
+    {
+        "id": 17,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following schemes is most likely to be successful for workstations used by a mobile workforce?",
+        "options": [
+            "A) Automated patching followed by a system restart that the end user can control",
+            "B) Automated patching and restarts",
+            "C) End-user-initiated patching and restarts",
+            "D) Applying only those patches not requiring a system restart"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Automated patching followed by a system restart that the end user can control": "Correct – Automated patching, together with giving end users some control over restarts, is most likely to be successful, as this gives users an option to defer restarts (for a while) so that important work is not interrupted.",
+            "B) Automated patching and restarts": "Incorrect – Automated restarts are likely to disrupt critical business activities (such as an executive presentation) from time to time.",
+            "C) End-user-initiated patching and restarts": "Incorrect – End users are not inclined or likely to be diligent about initiating patching jobs.",
+            "D) Applying only those patches not requiring a system restart": "Incorrect – This plan will result in the absence of many critical patches, which could lead to an increased frequency and impact of malware attacks."
+        }
+    },
+    {
+        "id": 18,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT department completed a data discovery assessment and found that numerous users were saving files containing sensitive information on organization-wide readable file shares. Which of the following is the best remediation for this matter?",
+        "options": [
+            "A) Remove the offending files from the org-wide share.",
+            "B) Announce to users that the org-wide readable share is not for sensitive data.",
+            "C) Change the org-wide readable share to read-only for most users.",
+            "D) Change the org-wide readable share to write-only for most users."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Remove the offending files from the org-wide share.": "Incorrect – Simply removing the files containing sensitive information is not likely to solve the problem, as similar files may soon reappear.",
+            "B) Announce to users that the org-wide readable share is not for sensitive data.": "Incorrect – Many users typically ignore such reminders, and many do not read them at all.",
+            "C) Change the org-wide readable share to read-only for most users.": "Correct – In most organizations, few people truly need to write to the organization-wide readable share. This will drive users to using department shares for saving sensitive data, which will result in lower risk to the business since sensitive data would then be readable only by personnel in their respective departments instead of the entire organization.",
+            "D) Change the org-wide readable share to write-only for most users.": "Incorrect – Making the share write-only would result in the org-wide share being unreadable."
+        }
+    },
+    {
+        "id": 19,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "For which users or groups should the SQL listener on a database management system be accessible?",
+        "options": [
+            "A) For the application accounts only",
+            "B) For the application and DBA accounts only",
+            "C) For DBA accounts only",
+            "D) For DBA accounts plus all users of the application"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) For the application accounts only": "Incorrect – This would deprive the DBA from being able to access the SQL listener.",
+            "B) For the application and DBA accounts only": "Correct – Applications that need to access the database need to be able to access the SQL listener on a database server, as do DBAs who need to perform maintenance on the system.",
+            "C) For DBA accounts only": "Incorrect – This would deprive applications that need to access the database management system.",
+            "D) For DBA accounts plus all users of the application": "Incorrect – Application end users should not be given direct access to the SQL listener. Instead, capabilities in the application should be provided that give users the access they need."
+        }
+    },
+    {
+        "id": 20,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization's financial accounting system crashes every Friday night after backups have completed. In ITIL terms, what process should be invoked?",
+        "options": [
+            "A) Problem management",
+            "B) Incident management",
+            "C) Capacity management",
+            "D) Business continuity management"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Problem management": "Correct – Problem management is the correct ITIL process to be invoked when similar incidents are recurring.",
+            "B) Incident management": "Incorrect – Incident management is used to manage individual incidents, but not the recurrence of similar incidents.",
+            "C) Capacity management": "Incorrect – Capacity management is not the correct response, unless problem management reveals that the crashes are occurring as a result of a capacity issue.",
+            "D) Business continuity management": "Incorrect – Business continuity management is concerned with the continuation of business processes during disasters."
+        }
+    },
+    {
+        "id": 21,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT organization is investigating a problem in its change management process whereby many changes have to be backed out because they could not be completed or because verifications failed. Which is the best remedy for this situation?",
+        "options": [
+            "A) Increase the size of change windows.",
+            "B) Require a separate person to verify changes.",
+            "C) Require change requests to have better backout procedures.",
+            "D) Require more rigorous testing in a test environment prior to scheduling changes in production."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Increase the size of change windows.": "Incorrect – The problem does not appear to be one where there is insufficient time to implement changes.",
+            "B) Require a separate person to verify changes.": "Incorrect – Using a different person to verify changes does not appear to be at the heart of the issue.",
+            "C) Require change requests to have better backout procedures.": "Incorrect – Improved backout procedures are not likely the remedy for failed implementations.",
+            "D) Require more rigorous testing in a test environment prior to scheduling changes in production.": "Correct – Repeated implementation failures should first call for more rigorous testing in a test or staging environment in order to iron out any issues that may occur when changes are applied in production environments."
+        }
+    },
+    {
+        "id": 22,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which language is used to change the schema in a database management system?",
+        "options": [
+            "A) DDL",
+            "B) SQL",
+            "C) Stored procedures",
+            "D) JCL"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) DDL": "Correct – DDL, or Data Definition Language, is most commonly used to change the schema (or architecture of a database) in a database management system.",
+            "B) SQL": "Incorrect – SQL is not often used to change the schema of a DBMS.",
+            "C) Stored procedures": "Incorrect – Stored procedures play a different role in a database management system.",
+            "D) JCL": "Incorrect – JCL is a batch control language on mainframe computers."
+        }
+    },
+    {
+        "id": 23,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A DBA has been asked to limit the tables, rows, or columns that are visible to some users with direct database access. Which solution would best fulfill this request?",
+        "options": [
+            "A) Create alternative user accounts.",
+            "B) Move those users into different AD groups.",
+            "C) Create one or more views.",
+            "D) Change the schema for those users."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Create alternative user accounts.": "Incorrect – Creating alternative user accounts is not the best solution for this request.",
+            "B) Move those users into different AD groups.": "Incorrect – Access permissions may not fully fulfill this request.",
+            "C) Create one or more views.": "Correct – A view provides the appearance of virtual tables that are parts of real tables.",
+            "D) Change the schema for those users.": "Incorrect – It's not possible to change the schema for users, other than creating one or more views."
+        }
+    },
+    {
+        "id": 24,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization's IT department developed DR capabilities for some business applications prior to a BIA ever being performed. Now that a BIA has been performed, it has been determined that some IT applications' DR capabilities exceed what is called for in the BIA and that other applications fall short. What should be done to remedy this?",
+        "options": [
+            "A) Redo the BIA, using existing DR capabilities as inputs.",
+            "B) Make no changes, as this is the expected result.",
+            "C) Change IT application DR capabilities to align with the BIA.",
+            "D) Change the BIA to align with IT application DR capabilities."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Redo the BIA, using existing DR capabilities as inputs.": "Incorrect – The BIA does not need to be redone. It is the IT DR capabilities that require adjustment.",
+            "B) Make no changes, as this is the expected result.": "Incorrect – This misalignment between the BIA and DR capabilities is not an expected result.",
+            "C) Change IT application DR capabilities to align with the BIA.": "Correct – DR capabilities need to align with the results of the BIA, including established recovery objectives.",
+            "D) Change the BIA to align with IT application DR capabilities.": "Incorrect – The BIA should not be changed to align with DR capabilities. It is the reverse that should be performed."
+        }
+    },
+    {
+        "id": 25,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the purpose of hot-pluggable drives in a storage system?",
+        "options": [
+            "A) Ability to replace drives that have crashed or overheated",
+            "B) Ability to replace drives while the storage system is still running",
+            "C) Ability to replace drives without the risk of harm to personnel",
+            "D) Ability to install additional drives without powering down the system"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Ability to replace drives that have crashed or overheated": "Incorrect – This reason is too limited: while hot-pluggable drives would indeed permit personnel to replace drives that have crashed or overheated, they also permit personnel to remove and replace them for any reason.",
+            "B) Ability to replace drives while the storage system is still running": "Correct – The term 'hot-pluggable drives' refers to the ability to remove and replace drives in a storage system while the system is still running. Together with RAID capabilities, there would be no interruption in the storage system's ability to read and write data to the drives.",
+            "C) Ability to replace drives without the risk of harm to personnel": "Incorrect – This is not the definition of hot-pluggable drives.",
+            "D) Ability to install additional drives without powering down the system": "Incorrect – This definition is too limiting: while it is true that hot-pluggable drives permit additional drives to be added to the system, they also permit faulty drives to be removed and replaced."
+        }
+    },
+    {
+        "id": 26,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the primary purpose for data restoration testing?",
+        "options": [
+            "A) To meet regulatory requirements",
+            "B) To prove that bare-metal restores can be performed",
+            "C) To see how long it takes to restore data from backup",
+            "D) To ensure that backups are actually being performed"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) To meet regulatory requirements": "Incorrect – Regulatory requirements are a minor consideration here.",
+            "B) To prove that bare-metal restores can be performed": "Incorrect – Restoration testing does not necessarily test bare-metal restores.",
+            "C) To see how long it takes to restore data from backup": "Incorrect – The time required to restore data is not a major consideration.",
+            "D) To ensure that backups are actually being performed": "Correct – Restoration testing proves that data is actually being written to backup media. It also demonstrates that personnel know how to restore data."
+        }
+    },
+    {
+        "id": 27,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following should approve RTO and RPO targets?",
+        "options": [
+            "A) Senior business executives",
+            "B) Board of directors",
+            "C) CISO",
+            "D) CIO"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Senior business executives": "Correct – Senior business executives should approve RTO and RPO targets. As business leaders, senior executives are in the best position to decide how much downtime the organization will tolerate in the event of a minor or major disaster. Further, senior executives are going to be in the best position to fund and provide resources for IT to implement DR capabilities to meet these objectives.",
+            "B) Board of directors": "Incorrect – The board of directors does not usually become involved in operational matters.",
+            "C) CISO": "Incorrect – The CISO is responsible for cybersecurity, not business resilience related to disasters.",
+            "D) CIO": "Incorrect – The CIO is responsible for implementing DR capabilities to support RPO and RTO targets, but does not select the targets."
+        }
+    },
+    {
+        "id": 28,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization has developed its first-ever disaster recovery plan. What is the best choice for the first round of testing of the plan?",
+        "options": [
+            "A) Cutover test",
+            "B) Walkthrough",
+            "C) Simulation",
+            "D) Parallel test"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Cutover test": "Incorrect – A cutover test is the highest-risk test available and should be performed only after successful walkthroughs, simulations, and parallel tests.",
+            "B) Walkthrough": "Correct – The best choice here is for participants to walk through the plan and discuss all of the steps in detail.",
+            "C) Simulation": "Incorrect – A simulation should be performed after walkthroughs have identified improvement areas.",
+            "D) Parallel test": "Incorrect – A parallel test should not be performed until at least a walkthrough and simulation have first been performed."
+        }
+    },
+    {
+        "id": 29,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following best describes the purpose of a hypervisor?",
+        "options": [
+            "A) It creates and manages virtual desktops.",
+            "B) It creates and manages containers.",
+            "C) It installs software on virtual machines.",
+            "D) It creates and manages virtual machines."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) It creates and manages virtual desktops.": "Incorrect – A hypervisor is not typically used to create virtual desktops.",
+            "B) It creates and manages containers.": "Incorrect – A hypervisor is not used to create containers.",
+            "C) It installs software on virtual machines.": "Incorrect – Hypervisors are not used to install software on virtual machines.",
+            "D) It creates and manages virtual machines.": "Correct – A hypervisor, whether hosted or bare-metal, is used to create, manage, and run virtual machines."
+        }
+    },
+    {
+        "id": 30,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following best fits the definition of a set of structured tables with indexes, primary keys, and foreign keys?",
+        "options": [
+            "A) Hierarchical database",
+            "B) Object database",
+            "C) Relational database",
+            "D) Network database"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Hierarchical database": "Incorrect – A hierarchical database has a different structure than the one described.",
+            "B) Object database": "Incorrect – An object database has a different structure than the one described.",
+            "C) Relational database": "Correct – A relational database is one with structured tables containing rows and columns, with indexes, primary keys, and foreign keys.",
+            "D) Network database": "Incorrect – A network database has a different structure than the one described."
+        }
+    },
+    {
+        "id": 31,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization uses its vulnerability scanning tool as its de facto asset management system. What is the biggest risk associated with this approach?",
+        "options": [
+            "A) Network engineers could build new IP networks not included in the scanning tool's configuration.",
+            "B) System engineers could implement new servers that the scanning tool won't see.",
+            "C) System engineers could implement new virtual machines that the scanning tool won't see.",
+            "D) IP source routing could prevent the scanning tool from seeing all networks."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Network engineers could build new IP networks not included in the scanning tool's configuration.": "Correct – The biggest risk of using a vulnerability scanning tool as a tool for tracking assets is that these tools are generally configured to scan a list of IP networks. If a network engineer creates a new IP network and does not inform the personnel who manage the scanning tool, the tool won't detect the new IP network or any systems and devices that reside in it.",
+            "B) System engineers could implement new servers that the scanning tool won't see.": "Incorrect – Vulnerability scanning tools generally scan IP networks and would generally detect new systems and devices automatically.",
+            "C) System engineers could implement new virtual machines that the scanning tool won't see.": "Incorrect – New virtual machines should be detected, provided they reside on an existing IP network and are active.",
+            "D) IP source routing could prevent the scanning tool from seeing all networks.": "Incorrect – IP source routing would not necessarily interfere with a vulnerability scanning tool's operation."
+        }
+    },
+    {
+        "id": 32,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Which of the following systems should be used for populating the IT asset database in an elastic cloud environment?",
+        "options": [
+            "A) Hypervisor",
+            "B) Vulnerability scanning tool",
+            "C) Patch management tool",
+            "D) CMDB"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Hypervisor": "Correct – The hypervisor is the system that manages the creation and use of virtual machines in an environment where virtual machines are created dynamically to support workload.",
+            "B) Vulnerability scanning tool": "Incorrect – A vulnerability scanning tool is only going to detect virtual machines that are active during the scan.",
+            "C) Patch management tool": "Incorrect – The patch management tool may not be automatically aware of new virtual machines.",
+            "D) CMDB": "Incorrect – The CMDB is an IT asset database, not a tool for populating it."
+        }
+    },
+    {
+        "id": 33,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is a typical frequency for running a job that checks Active Directory for unused user accounts?",
+        "options": [
+            "A) Every hour",
+            "B) Every 24 hours",
+            "C) Every 7 days",
+            "D) Every 90 days"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Every hour": "Incorrect – Checking for dormant user accounts every hour is excessive.",
+            "B) Every 24 hours": "Incorrect – Checking for dormant user accounts every day is excessive.",
+            "C) Every 7 days": "Incorrect – Checking for dormant user accounts every week is excessive.",
+            "D) Every 90 days": "Correct – Ninety days is the most typical interval for checking for dormant user accounts."
+        }
+    },
+    {
+        "id": 34,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The system interface standard that includes process control, IPC, and shared memory is known as:",
+        "options": [
+            "A) Unix",
+            "B) POSIX",
+            "C) ActiveX",
+            "D) Ultrix"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Unix": "Incorrect – Unix is not an interface standard, but an operating system.",
+            "B) POSIX": "Correct – POSIX is the system interface standard that includes several components, such as process control, interprocess communication (IPC), named pipes, and files and file systems.",
+            "C) ActiveX": "Incorrect – ActiveX does not include all of these components.",
+            "D) Ultrix": "Incorrect – Ultrix is not an interface standard, but an operating system."
+        }
+    },
+    {
+        "id": 35,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An environment consisting of centralized servers running end-user operating systems that display on users' computers is known as:",
+        "options": [
+            "A) Hosted hypervisor",
+            "B) Bare-metal hypervisor",
+            "C) Virtual desktop infrastructure",
+            "D) Reverse Telnet"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Hosted hypervisor": "Incorrect – A hosted hypervisor does not match the environment description.",
+            "B) Bare-metal hypervisor": "Incorrect – A bare-metal hypervisor does not match the environment description.",
+            "C) Virtual desktop infrastructure": "Correct – A virtual desktop infrastructure (VDI) consists of one or more centralized servers that run end-user desktop operating systems that display on users' computers.",
+            "D) Reverse Telnet": "Incorrect – Reverse Telnet does not describe the environment description."
+        }
+    },
+    {
+        "id": 36,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A data privacy officer recently commissioned a data discovery exercise to understand the extent to which sensitive data is present on the company's world-readable file share. The exercise revealed that dozens of files containing large volumes of highly sensitive data were present on the file share. What is the best first step the data privacy officer should take?",
+        "options": [
+            "A) Remove all instances of files containing large volumes of highly sensitive data.",
+            "B) Investigate each instance to see whether any files are a part of business processes.",
+            "C) Sanction the users who placed the files there for violations of internal privacy policy.",
+            "D) Do nothing, as this is an acceptable practice for files of this type."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Remove all instances of files containing large volumes of highly sensitive data.": "Incorrect – Removing all files may inadvertently disrupt an existing important business process (which may need to be adjusted to avoid exposing this data).",
+            "B) Investigate each instance to see whether any files are a part of business processes.": "Correct – The most prudent move is for the DPO to investigate the files that were found to better understand why they are there. Possibly, some are part of vital business processes (which, in many cases, would need to be adjusted to avoid exposing the information).",
+            "C) Sanction the users who placed the files there for violations of internal privacy policy.": "Incorrect – There may be some legitimate files among those that were found.",
+            "D) Do nothing, as this is an acceptable practice for files of this type.": "Incorrect – Inaction would unnecessarily expose the organization to potential privacy violations. Files containing large volumes of sensitive information probably should not be present on file shares readable by the entire organization."
+        }
+    },
+    {
+        "id": 37,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A new IT manager is making improvements in the organization's management of unplanned outages. The IT manager has built a new process where repeated cases of similar outages are analyzed in order to identify their cause. What process has the IT manager created?",
+        "options": [
+            "A) Problem management",
+            "B) Incident management",
+            "C) Root cause analysis",
+            "D) Security event management"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Problem management": "Correct – Analysis of repeated incidents is known as problem management.",
+            "B) Incident management": "Incorrect – Incident management is the management of individual incidents.",
+            "C) Root cause analysis": "Incorrect – While root cause analysis may be a part of the process described, the overall process is better known as problem management.",
+            "D) Security event management": "Incorrect – Security event management is concerned with the response to security events and incidents."
+        }
+    },
+    {
+        "id": 38,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A new IT manager is making improvements in the organization's management of the detailed settings on servers and network devices. The process that the IT manager has made is a part of:",
+        "options": [
+            "A) Vulnerability management",
+            "B) System hardening",
+            "C) Configuration management",
+            "D) Performance management"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Vulnerability management": "Incorrect – Vulnerability management is the process of identifying and mitigating vulnerabilities on systems and devices.",
+            "B) System hardening": "Incorrect – System hardening is the process of making systems more resistant to attack.",
+            "C) Configuration management": "Correct – The IT manager is making improvements to the configuration management process.",
+            "D) Performance management": "Incorrect – Performance management is concerned with improving the efficiency of systems."
+        }
+    },
+    {
+        "id": 39,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A new IT manager is making improvements in the organization's management of the detailed settings on servers and network devices. The process includes the creation of a repository for storing details about this information. This repository is known as:",
+        "options": [
+            "A) An asset management database",
+            "B) A vulnerability management database",
+            "C) A configuration management database",
+            "D) A system hardening standard"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) An asset management database": "Incorrect – An asset management database is going to contain basic information about an organization's assets.",
+            "B) A vulnerability management database": "Incorrect – A vulnerability management database (which is not a common term) might contain information about vulnerabilities in systems and devices.",
+            "C) A configuration management database": "Correct – A repository containing the configuration of systems is known as a configuration management database (CMDB).",
+            "D) A system hardening standard": "Incorrect – A system hardening standard specifies the configuration for making systems more resistant to attack."
+        }
+    },
+    {
+        "id": 40,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A new IT manager is making improvements to the organization's need to make its systems and devices more resilient to attacks. The IT manager should update:",
+        "options": [
+            "A) The vulnerability management process",
+            "B) The system and device hardening standard",
+            "C) The configuration management database",
+            "D) The security incident response plan"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) The vulnerability management process": "Incorrect – A vulnerability management process is concerned with techniques used to identify and remediate vulnerabilities on systems and devices.",
+            "B) The system and device hardening standard": "Correct – A system and device hardening standard specifies the configurations to be used to make systems and devices more resistant to attack.",
+            "C) The configuration management database": "Incorrect – A configuration management database contains information about the configuration of systems and devices.",
+            "D) The security incident response plan": "Incorrect – A security incident response plan contains procedures to follow when a security incident occurs."
+        }
+    },
+    {
+        "id": 41,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A customer of a SaaS provider is complaining about the SaaS provider's lack of responsiveness in resolving security issues. What portion of the contract should the customer refer to when lodging a formal complaint?",
+        "options": [
+            "A) Service description",
+            "B) System availability",
+            "C) Service level agreement",
+            "D) Security controls"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Service description": "Incorrect – A service description is more likely to describe services rendered, but not about resolving security issues.",
+            "B) System availability": "Incorrect – This is not an issue about system availability.",
+            "C) Service level agreement": "Correct – A service level agreement (SLA) defines terms of responsiveness to various types of services and service issues.",
+            "D) Security controls": "Incorrect – This is not a matter of security controls, but of service levels."
+        }
+    },
+    {
+        "id": 42,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Computer code that is found within the contents of a database is known as a:",
+        "options": [
+            "A) Blob",
+            "B) Function",
+            "C) Stored procedure",
+            "D) Subroutine"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Blob": "Incorrect – A blob, or binary large object, does not typically store code, but instead is usually a video, image, or audio recording.",
+            "B) Function": "Incorrect – A function is a segment of a computer program.",
+            "C) Stored procedure": "Correct – A stored procedure is computer code that is stored in a database and executed when called.",
+            "D) Subroutine": "Incorrect – A subroutine is a segment of a computer program."
+        }
+    },
+    {
+        "id": 43,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An organization is starting its first-ever effort to develop a business continuity and disaster recovery plan. What is the best first step to perform in this effort?",
+        "options": [
+            "A) Criticality analysis",
+            "B) Business impact analysis",
+            "C) Setting recovery targets",
+            "D) Selecting a DR site"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Criticality analysis": "Incorrect – A criticality analysis is performed after the business impact analysis to determine the criticality of business processes identified in the BIA.",
+            "B) Business impact analysis": "Correct – A business impact analysis (BIA) is used to enumerate business processes and their dependencies upon other processes, assets, personnel, and service providers.",
+            "C) Setting recovery targets": "Incorrect – Recovery targets are established after the maximum tolerable downtime (MTD) and BIA are completed.",
+            "D) Selecting a DR site": "Incorrect – A DR site is not selected until the BIA, CA, and recovery targets are established."
+        }
+    },
+    {
+        "id": 44,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the purpose for connecting two redundant power supplies to separate electrical circuits?",
+        "options": [
+            "A) System resilience in case one electrical circuit fails",
+            "B) To balance electrical load between the circuits",
+            "C) To balance the phasing between the circuits",
+            "D) To avoid overloading a single electrical circuit"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) System resilience in case one electrical circuit fails": "Correct – A system with redundant power supplies will be more resilient if the power supplies are connected to separate electrical circuits (and even more resilient if the circuits lead to separate PDUs, UPSs, electrical feeds, and generators). In the event of a failure in any of these components, the others will still supply power to the system.",
+            "B) To balance electrical load between the circuits": "Incorrect – This is not a primary purpose for connecting power supplies to separate circuits.",
+            "C) To balance the phasing between the circuits": "Incorrect – This is not a primary purpose for connecting power supplies to separate circuits.",
+            "D) To avoid overloading a single electrical circuit": "Incorrect – Circuit loading is not usually performed using this technique."
+        }
+    },
+    {
+        "id": 45,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT organization is modernizing its tape backup system by replacing its tape library system with a storage array, while keeping its tape backup software system. What has the organization implemented?",
+        "options": [
+            "A) E-vaulting",
+            "B) S-vaulting",
+            "C) Virtual tape library",
+            "D) Mirroring"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) E-vaulting": "Incorrect – E-vaulting is the practice of sending backup data to a cloud storage provider.",
+            "B) S-vaulting": "Incorrect – S-vaulting is not a valid term.",
+            "C) Virtual tape library": "Correct – A virtual tape library (VTL) is a storage system that emulates a tape library system. A VTL is used when an organization wishes to retain its tape backup software platform while modernizing the actual backup storage.",
+            "D) Mirroring": "Incorrect – Mirroring involves real-time duplication of data stored on a primary storage system to a secondary or tertiary storage system."
+        }
+    },
+    {
+        "id": 46,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT organization is modernizing its tape backup system by sending data to a cloud storage provider. What has the organization implemented?",
+        "options": [
+            "A) Replication",
+            "B) Mirroring",
+            "C) Virtual tape library",
+            "D) E-vaulting"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Replication": "Incorrect – Replication is the near-real-time copying of disk storage transactions from a primary storage system to a secondary storage system.",
+            "B) Mirroring": "Incorrect – Mirroring is a block-by-block duplication of data stored on a primary storage system onto a secondary storage system.",
+            "C) Virtual tape library": "Incorrect – A virtual tape library (VTL) is a disk-based storage system that emulates a tape library system.",
+            "D) E-vaulting": "Correct – E-vaulting is the process of backing up data to a cloud storage provider using backup software created for that purpose."
+        }
+    },
+    {
+        "id": 47,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A city government department that accepts payments for water use has developed a procedure to be followed when the IT application for processing payments is unavailable. What type of procedure has been developed?",
+        "options": [
+            "A) Business continuity plan",
+            "B) Disaster recovery plan",
+            "C) Business impact analysis",
+            "D) Backout plan"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Business continuity plan": "Correct – The procedure developed is a business continuity plan, which is an emergency operations procedure to be followed when one or more critical assets required for the business-as-usual procedure are unavailable.",
+            "B) Disaster recovery plan": "Incorrect – A disaster recovery plan is a set of procedures to be followed to assess damage and restore operation of critical assets such as IT systems and other business equipment.",
+            "C) Business impact analysis": "Incorrect – A business impact analysis is a study to enumerate critical business processes and their dependencies.",
+            "D) Backout plan": "Incorrect – A backout plan is a procedure in the change management process used to restore a system to its pre-changed state in the event that the change was unsuccessful."
+        }
+    },
+    {
+        "id": 48,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A city government IT department has developed a procedure to be followed when the primary application for accepting water usage payments has been incapacitated. The procedure calls for the initiation of a secondary application in a different data center. What type of procedure has been developed?",
+        "options": [
+            "A) Business continuity plan",
+            "B) Backout plan",
+            "C) Security incident response plan",
+            "D) Disaster recovery plan"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Business continuity plan": "Incorrect – A business continuity plan is a business-level procedure to be followed in the event that critical assets or personnel are unavailable to continue operations of important business processes.",
+            "B) Backout plan": "Incorrect – A backout plan is a procedure in the change management process used to restore a system to its pre-changed state in the event that the change was unsuccessful.",
+            "C) Security incident response plan": "Incorrect – A security incident response plan is a procedure to be followed in the event of a security incident or breach.",
+            "D) Disaster recovery plan": "Correct – The procedure created is a disaster recovery plan; it involves starting a secondary application at a different data center."
+        }
+    },
+    {
+        "id": 49,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the most important factor to consider in the development of a disaster recovery plan?",
+        "options": [
+            "A) The safety of personnel",
+            "B) The availability of critical data",
+            "C) Notification of civil authorities",
+            "D) The continuity of critical operations"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) The safety of personnel": "Correct – The safety of personnel should always be the highest priority in any disaster recovery plan.",
+            "B) The availability of critical data": "Incorrect – The availability of critical data, while important, is less critical than the safety of personnel.",
+            "C) Notification of civil authorities": "Incorrect – The notification of civil authorities is important, but less important than the safety of personnel.",
+            "D) The continuity of critical operations": "Incorrect – The continuity of critical operations is key to the resilience of the organization, but less important than the safety of personnel."
+        }
+    },
+    {
+        "id": 50,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An SSD is most commonly used as:",
+        "options": [
+            "A) Backup storage",
+            "B) Removable storage",
+            "C) Main storage",
+            "D) Secondary storage"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Backup storage": "Incorrect – SSDs are not most commonly used as backup storage.",
+            "B) Removable storage": "Incorrect – SSDs are not most commonly used as removable storage.",
+            "C) Main storage": "Incorrect – RAM (random access memory) is used as a system's main storage.",
+            "D) Secondary storage": "Correct – Solid-state drives (SSDs) are most commonly used as secondary storage. Prior to SSDs, hard-disk drives (HDDs) were used as secondary storage."
+        }
+    },
+    {
+        "id": 51,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The phrase \"you can't protect what you don't know about\" refers to which key IT process?",
+        "options": [
+            "A) Vulnerability management",
+            "B) License management",
+            "C) Patching",
+            "D) Asset management"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Vulnerability management": "Incorrect – Vulnerability management is dependent upon sound asset management to ensure that all assets are identified and their vulnerabilities remediated timely.",
+            "B) License management": "Incorrect – License management is not related to the protection of assets.",
+            "C) Patching": "Incorrect – Patching is dependent upon vulnerability management and asset management.",
+            "D) Asset management": "Correct – Asset management is a critical process that other processes, such as vulnerability management, patch management, and license management, depend upon. It is the author's opinion that asset management is the #1 control objective in the CIS Critical Controls for this reason."
+        }
+    },
+    {
+        "id": 52,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The SOAP protocol is related to:",
+        "options": [
+            "A) The patch management process",
+            "B) The exchange of data through an API",
+            "C) The vulnerability management process",
+            "D) Memory garbage collection"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) The patch management process": "Incorrect – SOAP is not related to the patch management process.",
+            "B) The exchange of data through an API": "Correct – SOAP, or Simple Object Access Protocol, is a network API for exchanging data between systems over a network.",
+            "C) The vulnerability management process": "Incorrect – SOAP is not related to the vulnerability management process.",
+            "D) Memory garbage collection": "Incorrect – SOAP is not related to memory garbage collection."
+        }
+    },
+    {
+        "id": 53,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Restricting USB attached storage on end-user workstations addresses all of the following except:",
+        "options": [
+            "A) Leakage of intellectual property",
+            "B) Malware infection",
+            "C) System capacity management",
+            "D) Personal use of a workstation"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Leakage of intellectual property": "Incorrect – Leakage of intellectual property is often a primary reason for restricting USB attached storage on workstations.",
+            "B) Malware infection": "Incorrect – Malware control is often a primary reason for restricting USB attached storage.",
+            "C) System capacity management": "Correct – Restrictions of USB storage have little or nothing to do with system capacity management.",
+            "D) Personal use of a workstation": "Incorrect – Personal use of a workstation is sometimes a reason for restricting the use of USB attached storage."
+        }
+    },
+    {
+        "id": 54,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The primary purpose of a dynamic DLP system is:",
+        "options": [
+            "A) To detect unauthorized personal use of a workstation",
+            "B) To detect unauthorized use of personal web mail",
+            "C) To control unauthorized access to sensitive information",
+            "D) To control unauthorized movement of sensitive information"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) To detect unauthorized personal use of a workstation": "Incorrect – A dynamic DLP solution is not used to detect personal use of a workstation.",
+            "B) To detect unauthorized use of personal web mail": "Incorrect – A primary purpose of dynamic DLP is not to detect or block personal web mail. However, a dynamic DLP system can prevent the transmission of sensitive data via personal web mail.",
+            "C) To control unauthorized access to sensitive information": "Incorrect – System access controls are more commonly used to prevent unauthorized access to sensitive information.",
+            "D) To control unauthorized movement of sensitive information": "Correct – The main purpose of dynamic DLP (data loss prevention) is the unauthorized movement of sensitive information. For example, a dynamic DLP solution can prevent sensitive information from being stored on an external USB attached storage device or transmitted through e-mail."
+        }
+    },
+    {
+        "id": 55,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the suitability for the use of a SIEM to alert personnel of system capacity and performance issues?",
+        "options": [
+            "A) If syslog events are generated, use cases related to performance and capacity can be developed.",
+            "B) A SIEM can only be used to alert personnel of security events.",
+            "C) Use cases for non-security-related events do not function on a SIEM.",
+            "D) Alerts for non-security-related events do not function on a SIEM."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) If syslog events are generated, use cases related to performance and capacity can be developed.": "Correct – A SIEM is a general-purpose system used to ingest log data from systems and devices and to create alerts when specific types of log entries are received. There is no limit to the types of log data and alerts that can be employed in a SIEM.",
+            "B) A SIEM can only be used to alert personnel of security events.": "Incorrect – A SIEM can be used for security and non-security events.",
+            "C) Use cases for non-security-related events do not function on a SIEM.": "Incorrect – A SIEM can handle non-security events.",
+            "D) Alerts for non-security-related events do not function on a SIEM.": "Incorrect – A SIEM can generate alerts for any type of event."
+        }
+    },
+    {
+        "id": 56,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "After analyzing events and incidents from the past year, an analyst has declared the existence of a problem. To what is the analyst referring?",
+        "options": [
+            "A) One or more controls are in a state of failure.",
+            "B) The analyst is unable to access all incident data for the entire year.",
+            "C) One or more high-criticality incidents have occurred.",
+            "D) A specific type of incident is recurring."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) One or more controls are in a state of failure.": "Incorrect – A problem, in ITIL terminology, does not specifically indicate a control failure.",
+            "B) The analyst is unable to access all incident data for the entire year.": "Incorrect – A problem, in ITIL terminology, does not indicate an inability to access historical event data.",
+            "C) One or more high-criticality incidents have occurred.": "Incorrect – A problem in ITIL terminology does not indicate the severity of incidents that are occurring.",
+            "D) A specific type of incident is recurring.": "Correct – In ITIL terminology, a problem is an incident that keeps occurring. This means that there is some root cause for these incidents that needs to be investigated."
+        }
+    },
+    {
+        "id": 57,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A DBA has determined that it is not feasible to directly back up a large database. What is the best remedy for this?",
+        "options": [
+            "A) Defragment the database to permit a linear backup.",
+            "B) Change the database to read-only during a backup to preserve integrity.",
+            "C) Compress the database to recover free space.",
+            "D) Export the database to a flat file and back up the flat file."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Defragment the database to permit a linear backup.": "Incorrect – Defragmentation of a database is not a common operation.",
+            "B) Change the database to read-only during a backup to preserve integrity.": "Incorrect – Changing a database to read-only would certainly disrupt business operations.",
+            "C) Compress the database to recover free space.": "Incorrect – Compression of a database is not a common practice.",
+            "D) Export the database to a flat file and back up the flat file.": "Correct – The best remedy when a database cannot be directly backed up is the creation of an export, which itself can be backed up."
+        }
+    },
+    {
+        "id": 58,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the feasibility for using the results of a BIA in the creation of a system classification plan?",
+        "options": [
+            "A) A BIA will indicate sensitivity of specific data that is associated with critical business processes.",
+            "B) A BIA will indicate operational criticality of specific data that is associated with critical business processes.",
+            "C) A BIA does not correlate to specific information systems.",
+            "D) A BIA does not correlate to specific data sets."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) A BIA will indicate sensitivity of specific data that is associated with critical business processes.": "Incorrect – A BIA does not typically identify data by sensitivity, but instead identifies data by operational criticality.",
+            "B) A BIA will indicate operational criticality of specific data that is associated with critical business processes.": "Correct – A BIA identifies critical business processes in an organization, including the organization's dependencies upon IT systems and their data sets. Critical processes can be mapped to the systems they depend upon, which can contribute to system classification.",
+            "C) A BIA does not correlate to specific information systems.": "Incorrect – A BIA does in fact correlate business processes to information systems.",
+            "D) A BIA does not correlate to specific data sets.": "Incorrect – A BIA does in fact correlate business processes to specific data sets."
+        }
+    },
+    {
+        "id": 59,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A system engineer is reviewing critical systems in a data center and mapping them to individual electrical circuits. The engineer identified a system with two power supplies that are connected to the same plug strip. What should the engineer conclude from this?",
+        "options": [
+            "A) It is an acceptable practice to connect both power supplies to the same circuit.",
+            "B) It is an acceptable practice to connect both power supplies to the same plug strip.",
+            "C) The two power supplies should not be connected to the same circuit.",
+            "D) The two power supplies should not be connected to the same plug strip."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) It is an acceptable practice to connect both power supplies to the same circuit.": "Incorrect – It is not a recommended practice to connect both power supplies to the same plug strip or the same circuit.",
+            "B) It is an acceptable practice to connect both power supplies to the same plug strip.": "Incorrect – The plug strip and electrical circuit represent a single failure path, somewhat negating the purpose of multiple power supplies.",
+            "C) The two power supplies should not be connected to the same circuit.": "Correct – The main issue at stake here is that the power supplies are both connected to the same electrical circuit. If the electrical circuit fails, the system will be powered down. A better practice is to connect the two power supplies to separate circuits.",
+            "D) The two power supplies should not be connected to the same plug strip.": "Incorrect – The bigger issue is not whether the power supplies are connected to the same plug strip, but that they are connected to the same circuit."
+        }
+    },
+    {
+        "id": 60,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "An IT architect is proposing a plan for improving the resilience of critical data in the organization. The architect proposes that applications be altered so that they confirm that transactions have been successfully written to two different storage systems. What scheme has been proposed?",
+        "options": [
+            "A) Journaling",
+            "B) Mirroring",
+            "C) Data replication",
+            "D) Two-phase commit"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Journaling": "Incorrect – Journaling is the process of recording storage transactions in another part of a file system for redundancy and integrity purposes.",
+            "B) Mirroring": "Incorrect – Mirroring is a storage system function that applications are unaware of.",
+            "C) Data replication": "Incorrect – Data replication is a storage system function that applications are unaware of.",
+            "D) Two-phase commit": "Correct – Two-phase commit is the act of writing a transaction to separate storage systems and not completing the transaction until confirmation of successful write operations has been received."
+        }
+    },
+    {
+        "id": 61,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A department has completed a review of its business continuity plan through a moderated discussion that followed a specific, scripted disaster scenario. What kind of a review was performed?",
+        "options": [
+            "A) Walkthrough",
+            "B) Simulation",
+            "C) Parallel test",
+            "D) Peer review"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Walkthrough": "Incorrect – A walkthrough does not attempt to simulate a disaster scenario.",
+            "B) Simulation": "Correct – A simulation is a type of review where a moderator reveals a realistic scenario, and test participants talk through the steps they would be taking should an actual disaster of this type be occurring. A simulation is more realistic than a walkthrough, as it helps to bring a disaster to life.",
+            "C) Parallel test": "Incorrect – A parallel test involves the actual deployment of business continuity procedures to see whether they can be operated properly.",
+            "D) Peer review": "Incorrect – A peer review involves other personnel, possibly those in another organization."
+        }
+    },
+    {
+        "id": 62,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "What is the purpose of salvage operations in a disaster recovery plan?",
+        "options": [
+            "A) To identify the damage to, and recoverability of, critical equipment and assets",
+            "B) To determine the scrap value of critical equipment and assets",
+            "C) To ensure that all personnel are accounted for",
+            "D) To identify business processes that can be resumed"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) To identify the damage to, and recoverability of, critical equipment and assets": "Correct – The primary purpose of salvage is to determine the extent of damage of critical business equipment and to determine what is still functional, which assets can be repaired, and which are damaged beyond repair.",
+            "B) To determine the scrap value of critical equipment and assets": "Incorrect – Determining scrap value is a secondary purpose; the primary purpose is to assess damage and recoverability.",
+            "C) To ensure that all personnel are accounted for": "Incorrect – The purpose of salvage is related to business equipment, not personnel.",
+            "D) To identify business processes that can be resumed": "Incorrect – The purpose of salvage is related to business equipment, not business processes."
+        }
+    },
+    {
+        "id": 63,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "RAM is most commonly used as:",
+        "options": [
+            "A) Secondary storage",
+            "B) Main storage",
+            "C) Virtual disk",
+            "D) CPU instruction cache"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Secondary storage": "Incorrect – SSDs and HDDs are most commonly used for secondary storage.",
+            "B) Main storage": "Correct – RAM, or random access memory, is the primary technology used for a computer's main storage.",
+            "C) Virtual disk": "Incorrect – A virtual disk is a secondary use of RAM, not a primary use.",
+            "D) CPU instruction cache": "Incorrect – A CPU has its own instruction cache built in."
+        }
+    },
+    {
+        "id": 64,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "All of the following are valid reasons for removing end users' local administrators privileges on their workstations except:",
+        "options": [
+            "A) To reduce malware attack impact",
+            "B) To prevent the use of personal web mail",
+            "C) To prevent installation of unauthorized software",
+            "D) To reduce the number of service desk support calls"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) To reduce malware attack impact": "Incorrect – This is a valid reason.",
+            "B) To prevent the use of personal web mail": "Correct – Removing local administrator access from an end user would not impact a user's ability to access personal web mail in most cases.",
+            "C) To prevent installation of unauthorized software": "Incorrect – This is a valid reason.",
+            "D) To reduce the number of service desk support calls": "Incorrect – This is a valid reason."
+        }
+    },
+    {
+        "id": 65,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The primary mission of data governance is:",
+        "options": [
+            "A) To ensure the availability of sensitive and critical information",
+            "B) To ensure the integrity of sensitive and critical information",
+            "C) To control and monitor all uses of sensitive or critical information",
+            "D) To ensure compliance with applicable privacy laws"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) To ensure the availability of sensitive and critical information": "Incorrect – Data governance is not primarily concerned with the availability of information.",
+            "B) To ensure the integrity of sensitive and critical information": "Incorrect – Data governance is not primarily concerned with the integrity of information.",
+            "C) To control and monitor all uses of sensitive or critical information": "Correct – The primary mission of data governance is the control and monitoring of all uses of sensitive and/or critical information in an organization, both in structured and unstructured storage.",
+            "D) To ensure compliance with applicable privacy laws": "Incorrect – Compliance with applicable laws should be an outcome of data governance, but not its main purpose."
+        }
+    },
+    {
+        "id": 66,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "Many of the backout plans in the records of a change control process simply read, \"Reverse previous steps.\" What conclusion can be drawn from this?",
+        "options": [
+            "A) Backout plans are only relevant for emergency changes.",
+            "B) Backout plans are not a part of a change management process.",
+            "C) Backout plans are adequate.",
+            "D) Backout plans are not as rigorous as they should be."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Backout plans are only relevant for emergency changes.": "Incorrect – Backout plans are needed for all changes.",
+            "B) Backout plans are not a part of a change management process.": "Incorrect – Backout plans are a key part of a change management process.",
+            "C) Backout plans are adequate.": "Incorrect – A backout plan that states simply \"reverse previous steps\" is not adequate.",
+            "D) Backout plans are not as rigorous as they should be.": "Correct – \"Reverse previous steps\" is wholly inadequate for most changes, as this represents unpreparedness for situations where changes are unsuccessful."
+        }
+    },
+    {
+        "id": 67,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The purpose of a business impact analysis (BIA) is primarily:",
+        "options": [
+            "A) To calculate risk in a risk assessment",
+            "B) To determine the impact of a breach",
+            "C) To determine process criticalities",
+            "D) To determine process dependencies"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) To calculate risk in a risk assessment": "Incorrect – A BIA is not used in a general risk assessment.",
+            "B) To determine the impact of a breach": "Incorrect – A BIA is not used in a breach assessment.",
+            "C) To determine process criticalities": "Incorrect – It is the criticality assessment (CA) that is used to determine process criticality, once the BIA itself has been completed.",
+            "D) To determine process dependencies": "Correct – The purpose of business impact analysis (BIA) is to determine the dependencies of business processes—what assets, staff, and outside parties are required to sustain a process."
+        }
+    },
+    {
+        "id": 68,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "The purpose for pre-writing public statements describing the impact, response, and recovery from a disaster include all of the following except:",
+        "options": [
+            "A) During a disaster is not a good time to write such statements from scratch.",
+            "B) Key personnel who would write such statements may not be available.",
+            "C) Such public statements can be issued more quickly.",
+            "D) Pre-written public statements are required by regulation."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) During a disaster is not a good time to write such statements from scratch.": "Incorrect – This is one of the advantages of pre-writing statements.",
+            "B) Key personnel who would write such statements may not be available.": "Incorrect – This is an advantage of pre-writing.",
+            "C) Such public statements can be issued more quickly.": "Incorrect – This is an advantage.",
+            "D) Pre-written public statements are required by regulation.": "Correct – Few, if any, regulations require organizations to pre-write their public statements describing a disaster and the details about impact, response, and recovery."
         }
     },
     # Domain 5 – Information Asset Protection
