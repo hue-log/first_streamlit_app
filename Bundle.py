@@ -4023,14 +4023,39 @@ st.sidebar.progress((st.session_state.idx + 1) / total)
 st.sidebar.write(f"Question {st.session_state.idx + 1} of {total}")
 st.sidebar.write(f"Score: {st.session_state.score} / {st.session_state.idx}")
 
-# Sidebar code snippet for selecting number of questions
+# Sidebar: Domain filter
+domains = sorted({q["domain"] for q in QUESTIONS})
+selected_domains = st.sidebar.multiselect(
+    "Filter by Domain",
+    options=domains,
+    default=domains,
+    key="domain_filter"
+)
+
+# Filter questions based on selected domains
+filtered = [q for q in QUESTIONS if q["domain"] in selected_domains]
+total_available = len(filtered)   # <-- this is needed
+
+# Sidebar: Number of questions selector
 num_questions = st.sidebar.slider(
     "Number of questions",
     min_value=1,
-    max_value=total_available,   # total_available is the count of all filtered questions
-    value=min(20, total_available),
+    max_value=total_available,
+    value=min(20, total_available),   # default to 20 or all if fewer
     step=1
 )
+
+# Optional "Apply" button to reload the quiz with the chosen number
+if st.sidebar.button("Start Quiz with Selected Settings"):
+    # store selected settings and reload the quiz
+    st.session_state.num_questions = num_questions
+    # update the question list to a random sample of size num_questions
+    st.session_state.questions = random.sample(filtered, num_questions)
+    random.shuffle(st.session_state.questions)
+    st.session_state.idx = 0
+    st.session_state.answered = False
+    st.session_state.score = 0
+    st.session_state.shuffled_data = None
 
 # Display question
 st.subheader(f"Question {st.session_state.idx + 1}")
