@@ -5527,14 +5527,15 @@ if not st.session_state.answered:
 else:
     # ----- AFTER SUBMISSION: Show result header + inline feedback -----
     selected_idx = st.session_state.selected_idx
-    # Fix: unpack all three elements (orig, stripped, is_c)
+    # Unpack all three elements of each tuple (orig_text, stripped_text, is_correct)
     correct_pos = next(i for i, (_, _, is_c) in enumerate(shuffled) if is_c)
 
-    # Overall result message
+    # Detailed overall result message
     if selected_idx == correct_pos:
-        st.success("✅ You have selected the correct answer!")
+        st.success(f"✅ You have selected the correct answer: {labels[selected_idx]}")
     else:
-        st.error("❌ Your answer is incorrect.")
+        st.error(f"❌ The answer you selected ({labels[selected_idx]}) is incorrect. "
+                 f"The correct answer is ({labels[correct_pos]}).")
 
     # Per-option detailed feedback
     explanations = q.get("option_explanations", {})
