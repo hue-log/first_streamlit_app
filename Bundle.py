@@ -2708,7 +2708,6 @@ QUESTIONS = [
         }
     },
     # Domain 4 – IT Service Management and Continuity
-[
     {
         "id": 1,
         "domain": "Domain 4 – IT Service Management and Continuity",
