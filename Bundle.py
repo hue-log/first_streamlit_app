@@ -1141,7 +1141,7 @@ QUESTIONS = [
     },
     # Domain 2 – IT Governance and Management
     {
-        "id": 2,
+        "id": 1,
         "domain": "Domain 2 – IT Governance and Management",
         "question": "Management's control of information technology processes is best described as:",
         "options": [
@@ -1152,10 +1152,928 @@ QUESTIONS = [
         ],
         "correct": "C",
         "option_explanations": {
-            "A) Information technology policies": "Incorrect – IT policies alone do not control processes; they are only one part.",
-            "B) Information technology policies along with audits of those policies": "Incorrect – IT policies and audits are only one component of governance.",
-            "C) Information technology governance": "Correct – ISACA defines governance as the processes that ensure stakeholder needs are evaluated…",
-            "D) Metrics as compared to similar organizations": "Incorrect – Benchmarking metrics is not a significant part of governance; many organisations forego it entirely."
+            "A) Information technology policies": "Incorrect – Although information technology policies are an essential part of an information technology program, they do not by themselves control IT processes.",
+            "B) Information technology policies along with audits of those policies": "Incorrect – IT policies and activities (such as audits) to measure their effectiveness are only one component of management's observation and control of an organization.",
+            "C) Information technology governance": "Correct – ISACA defines governance as a set of processes that ensures stakeholder needs are evaluated to determine balanced, agreed-on enterprise objectives to be achieved; setting direction through prioritization and decision making; and monitoring performance and compliance against agreed-on direction and objectives.",
+            "D) Metrics as compared to similar organizations": "Incorrect – The comparison of metrics to other organizations is not a significant part of a governance program. Indeed, many organizations forego benchmarking entirely."
+        }
+    },
+    {
+        "id": 2,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the best method for ensuring that an organization's IT department achieves adequate business alignment?",
+        "options": [
+            "A) Find and read the organization's articles of incorporation.",
+            "B) Understand the organization's vision, mission statement, and objectives.",
+            "C) Determine who the CIO reports to in the organization.",
+            "D) Study the organization's application portfolio."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Find and read the organization's articles of incorporation.": "Incorrect – An organization's articles of incorporation do not provide sufficient information about an organization's mission or objectives.",
+            "B) Understand the organization's vision, mission statement, and objectives.": "Correct – The best way to align an IT department to the business is to understand the organization's vision, mission, goals, and objectives.",
+            "C) Determine who the CIO reports to in the organization.": "Incorrect – The org chart reveals little about what the organization wants to accomplish.",
+            "D) Study the organization's application portfolio.": "Incorrect – The organization's application portfolio reveals little or nothing about the strategic objectives and will provide little or no aid in aligning the program to the business."
+        }
+    },
+    {
+        "id": 3,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Roberta has located her organization's mission statement and a list of strategic objectives. What steps should Roberta take to ensure that the IT department aligns with the business?",
+        "options": [
+            "A) Discuss strategic objectives with business leaders to better understand what they wish to accomplish and what steps are being taken to achieve them.",
+            "B) Develop a list of activities that will support the organization's strategic objectives, and determine the cost of each.",
+            "C) Select those controls from the organization's control framework that align to each objective, and then ensure that those controls are effective.",
+            "D) Select the policies from the organization's information security policy that are relevant to each objective, and ensure that those policies are current."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Discuss strategic objectives with business leaders to better understand what they wish to accomplish and what steps are being taken to achieve them.": "Correct – The best first step is to better understand the objectives through dialogue with business leaders.",
+            "B) Develop a list of activities that will support the organization's strategic objectives, and determine the cost of each.": "Incorrect – Without a dialogue with business leaders, simply identifying supporting activities is more likely to miss important details.",
+            "C) Select those controls from the organization's control framework that align to each objective, and then ensure that those controls are effective.": "Incorrect – Proper alignment does not generally begin with the selection or implementation of controls.",
+            "D) Select the policies from the organization's information security policy that are relevant to each objective, and ensure that those policies are current.": "Incorrect – Alignment does not generally involve identifying relevant security policies; this is a minor, supporting activity."
+        }
+    },
+    {
+        "id": 4,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Michael wants to improve the risk management process in his organization by creating content that will help management understand when certain risks should be accepted and when certain risks should be mitigated. The policy that Michael needs to create is known as:",
+        "options": [
+            "A) A security policy",
+            "B) A control framework",
+            "C) A risk appetite statement",
+            "D) A control testing procedure"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) A security policy": "Incorrect – Security policy is not a primary means for making risk treatment decisions.",
+            "B) A control framework": "Incorrect – An organization's control framework is not typically used for making risk treatment decisions.",
+            "C) A risk appetite statement": "Correct – A risk appetite statement provides guidance on the types of risk and the amount of risk an organization may be willing to accept versus what it prefers to mitigate, avoid, or transfer.",
+            "D) A control testing procedure": "Incorrect – Control testing procedures are not related to risk treatment decisions."
+        }
+    },
+    {
+        "id": 5,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "In a typical risk management process, the best person(s) to make a risk treatment decision is:",
+        "options": [
+            "A) The chief risk officer (CRO)",
+            "B) The chief information officer (CIO)",
+            "C) The department head associated with the risk",
+            "D) The chief information security officer (CISO)"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) The chief risk officer (CRO)": "Incorrect – The CRO should not make business function risk decisions on behalf of department heads; at best, the CRO should facilitate discussions.",
+            "B) The chief information officer (CIO)": "Incorrect – The CIO should not be making business function risk decisions on behalf of department heads.",
+            "C) The department head associated with the risk": "Correct – The department head responsible for the business activity should make the risk treatment decision because it is a business decision.",
+            "D) The chief information security officer (CISO)": "Incorrect – The CISO should facilitate discussions, not be the final decision maker."
+        }
+    },
+    {
+        "id": 6,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The ultimate responsibility for an organization's cybersecurity program lies with:",
+        "options": [
+            "A) The board of directors",
+            "B) The chief executive officer (CEO)",
+            "C) The chief information officer (CIO)",
+            "D) The chief information security officer (CISO)"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) The board of directors": "Correct – The board of directors holds ultimate responsibility for everything in the organization, including the cybersecurity program.",
+            "B) The chief executive officer (CEO)": "Incorrect – While the CEO runs the organization, ultimate responsibility lies with the board.",
+            "C) The chief information officer (CIO)": "Incorrect – The board of directors is the party responsible for cybersecurity.",
+            "D) The chief information security officer (CISO)": "Incorrect – The CISO's role is one of facilitation; the board is ultimately responsible."
+        }
+    },
+    {
+        "id": 7,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "In a U.S. public company, a CIO will generally report the state of the organization's IT function to:",
+        "options": [
+            "A) The Tradeway Commission",
+            "B) Independent auditors",
+            "C) The U.S. Securities and Exchange Commission",
+            "D) The board of directors"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) The Tradeway Commission": "Incorrect – An organization would not report anything to the Tradeway Commission.",
+            "B) Independent auditors": "Incorrect – The CIO would typically not report the state of IT to independent auditors, though they may meet periodically.",
+            "C) The U.S. Securities and Exchange Commission": "Incorrect – The CIO does not report to the SEC; financial filings may include IT only if a material incident occurred.",
+            "D) The board of directors": "Correct – In most U.S. publicly traded companies, the CIO reports the state of the IT function to the board of directors."
+        }
+    },
+    {
+        "id": 8,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "A new CIO in an organization is building its formal IT department from the ground up. In order to ensure collaboration among business leaders and department heads in the organization, the CIO should form and manage:",
+        "options": [
+            "A) A technology committee of the board of directors",
+            "B) An IT steering committee",
+            "C) An audit committee of the board of directors",
+            "D) A business-aligned IT policy"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) A technology committee of the board of directors": "Incorrect – The CIO will not be involved in forming or managing a board technology committee.",
+            "B) An IT steering committee": "Correct – An IT steering committee, consisting of senior executives and department heads, can discuss organization-wide IT issues and make strategic decisions.",
+            "C) An audit committee of the board of directors": "Incorrect – The CIO would not form or manage a board audit committee.",
+            "D) A business-aligned IT policy": "Incorrect – A business-aligned IT policy, while important, would not significantly foster collaboration among business leaders."
+        }
+    },
+    {
+        "id": 9,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The best person or group to make risk treatment decisions is:",
+        "options": [
+            "A) The chief information security officer (CISO)",
+            "B) The audit committee of the board of directors",
+            "C) The cybersecurity steering committee",
+            "D) External auditors"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) The chief information security officer (CISO)": "Incorrect – The CISO unilaterally making decisions may result in less buy-in from business leaders.",
+            "B) The audit committee of the board of directors": "Incorrect – Audit committee members rarely get involved in risk treatment decision making.",
+            "C) The cybersecurity steering committee": "Correct – A committee of senior executives and business unit leaders can openly discuss, collaborate, and decide on risk treatment issues.",
+            "D) External auditors": "Incorrect – External auditors should not be making decisions on behalf of the organizations they audit."
+        }
+    },
+    {
+        "id": 10,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which is the best party to conduct access reviews?",
+        "options": [
+            "A) Users' managers",
+            "B) Information security manager",
+            "C) IT service desk",
+            "D) Department head"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Users' managers": "Incorrect – Managers of users are not the best parties to review access; they may not know the business needs thoroughly.",
+            "B) Information security manager": "Incorrect – Information security managers have insufficient knowledge about business operations and the persons using them.",
+            "C) IT service desk": "Incorrect – IT service desk personnel have insufficient business knowledge and may be the ones carrying out access changes, creating a conflict of interest.",
+            "D) Department head": "Correct – The persons responsible for business activities should review users' access to applications supporting their business processes."
+        }
+    },
+    {
+        "id": 11,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which is the best party to make decisions about the configuration and function of business applications?",
+        "options": [
+            "A) Business department head",
+            "B) IT business analyst",
+            "C) Application developer",
+            "D) End user"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Business department head": "Correct – Business department heads are best suited to determine the behavior of business applications supporting their processes.",
+            "B) IT business analyst": "Incorrect – IT business analysts are not responsible for business unit operation decisions, though they may facilitate discussions.",
+            "C) Application developer": "Incorrect – Application developers are not responsible for business unit operation decisions, though they may provide insight.",
+            "D) End user": "Incorrect – End users are generally not responsible for decisions about business unit operations."
+        }
+    },
+    {
+        "id": 12,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following is the best definition of custodial responsibility?",
+        "options": [
+            "A) The custodian protects assets based on the customer's defined interests.",
+            "B) The custodian protects assets based on its own defined interests.",
+            "C) The custodian makes decisions based on its own defined interests.",
+            "D) The custodian makes decisions based on the customer's defined interests."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) The custodian protects assets based on the customer's defined interests.": "Incorrect – Protection of an asset is only a part of the custodian's scope of responsibility; decisions are broader.",
+            "B) The custodian protects assets based on its own defined interests.": "Incorrect – A custodian does not protect assets based on its own interests, but on its customers' interests.",
+            "C) The custodian makes decisions based on its own defined interests.": "Incorrect – A custodian does not make decisions based on its own interests, but on its customers' interests.",
+            "D) The custodian makes decisions based on the customer's defined interests.": "Correct – A custodian is charged with a wide range of decisions regarding the care of an asset, based upon the customer's defined interests."
+        }
+    },
+    {
+        "id": 13,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the primary risk of IT acting as custodian for a business owner?",
+        "options": [
+            "A) IT may not have enough interest to provide quality care for business applications.",
+            "B) IT may not have sufficient staffing to properly care for business applications.",
+            "C) IT may have insufficient knowledge of business operations to make good decisions.",
+            "D) Business departments might not give IT sufficient access to properly manage applications."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) IT may not have enough interest to provide quality care for business applications.": "Incorrect – Level of interest is not a compelling factor.",
+            "B) IT may not have sufficient staffing to properly care for business applications.": "Incorrect – Sufficient staffing is not a compelling factor.",
+            "C) IT may have insufficient knowledge of business operations to make good decisions.": "Correct – IT personnel tend to focus on technology and may not fully understand business operations, leading to poor decisions.",
+            "D) Business departments might not give IT sufficient access to properly manage applications.": "Incorrect – Business units are not generally in a position to restrict IT from administrative access."
+        }
+    },
+    {
+        "id": 14,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "An organization needs to hire an executive who will build a management program that considers threats and vulnerabilities. The best job title for this position is:",
+        "options": [
+            "A) CSO",
+            "B) CRO",
+            "C) CISO",
+            "D) CIRO"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) CSO": "Incorrect – The Chief Security Officer is not necessarily responsible for risk management; the role focuses on protective controls.",
+            "B) CRO": "Correct – The Chief Risk Officer manages risk for multiple asset types, including information, physical, and financial risks.",
+            "C) CISO": "Incorrect – The CISO is typically responsible for protecting only information assets, not multiple types of assets.",
+            "D) CIRO": "Incorrect – The CIRO is responsible for information asset risk management, not other asset types."
+        }
+    },
+    {
+        "id": 15,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "An organization needs to hire an executive who will be responsible for ensuring that the organization's policies, business processes, and information systems are compliant with laws and regulations concerning the proper collection, use, and protection of personally identifiable information. What is the best job title for the organization to use for this position?",
+        "options": [
+            "A) CSO",
+            "B) CIRO",
+            "C) CISO",
+            "D) CPO"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) CSO": "Incorrect – The CSO is typically not responsible for privacy-related activities.",
+            "B) CIRO": "Incorrect – The CIRO is typically not responsible for privacy-related activities.",
+            "C) CISO": "Incorrect – The CISO is typically not responsible for privacy-related activities.",
+            "D) CPO": "Correct – The Chief Privacy Officer ensures the proper collection, use, and protection of personally identifiable information (PII)."
+        }
+    },
+    {
+        "id": 16,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The Big Data Company is adjusting several position titles in its IT department to reflect industry standards. Included in the consideration are two individuals: The first is responsible for the overall relationships and data flows among the company's internal and external information systems. The second is responsible for the overall health and management of systems containing information. Which two job titles are most appropriate for these two roles?",
+        "options": [
+            "A) Systems architect and database administrator",
+            "B) Data architect and data scientist",
+            "C) Data scientist and database administrator",
+            "D) Data architect and database administrator"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Systems architect and database administrator": "Incorrect – Systems architect is not the best title for data flows and relationships.",
+            "B) Data architect and data scientist": "Incorrect – Data scientist is not the best title for managing systems containing information.",
+            "C) Data scientist and database administrator": "Incorrect – Data scientist is not the best title for the first role.",
+            "D) Data architect and database administrator": "Correct – Data architect handles overall relationships and data flows; database administrator manages database systems."
+        }
+    },
+    {
+        "id": 17,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the primary distinction between a network engineer and a telecom engineer?",
+        "options": [
+            "A) A network engineer is primarily involved with networks and internal network media, whereas a telecom engineer is primarily involved with networks and external (carrier) network media.",
+            "B) A network engineer is primarily involved with networks and external (carrier) network media, whereas a telecom engineer is primarily involved with networks and internal network media.",
+            "C) A network engineer is primarily involved with layer 3 protocols and above, whereas a telecom engineer is primarily involved with layer 1 and layer 2 protocols.",
+            "D) There is no distinction, as both are involved in all aspects of an organization's networks."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) A network engineer is primarily involved with networks and internal network media, whereas a telecom engineer is primarily involved with networks and external (carrier) network media.": "Correct – Network engineers focus on internal networks (cabling, Wi‑Fi); telecom engineers focus on external carrier networks (MPLS, Frame Relay, dark fiber).",
+            "B) A network engineer is primarily involved with networks and external (carrier) network media, whereas a telecom engineer is primarily involved with networks and internal network media.": "Incorrect – The definitions are swapped.",
+            "C) A network engineer is primarily involved with layer 3 protocols and above, whereas a telecom engineer is primarily involved with layer 1 and layer 2 protocols.": "Incorrect – The distinction is not strictly by protocol layer.",
+            "D) There is no distinction, as both are involved in all aspects of an organization's networks.": "Incorrect – There is a clear distinction in practice."
+        }
+    },
+    {
+        "id": 18,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "An organization that is a U.S. public company is redesigning its access management and access review controls. What is the best role for Internal Audit in this redesign effort?",
+        "options": [
+            "A) Develop procedures.",
+            "B) Design controls.",
+            "C) Provide feedback on control design.",
+            "D) Develop controls and procedures."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Develop procedures.": "Incorrect – Internal Audit should not develop procedures it may later audit.",
+            "B) Design controls.": "Incorrect – Internal Audit should not design controls it may later audit.",
+            "C) Provide feedback on control design.": "Correct – Internal Audit may opine on the design of controls for suitability and auditability without taking a design role.",
+            "D) Develop controls and procedures.": "Incorrect – Internal Audit should not be in a position to audit its own work."
+        }
+    },
+    {
+        "id": 19,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "A security operations manager is proposing that engineers who design and manage information systems play a role in the monitoring of those systems. Is design and management compatible with monitoring? Why or why not?",
+        "options": [
+            "A) No. Personnel who design and manage systems should not perform a monitoring role, as this is a conflict of interest.",
+            "B) Yes. Personnel who design and manage systems will be more familiar with the steps to take, as well as the reasons to take them, when alerts are generated.",
+            "C) No. Personnel who design and manage systems will not be familiar with response procedures when alerts are generated.",
+            "D) No. Personnel who design and manage systems are not permitted access to production environments and should not perform monitoring."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) No. Personnel who design and manage systems should not perform a monitoring role, as this is a conflict of interest.": "Incorrect – There is normally no conflict of interest between design, management, and monitoring.",
+            "B) Yes. Personnel who design and manage systems will be more familiar with the steps to take, as well as the reasons to take them, when alerts are generated.": "Correct – System designers and managers understand the system deeply, making them effective at monitoring and response.",
+            "C) No. Personnel who design and manage systems will not be familiar with response procedures when alerts are generated.": "Incorrect – They are likely more familiar because they understand how the systems work.",
+            "D) No. Personnel who design and manage systems are not permitted access to production environments and should not perform monitoring.": "Incorrect – Management personnel typically have access to production environments."
+        }
+    },
+    {
+        "id": 20,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The purpose of metrics in an IT department is to:",
+        "options": [
+            "A) Measure the performance and effectiveness of controls.",
+            "B) Measure the likelihood of an attack on the organization.",
+            "C) Predict the likelihood of an attack on an organization.",
+            "D) Predict the next IT service outage."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Measure the performance and effectiveness of controls.": "Correct – Metrics are used to understand how well security controls are performing.",
+            "B) Measure the likelihood of an attack on the organization.": "Incorrect – Metrics do not necessarily foretell an attack.",
+            "C) Predict the likelihood of an attack on an organization.": "Incorrect – Metrics are not always used to predict attacks.",
+            "D) Predict the next IT service outage.": "Incorrect – Metrics do not necessarily foretell future outages."
+        }
+    },
+    {
+        "id": 21,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which security metric is best considered a leading indicator of an attack?",
+        "options": [
+            "A) Number of firewall rules triggered",
+            "B) Number of security awareness training sessions completed",
+            "C) Percentage of systems scanned",
+            "D) Mean time to apply security patches"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Number of firewall rules triggered": "Incorrect – This may signal unwanted network activity but is not strongly correlated with attack likelihood.",
+            "B) Number of security awareness training sessions completed": "Incorrect – While helpful, patch levels are usually more accurate indicators.",
+            "C) Percentage of systems scanned": "Incorrect – This reflects the scanning process, not directly the vulnerability to attacks.",
+            "D) Mean time to apply security patches": "Correct – A long mean time to patch indicates higher exposure; patching quickly reduces the likelihood of successful attacks."
+        }
+    },
+    {
+        "id": 22,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Steve, a CISO, has vulnerability management metrics and needs to build business-level metrics. Which of the following is the best business-level, leading indicator metric suitable for his organization's board of directors?",
+        "options": [
+            "A) Average time to patch servers supporting manufacturing processes",
+            "B) Frequency of security scans of servers supporting manufacturing processes",
+            "C) Percentage of servers supporting manufacturing processes that are scanned by vulnerability scanning tools",
+            "D) Number of vulnerabilities remediated on servers supporting manufacturing processes"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Average time to patch servers supporting manufacturing processes": "Correct – This leading indicator shows the average time critical servers are exposed to new threats.",
+            "B) Frequency of security scans of servers supporting manufacturing processes": "Incorrect – Number of scans provides no information about actual vulnerabilities or risk.",
+            "C) Percentage of servers supporting manufacturing processes that are scanned by vulnerability scanning tools": "Incorrect – Percentage scanned is a good operational metric but does not indicate risk reduction.",
+            "D) Number of vulnerabilities remediated on servers supporting manufacturing processes": "Incorrect – A raw number without context tells board members little."
+        }
+    },
+    {
+        "id": 23,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The metric 'percentage of systems with completed installation of advanced anti-malware' is best described as:",
+        "options": [
+            "A) A key operational indicator (KOI)",
+            "B) A key performance indicator (KPI)",
+            "C) A key goal indicator (KGI)",
+            "D) A key risk indicator (KRI)"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) A key operational indicator (KOI)": "Incorrect – 'Key operational indicator' is not an industry standard term; the metric is more goal-oriented.",
+            "B) A key performance indicator (KPI)": "Incorrect – Completion of installations is not typically a performance metric.",
+            "C) A key goal indicator (KGI)": "Correct – This metric is associated with a strategic goal (completing the anti-malware rollout).",
+            "D) A key risk indicator (KRI)": "Incorrect – Although it may indicate risk reduction, it is better classified as a KGI."
+        }
+    },
+    {
+        "id": 24,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "A member of the board of directors has asked Ravila, a CIRO, to produce a metric showing the reduction of risk as a result of the organization making key improvements to its security information and event management system. Which type of metric is most suitable for this purpose?",
+        "options": [
+            "A) KGI",
+            "B) RACI",
+            "C) KRI",
+            "D) ROSI"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) KGI": "Incorrect – A key goal indicator is not the best indicator of risk.",
+            "B) RACI": "Incorrect – RACI is a roles and responsibilities matrix, not a metric.",
+            "C) KRI": "Correct – A key risk indicator is most suitable for showing risk reduction, though high‑impact events occur rarely.",
+            "D) ROSI": "Incorrect – Return on security investment is not suitable because significant events are rare."
+        }
+    },
+    {
+        "id": 25,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "A common way to determine the effectiveness of IT metrics is the SMART method. SMART stands for:",
+        "options": [
+            "A) Security Metrics Are Risk Treatment",
+            "B) Specific, Measurable, Attainable, Relevant, Timely",
+            "C) Specific, Measurable, Actionable, Relevant, Timely",
+            "D) Specific, Manageable, Actionable, Relevant, Timely"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Security Metrics Are Risk Treatment": "Incorrect – This is not the definition of SMART.",
+            "B) Specific, Measurable, Attainable, Relevant, Timely": "Correct – SMART stands for Specific, Measurable, Attainable, Relevant, and Timely.",
+            "C) Specific, Measurable, Actionable, Relevant, Timely": "Incorrect – 'Actionable' is not the standard term; it is 'Attainable'.",
+            "D) Specific, Manageable, Actionable, Relevant, Timely": "Incorrect – Neither 'Manageable' nor 'Actionable' are standard."
+        }
+    },
+    {
+        "id": 26,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The statement 'Complete migration of flagship system to latest version of vendor-supplied software' is an example of:",
+        "options": [
+            "A) A mission statement",
+            "B) A vision statement",
+            "C) A purpose statement",
+            "D) An objective statement"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) A mission statement": "Incorrect – The statement is too specific to be a mission statement.",
+            "B) A vision statement": "Incorrect – The statement is not typical of a vision statement.",
+            "C) A purpose statement": "Incorrect – The statement is not typical of a purpose statement.",
+            "D) An objective statement": "Correct – This is a statement of a strategic objective."
+        }
+    },
+    {
+        "id": 27,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Ernie, a CIO who manages a large IT team, wants to create a mission statement for the team. What is the best approach for creating this mission statement?",
+        "options": [
+            "A) Start with the organization's mission statement.",
+            "B) Start with Ernie's most recent performance review.",
+            "C) Start with the results of the most recent risk assessment.",
+            "D) Start with the body of open items in the project portfolio."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Start with the organization's mission statement.": "Correct – Aligning the IT department's mission with the overall organization's mission ensures business alignment.",
+            "B) Start with Ernie's most recent performance review.": "Incorrect – A performance review may be aligned but is not the best primary source.",
+            "C) Start with the results of the most recent risk assessment.": "Incorrect – A risk assessment does not provide sufficient information about the organization's purpose.",
+            "D) Start with the body of open items in the project portfolio.": "Incorrect – Open project items reflect short‑term work, not the department's overall mission."
+        }
+    },
+    {
+        "id": 28,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following statements is the best description for the purpose of performing risk management?",
+        "options": [
+            "A) Identify and manage vulnerabilities that may permit security events to occur.",
+            "B) Identify and manage threats that are relevant to the organization.",
+            "C) Assess the risks associated with third-party service providers.",
+            "D) Assess and manage risks associated with doing business online."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Identify and manage vulnerabilities that may permit security events to occur.": "Incorrect – Vulnerability management is only one facet of risk management.",
+            "B) Identify and manage threats that are relevant to the organization.": "Correct – The purpose of risk management is to identify and manage threats that could harm the organization.",
+            "C) Assess the risks associated with third-party service providers.": "Incorrect – Risk management encompasses the entire organization, not just third parties.",
+            "D) Assess and manage risks associated with doing business online.": "Incorrect – The scope is far broader than just online business."
+        }
+    },
+    {
+        "id": 29,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Key metrics showing the effectiveness of a risk management program would not include:",
+        "options": [
+            "A) Reduction in the number of security events",
+            "B) Reduction in the impact of security events",
+            "C) Reduction in the time to remediate vulnerabilities",
+            "D) Reduction in the number of patches applied"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Reduction in the number of security events": "Incorrect – This is a potentially useful metric.",
+            "B) Reduction in the impact of security events": "Incorrect – This is a potentially useful metric.",
+            "C) Reduction in the time to remediate vulnerabilities": "Incorrect – This is a potentially useful metric.",
+            "D) Reduction in the number of patches applied": "Correct – The number of patches applied does not indicate risk management program effectiveness."
+        }
+    },
+    {
+        "id": 30,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Examples of security program performance metrics include all of the following except:",
+        "options": [
+            "A) Time to detect security incidents",
+            "B) Time to remediate security incidents",
+            "C) Time to perform security scans",
+            "D) Time to discover vulnerabilities"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Time to detect security incidents": "Incorrect – This is a good performance metric.",
+            "B) Time to remediate security incidents": "Incorrect – This is a good performance metric.",
+            "C) Time to perform security scans": "Correct – The time required to perform scans is not a good security program performance metric.",
+            "D) Time to discover vulnerabilities": "Incorrect – This is a good performance metric."
+        }
+    },
+    {
+        "id": 31,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Two similar-sized organizations are merging. Paul will be the CIO of the new, combined organization. What is the greatest risk that may occur as a result of the merger?",
+        "options": [
+            "A) Differences in practices that may not be understood",
+            "B) Duplication of effort",
+            "C) Gaps in coverage of key processes",
+            "D) Higher tooling costs"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Differences in practices that may not be understood": "Correct – Merging different practices can introduce unforeseen risks.",
+            "B) Duplication of effort": "Incorrect – Duplication is not the greatest risk; it can be addressed.",
+            "C) Gaps in coverage of key processes": "Incorrect – While a risk, it is not the greatest compared to unfamiliar practices.",
+            "D) Higher tooling costs": "Incorrect – Higher costs are a short-term spending matter, not the greatest risk."
+        }
+    },
+    {
+        "id": 32,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The purpose of value delivery metrics is:",
+        "options": [
+            "A) Long-term reduction in costs",
+            "B) Reduction in ROSI",
+            "C) Increase in ROSI",
+            "D) Increase in net profit"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Long-term reduction in costs": "Correct – Value delivery metrics are most often associated with long-term cost reduction in proportion to other measures.",
+            "B) Reduction in ROSI": "Incorrect – Value delivery metrics are not usually associated with return on security investment (ROSI).",
+            "C) Increase in ROSI": "Incorrect – Not the purpose of value delivery metrics.",
+            "D) Increase in net profit": "Incorrect – Value delivery metrics are not directly tied to profit."
+        }
+    },
+    {
+        "id": 33,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Joseph, a CIO, is collecting statistics on several operational areas and needs to find a standard way of measuring and publishing information about the effectiveness of his program. Which of the following is the best approach to follow?",
+        "options": [
+            "A) Scaled score",
+            "B) NIST Cybersecurity Framework (CSF)",
+            "C) Business Model for Information Security (BMIS)",
+            "D) Balanced scorecard (BSC)"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Scaled score": "Incorrect – A scaled score is not a method used to publish metrics.",
+            "B) NIST Cybersecurity Framework (CSF)": "Incorrect – NIST CSF is not typically used as a framework for publishing security program metrics.",
+            "C) Business Model for Information Security (BMIS)": "Incorrect – BMIS helps understand relationships but is not used for publishing metrics.",
+            "D) Balanced scorecard (BSC)": "Correct – The balanced scorecard is a well‑known framework for measuring and publishing performance and effectiveness."
+        }
+    },
+    {
+        "id": 34,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following is the best description of the Business Model for Information Security (BMIS)?",
+        "options": [
+            "A) Describes the relationships (as dynamic interconnections) between policy, people, process, and technology.",
+            "B) Describes the relationships (as dynamic interconnections) between people, process, technology, and the organization.",
+            "C) Describes the primary elements (people, process, and technology) in an organization.",
+            "D) Describes the dynamic interconnections (people, process, and technology) in an organization."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Describes the relationships (as dynamic interconnections) between policy, people, process, and technology.": "Incorrect – 'Organization' is missing; policy is not an element.",
+            "B) Describes the relationships (as dynamic interconnections) between people, process, technology, and the organization.": "Correct – BMIS models the dynamic interconnections among people, process, technology, and the organization.",
+            "C) Describes the primary elements (people, process, and technology) in an organization.": "Incorrect – There are four elements, including the organization.",
+            "D) Describes the dynamic interconnections (people, process, and technology) in an organization.": "Incorrect – The dynamic interconnections have specific names (human factors, emergence, etc.); people, process, technology are elements, not DIs."
+        }
+    },
+    {
+        "id": 35,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the correct name for the model shown here?",
+        "options": [
+            "A) COBIT Model for Information Technology",
+            "B) COBIT Model for Information Security",
+            "C) Business Model for Information Security",
+            "D) Business Model for Information Technology"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) COBIT Model for Information Technology": "Incorrect – The model shown is not COBIT.",
+            "B) COBIT Model for Information Security": "Incorrect – The model shown is not COBIT.",
+            "C) Business Model for Information Security": "Correct – The model is the Business Model for Information Security (BMIS).",
+            "D) Business Model for Information Technology": "Incorrect – This is not the correct name of the model."
+        }
+    },
+    {
+        "id": 36,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Jacqueline, an experienced CISO, is reading the findings in a recent risk assessment that describes deficiencies in the organization's vulnerability management process. How would Jacqueline use the Business Model for Information Security (BMIS) to analyze the deficiency?",
+        "options": [
+            "A) Identify the elements connected to the process DI.",
+            "B) Identify the dynamic interconnections (DIs) connected to the process element.",
+            "C) Identify the dynamic elements connected to human factors.",
+            "D) Identify the dynamic elements connected to technology."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Identify the elements connected to the process DI.": "Incorrect – The correct approach is to examine the DIs connected to the process element.",
+            "B) Identify the dynamic interconnections (DIs) connected to the process element.": "Correct – The CISO should examine emergence, enabling and support, and governing DIs to analyze process deficiencies.",
+            "C) Identify the dynamic elements connected to human factors.": "Incorrect – Human factors is one DI, but not necessarily the starting point for process analysis.",
+            "D) Identify the dynamic elements connected to technology.": "Incorrect – Technology is an element, not the correct starting point."
+        }
+    },
+    {
+        "id": 37,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following would constitute an appropriate use of the Zachman enterprise framework?",
+        "options": [
+            "A) An IT service management model as an alternative to ITIL",
+            "B) Identifying system components, followed by high-level design and business functions",
+            "C) Development of business requirements translated top-down into technical architecture",
+            "D) IT systems described at a high level and then in increasing levels of detail"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) An IT service management model as an alternative to ITIL": "Incorrect – Zachman is not an IT service management framework.",
+            "B) Identifying system components, followed by high-level design and business functions": "Incorrect – Zachman is a top‑down framework, not bottom‑up.",
+            "C) Development of business requirements translated top-down into technical architecture": "Incorrect – Zachman does not start with business requirements; it describes the IT architecture itself.",
+            "D) IT systems described at a high level and then in increasing levels of detail": "Correct – Zachman describes IT systems from high‑level down to individual components."
+        }
+    },
+    {
+        "id": 38,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "An IT architect needs to document the flow of data from one system to another, including external systems operated by third-party service providers. What kind of documentation does the IT architect need to develop?",
+        "options": [
+            "A) Data flow diagrams (DFDs)",
+            "B) Entity relationship diagrams (ERDs)",
+            "C) A Zachman architecture framework",
+            "D) Visio diagrams showing information systems and data flows"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Data flow diagrams (DFDs)": "Correct – DFDs are visual depictions showing data flows among information systems.",
+            "B) Entity relationship diagrams (ERDs)": "Incorrect – ERDs depict entities and relationships, not data flows.",
+            "C) A Zachman architecture framework": "Incorrect – Zachman describes architecture in detail, but not necessarily data flows.",
+            "D) Visio diagrams showing information systems and data flows": "Incorrect – This is too generic; DFDs are the proper documentation."
+        }
+    },
+    {
+        "id": 39,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Carole is a CISO in a new organization with a fledgling security program. Carole needs to identify and develop mechanisms to ensure desired outcomes in selected business processes. What is a common term used to define these mechanisms?",
+        "options": [
+            "A) Checkpoints",
+            "B) Detective controls",
+            "C) Controls",
+            "D) Preventive controls"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Checkpoints": "Incorrect – 'Checkpoints' is not the term that describes these mechanisms.",
+            "B) Detective controls": "Incorrect – There will also be preventive, administrative, and other controls.",
+            "C) Controls": "Correct – The common term is 'controls', which encompass preventive, detective, corrective, and others.",
+            "D) Preventive controls": "Incorrect – While preventive controls are one type, the broad term is 'controls'."
+        }
+    },
+    {
+        "id": 40,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the best approach to developing security controls in a new organization?",
+        "options": [
+            "A) Start with a standard control framework and make risk-based adjustments as needed.",
+            "B) Start from scratch and develop controls based on risk as needed.",
+            "C) Start with NIST CSF and move up to ISO 27001, then NIST 800-53 as the organization matures.",
+            "D) Develop controls in response to an initial risk assessment."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Start with a standard control framework and make risk-based adjustments as needed.": "Correct – Using a standard framework as a baseline and then adjusting based on risk is the best approach.",
+            "B) Start from scratch and develop controls based on risk as needed.": "Incorrect – This approach may take too long and would likely converge to a standard framework over time.",
+            "C) Start with NIST CSF and move up to ISO 27001, then NIST 800-53 as the organization matures.": "Incorrect – There is little benefit in switching frameworks; it is better to start with the right one.",
+            "D) Develop controls in response to an initial risk assessment.": "Incorrect – Controls should be developed with periodic risk assessments, not just an initial one."
+        }
+    },
+    {
+        "id": 41,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following is the best description of the COBIT framework?",
+        "options": [
+            "A) A security process and controls framework that can be integrated with ITIL or ISO 20000.",
+            "B) An IT controls and process framework, on which IT controls and processes can be added at an organization's discretion.",
+            "C) An IT process framework with optional security processes when Extended COBIT is implemented.",
+            "D) An IT process framework that includes security processes that are interspersed throughout the framework."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) A security process and controls framework that can be integrated with ITIL or ISO 20000.": "Incorrect – COBIT is not strictly a security controls framework.",
+            "B) An IT controls and process framework, on which IT controls and processes can be added at an organization's discretion.": "Incorrect – Security processes are not optional in COBIT.",
+            "C) An IT process framework with optional security processes when Extended COBIT is implemented.": "Incorrect – There is no 'Extended COBIT'.",
+            "D) An IT process framework that includes security processes that are interspersed throughout the framework.": "Correct – COBIT integrates security processes across its four domains."
+        }
+    },
+    {
+        "id": 42,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "One distinct disadvantage of the ISO 27001 standard is:",
+        "options": [
+            "A) The standard is costly (over one hundred U.S. dollars per copy).",
+            "B) The standard is costly (a few thousand U.S. dollars per copy).",
+            "C) The standard is available only for use in the United States.",
+            "D) The standard is suitable only in large organizations."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) The standard is costly (over one hundred U.S. dollars per copy).": "Correct – ISO 27001 costs over $100 per copy, limiting widespread adoption.",
+            "B) The standard is costly (a few thousand U.S. dollars per copy).": "Incorrect – The standard does not cost thousands of dollars per copy.",
+            "C) The standard is available only for use in the United States.": "Incorrect – ISO 27001 can be used worldwide.",
+            "D) The standard is suitable only in large organizations.": "Incorrect – ISO 27001 is suitable for organizations of all sizes."
+        }
+    },
+    {
+        "id": 43,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following statements about ISO 27001 is correct?",
+        "options": [
+            "A) ISO 27001 consists primarily of a framework of security controls, followed by an appendix of security requirements for running a security management program.",
+            "B) ISO 27001 consists primarily of a body of requirements for running a security management program, along with an appendix of security controls.",
+            "C) ISO 27001 consists of a framework of information security controls.",
+            "D) ISO 27001 consists of a framework of requirements for running a security management program."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) ISO 27001 consists primarily of a framework of security controls, followed by an appendix of security requirements for running a security management program.": "Incorrect – The main focus is the management system requirements, not the controls.",
+            "B) ISO 27001 consists primarily of a body of requirements for running a security management program, along with an appendix of security controls.": "Correct – The standard's main body contains management system requirements, with controls in Annex A.",
+            "C) ISO 27001 consists of a framework of information security controls.": "Incorrect – The main focus is the management system.",
+            "D) ISO 27001 consists of a framework of requirements for running a security management program.": "Incorrect – It also contains an appendix of controls."
+        }
+    },
+    {
+        "id": 44,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The U.S. law that regulates the protection of data related to medical care is:",
+        "options": [
+            "A) PIPEDA",
+            "B) HIPAA",
+            "C) GLBA",
+            "D) GDPR"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) PIPEDA": "Incorrect – PIPEDA is the Canadian data privacy law.",
+            "B) HIPAA": "Correct – HIPAA is the Health Insurance Portability and Accountability Act, with Privacy and Security Rules covering medical data.",
+            "C) GLBA": "Incorrect – GLBA regulates personal information in the U.S. financial services industry.",
+            "D) GDPR": "Incorrect – GDPR is the European Union regulation for personal data protection."
+        }
+    },
+    {
+        "id": 45,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The regulation 'Security and Privacy Controls for Federal Information Systems and Organizations' is better known as:",
+        "options": [
+            "A) ISO/IEC 27001",
+            "B) ISO/IEC 27002",
+            "C) NIST CSF",
+            "D) NIST SP800-53"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) ISO/IEC 27001": "Incorrect – This is an international standard, not the U.S. federal regulation.",
+            "B) ISO/IEC 27002": "Incorrect – This is a code of practice for controls.",
+            "C) NIST CSF": "Incorrect – This is the Cybersecurity Framework, not the controls catalog.",
+            "D) NIST SP800-53": "Correct – NIST SP800-53 is the security and privacy controls catalog for federal systems."
+        }
+    },
+    {
+        "id": 46,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What is the best explanation for the Implementation Tiers in the NIST Cybersecurity Framework?",
+        "options": [
+            "A) Implementation Tiers are levels of risk as determined by the organization.",
+            "B) Implementation Tiers are stages of implementation of controls in the framework.",
+            "C) Implementation Tiers are likened to maturity levels.",
+            "D) Implementation Tiers are levels of risk as determined by an external auditor or regulator."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Implementation Tiers are levels of risk as determined by the organization.": "Incorrect – Tiers are not risk levels.",
+            "B) Implementation Tiers are stages of implementation of controls in the framework.": "Incorrect – Tiers are not about progress of control implementation.",
+            "C) Implementation Tiers are likened to maturity levels.": "Correct – Although not strictly maturity levels, they are very similar.",
+            "D) Implementation Tiers are levels of risk as determined by an external auditor or regulator.": "Incorrect – Tiers are not risk levels and are not externally determined."
+        }
+    },
+    {
+        "id": 47,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Jeffrey is a CIO in an organization that performs financial services for private organizations as well as government agencies and U.S. federal agencies. Which is the best information security controls framework for this organization?",
+        "options": [
+            "A) CIS",
+            "B) ISO 27001",
+            "C) NIST CSF",
+            "D) NIST 800-53"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) CIS": "Incorrect – While CIS is a high-quality framework, NIST 800-53 is mandatory for federal service providers.",
+            "B) ISO 27001": "Incorrect – ISO 27001 is not required for U.S. federal service providers.",
+            "C) NIST CSF": "Incorrect – NIST CSF is a cybersecurity methodology, not a controls framework.",
+            "D) NIST 800-53": "Correct – As a service provider for the U.S. federal government, the organization must adopt NIST SP800-53."
+        }
+    },
+    {
+        "id": 48,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The scope of requirements of PCI-DSS is:",
+        "options": [
+            "A) All systems that store, process, and transmit credit card numbers, as well as all other systems that can communicate with these systems.",
+            "B) All systems that store, process, and transmit credit card numbers.",
+            "C) All systems that store, process, and transmit unencrypted credit card numbers.",
+            "D) All systems in an organization where credit card numbers are stored, processed, and transmitted."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) All systems that store, process, and transmit credit card numbers, as well as all other systems that can communicate with these systems.": "Correct – The scope includes cardholder data environment (CDE) systems and any connected systems.",
+            "B) All systems that store, process, and transmit credit card numbers.": "Incorrect – It also includes systems that can communicate with the CDE.",
+            "C) All systems that store, process, and transmit unencrypted credit card numbers.": "Incorrect – Even encrypted data places systems in scope.",
+            "D) All systems in an organization where credit card numbers are stored, processed, and transmitted.": "Incorrect – Proper network segmentation can reduce scope."
+        }
+    },
+    {
+        "id": 49,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Which of the following statements is true about controls in the Payment Card Industry Data Security Standard?",
+        "options": [
+            "A) Many controls are required, while some are 'addressable,' or optional, based on risk.",
+            "B) All controls are required, regardless of actual risk.",
+            "C) Controls that are required are determined for each organization by the acquiring bank.",
+            "D) In addition to core controls, each credit card brand has its own unique controls."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Many controls are required, while some are 'addressable,' or optional, based on risk.": "Incorrect – No controls are optional in PCI-DSS.",
+            "B) All controls are required, regardless of actual risk.": "Correct – All controls in PCI-DSS are mandatory for all organizations.",
+            "C) Controls that are required are determined for each organization by the acquiring bank.": "Incorrect – Acquiring banks do not determine applicability of controls.",
+            "D) In addition to core controls, each credit card brand has its own unique controls.": "Incorrect – Card brands do not impose additional controls, though they may have specific reporting requirements."
+        }
+    },
+    {
+        "id": 50,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The PCI-DSS is an example of:",
+        "options": [
+            "A) An industry regulation that is enforced with fines",
+            "B) A private industry standard that is enforced with contracts",
+            "C) A voluntary standard that, if used, can reduce cyber insurance premiums",
+            "D) An international law enforced through treaties with member nations"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) An industry regulation that is enforced with fines": "Incorrect – PCI-DSS is not a law or regulation.",
+            "B) A private industry standard that is enforced with contracts": "Correct – PCI-DSS is a private standard enforced through card brand operating rules and contracts.",
+            "C) A voluntary standard that, if used, can reduce cyber insurance premiums": "Incorrect – PCI-DSS is mandatory for merchants and service providers that handle cardholder data.",
+            "D) An international law enforced through treaties with member nations": "Incorrect – PCI-DSS is not an international law."
+        }
+    },
+    {
+        "id": 51,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "What are three factors that a risk manager might consider when developing an information security strategy?",
+        "options": [
+            "A) Threats, risks, and solutions",
+            "B) Prevention, detection, and response",
+            "C) Risk levels, staff qualifications, and security tooling",
+            "D) Risk levels, operating costs, and compliance levels"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Threats, risks, and solutions": "Incorrect – These are factors but not the best set for strategy development.",
+            "B) Prevention, detection, and response": "Incorrect – These are security program capabilities, not strategy factors.",
+            "C) Risk levels, staff qualifications, and security tooling": "Incorrect – These are not the best available factors.",
+            "D) Risk levels, operating costs, and compliance levels": "Correct – Risk, cost, and compliance are key factors when developing a long‑term security strategy."
+        }
+    },
+    {
+        "id": 52,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "The responsibility for facilitation of an organization's cybersecurity program lies with:",
+        "options": [
+            "A) The board of directors",
+            "B) The chief executive officer (CEO)",
+            "C) The chief information officer (CIO)",
+            "D) The chief information security officer (CISO)"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) The board of directors": "Incorrect – The board has ultimate responsibility, but facilitation lies with the CISO.",
+            "B) The chief executive officer (CEO)": "Incorrect – The CEO does not facilitate the cybersecurity program.",
+            "C) The chief information officer (CIO)": "Incorrect – Facilitation is a primary role of the CISO, not the CIO.",
+            "D) The chief information security officer (CISO)": "Correct – The CISO facilitates the cybersecurity program and risk management process."
         }
     },
     # Domain 3 – IT Life Cycle Management
