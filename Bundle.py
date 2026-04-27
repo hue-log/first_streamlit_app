@@ -3,7 +3,6 @@ import random
 import re
 
 # ========== SAMPLE QUESTIONS (with prefixed options) ==========
-# The options may contain "A) ...", "B) ..." etc. – the app strips them automatically.
 QUESTIONS = [
     # Domain 1 – The Audit Process
     {
@@ -105,7 +104,7 @@ QUESTIONS = [
 # ========== STREAMLIT APP ==========
 st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
-# Initialize session state
+# Session state init
 if "questions" not in st.session_state:
     st.session_state.questions = QUESTIONS.copy()
     random.shuffle(st.session_state.questions)
@@ -118,9 +117,9 @@ if "answered" not in st.session_state:
 if "selected_idx" not in st.session_state:
     st.session_state.selected_idx = None
 if "shuffled_data" not in st.session_state:
-    st.session_state.shuffled_data = None  # will store (original_text, stripped_text, is_correct)
+    st.session_state.shuffled_data = None  # [(original, stripped, is_correct), ...]
 
-# Helper: strip leading "X) " or "X)"
+# Helper: remove "A) " or "A)" prefix
 def strip_option_prefix(text):
     return re.sub(r"^[A-D]\)\s*", "", text)
 
@@ -151,14 +150,12 @@ if total == 0:
 # Current question
 q = st.session_state.questions[st.session_state.idx]
 
-# Prepare shuffled options (stable until next question)
+# Prepare shuffled options (if not already set)
 if st.session_state.shuffled_data is None:
-    raw_options = q["options"]
     correct_letter = q["correct"]
-    correct_raw = raw_options[ord(correct_letter) - ord("A")]
-    # Build list of (original_text, stripped_text, is_correct)
+    correct_raw = q["options"][ord(correct_letter) - ord("A")]
     opts_with_flag = []
-    for opt in raw_options:
+    for opt in q["options"]:
         stripped = strip_option_prefix(opt)
         is_correct = (stripped == strip_option_prefix(correct_raw))
         opts_with_flag.append((opt, stripped, is_correct))
@@ -178,31 +175,30 @@ st.sidebar.write(f"Score: {st.session_state.score} / {st.session_state.idx}")
 st.subheader(f"Question {st.session_state.idx + 1}")
 st.write(q["question"])
 
-# Radio selection
-selected = st.radio(
-    "Select your answer:",
-    radio_choices,
-    index=None,
-    key=f"radio_{st.session_state.idx}",
-    disabled=st.session_state.answered
-)
-
-col1, col2 = st.columns([1, 2])
+# ----- OPTIONS AREA -----
 if not st.session_state.answered:
+    # Show radio buttons
+    selected = st.radio(
+        "Select your answer:",
+        radio_choices,
+        index=None,
+        key=f"radio_{st.session_state.idx}"
+    )
+
+    col1, col2 = st.columns([1, 2])
     if col1.button("Submit", use_container_width=True):
         if selected is not None:
-            selected_label = selected[0]
+            selected_label = selected[0]             # "A", "B", ...
             selected_idx = labels.index(selected_label)
             st.session_state.selected_idx = selected_idx
             st.session_state.answered = True
-            if shuffled[selected_idx][2]:  # is_correct?
+            if shuffled[selected_idx][2]:            # is_correct?
                 st.session_state.score += 1
             st.rerun()
         else:
             st.warning("Please select an answer first.")
 else:
-    # Detailed per-option feedback
-    st.markdown("---")
+    # ----- INLINE FEEDBACK (replaces radio) -----
     selected_idx = st.session_state.selected_idx
     explanations = q.get("option_explanations", {})
 
@@ -210,16 +206,16 @@ else:
         letter = labels[i]
         display_text = f"{letter}) {stripped_text}"
         # Use original text (with prefix) to look up explanation
-        explanation = explanations.get(orig_text, "No detailed explanation available.")
+        explanation = explanations.get(orig_text, "")
 
         if is_correct:
             st.success(f"**{display_text}**  \n{explanation}")
         elif i == selected_idx and not is_correct:
-            st.error(f"**{display_text}** (your answer)  \n{explanation}")
+            st.error(f"**{display_text}**  \n{explanation}")
         else:
             st.error(f"**{display_text}**  \n{explanation}")
 
-    # Navigation
+    # Navigation buttons (always placed after the feedback)
     nav1, nav2, nav3 = st.columns([1, 2, 1])
     if st.session_state.idx > 0:
         if nav1.button("⬅ Previous", use_container_width=True):
