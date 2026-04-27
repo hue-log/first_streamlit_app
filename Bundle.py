@@ -5417,20 +5417,6 @@ st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 # Helper: remove "A) " or "A)" prefix from option text
 def strip_option_prefix(text):
     return re.sub(r"^[A-D]\)\s*", "", text)
-
-import streamlit as st
-import random
-import re
-
-# ==================== QUESTION BANK ====================
-# Paste your full QUESTIONS list here (each dict must include:
-#   "domain", "question", "options" (list of "A) text", etc.),
-#   "correct" (letter), "option_explanations" (dict mapping full option text -> explanation)
-# )
-QUESTIONS = [
-    # ... your question list ...
-]
-
 # ========== STREAMLIT APP ==========
 st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
