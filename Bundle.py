@@ -3934,9 +3934,9 @@ QUESTIONS = [
     },
     # Domain 5 – Information Asset Protection
     {
-        "id": 5,
+        "id": 1,
         "domain": "Domain 5 – Information Asset Protection",
-        "question": "A new information security manager has examined the systems in the production environment and has found that their security‑related configurations are inadequate and inconsistent. To improve this situation, the security manager should create a:",
+        "question": "A new information security manager has examined the systems in the production environment and has found that their security-related configurations are inadequate and inconsistent. To improve this situation, the security manager should create a:",
         "options": [
             "A) Jump server",
             "B) Firewall rule",
@@ -3945,10 +3945,1468 @@ QUESTIONS = [
         ],
         "correct": "C",
         "option_explanations": {
-            "A) Jump server": "Incorrect – A jump server does not address configuration consistency.",
-            "B) Firewall rule": "Incorrect – Firewall rules help control traffic, not internal server hardening.",
-            "C) Hardening standard": "Correct – A hardening standard defines security configurations for systems and devices.",
-            "D) CMDB": "Incorrect – A CMDB manages configuration data but does not define security settings."
+            "A) Jump server": "Incorrect – A jump server will not address this situation.",
+            "B) Firewall rule": "Incorrect – Firewall rules will not adequately address this situation.",
+            "C) Hardening standard": "Correct – A hardening standard will define the security-related configurations applicable to information systems and devices. Note that automation may also need to be implemented if there are large numbers of servers.",
+            "D) CMDB": "Incorrect – A CMDB may already exist in this situation; regardless, it is the strong and consistent configuration of servers that is necessary. A CMDB will assist in the management of server configuration."
+        }
+    },
+    {
+        "id": 2,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which U.S. government agency enforces retail organizations' information privacy policy?",
+        "options": [
+            "A) National Institute of Standards and Technology",
+            "B) Federal Trade Commission",
+            "C) Office of Civil Rights",
+            "D) United States Secret Service"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) National Institute of Standards and Technology": "Incorrect – NIST develops standards and guidelines but does not perform enforcement.",
+            "B) Federal Trade Commission": "Correct – The FTC has historically been enforcing retail organizations' information privacy policy and has brought legal suit against organizations knowingly violating these policies.",
+            "C) Office of Civil Rights": "Incorrect – The OCR enforces HIPAA and related laws in the healthcare industry.",
+            "D) United States Secret Service": "Incorrect – The USSS protects U.S. currency as well as the president."
+        }
+    },
+    {
+        "id": 3,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "While useful for detecting fires, what is one known problem associated with the use of smoke detectors under a raised computer room floor?",
+        "options": [
+            "A) False alarms due to the accumulation of dust",
+            "B) Higher cost of maintenance",
+            "C) Lack of visual reference",
+            "D) Lower sensitivity due to stagnant air"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) False alarms due to the accumulation of dust": "Correct – Dust can accumulate under the raised floor in a computer room environment. Changes in airflow can cause the dust to circulate in the air, causing false-positive smoke detection.",
+            "B) Higher cost of maintenance": "Incorrect – There is no difference in maintenance costs for smoke detectors above or below a raised floor.",
+            "C) Lack of visual reference": "Incorrect – It is not necessary for personnel to be able to see smoke detectors below a raised floor.",
+            "D) Lower sensitivity due to stagnant air": "Incorrect – The air under a raised floor is not stagnant, but instead serves as a plenum for cooling and air circulation."
+        }
+    },
+    {
+        "id": 4,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization is seeking to establish a protocol standard for federated authentication. Which of the following protocols is least likely to be selected?",
+        "options": [
+            "A) OAuth",
+            "B) SAML",
+            "C) SOAP",
+            "D) HMAC"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) OAuth": "Incorrect – OAuth is a protocol found in federated authentication.",
+            "B) SAML": "Incorrect – SAML is a protocol found in federated authentication.",
+            "C) SOAP": "Correct – SOAP is a protocol used for distributed object instantiation and communication.",
+            "D) HMAC": "Incorrect – HMAC is a protocol found in federated authentication. HMAC has fallen out of common use."
+        }
+    },
+    {
+        "id": 5,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is one distinct disadvantage of the use of on-premises web content filtering?",
+        "options": [
+            "A) End users can no longer inspect URLs in e-mail messages.",
+            "B) End users can easily circumvent it with a local IPS.",
+            "C) Mobile devices are unprotected when off-network.",
+            "D) It is labor intensive to manage exceptions."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) End users can no longer inspect URLs in e-mail messages.": "Incorrect – Web content filtering systems do not interact with the content of e-mail messages.",
+            "B) End users can easily circumvent it with a local IPS.": "Incorrect – Users would not be able to circumvent web content filtering with a local IPS; on the contrary, a local IPS would further improve endpoint security, particularly when off-network.",
+            "C) Mobile devices are unprotected when off-network.": "Correct – On-premises web content filtering protects devices on the internal network, as well as remote devices when they have established VPNs without split tunneling. Mobile devices connected to the Internet without VPN receive no protection from on-premises web content filtering systems.",
+            "D) It is labor intensive to manage exceptions.": "Incorrect – The management of rule exceptions is not necessarily a problem."
+        }
+    },
+    {
+        "id": 6,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the purpose of data classification?",
+        "options": [
+            "A) To establish rules for data protection and use",
+            "B) To discover sensitive data on unstructured shares",
+            "C) To enforce file access rules",
+            "D) To gather statistics on data usage"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) To establish rules for data protection and use": "Correct – The purpose of a data classification program is to define the classes, or categories, of data and define usage guidelines for data at each classification level. This helps personnel to understand and follow handling guidelines, which results in improved data protection.",
+            "B) To discover sensitive data on unstructured shares": "Incorrect – Data classification is not used in data discovery.",
+            "C) To enforce file access rules": "Incorrect – Data classification does not directly contribute to the enforcement of file access rules. Data classification, however, may state what file access rules should be.",
+            "D) To gather statistics on data usage": "Incorrect – Data classification does not contribute to data usage statistics."
+        }
+    },
+    {
+        "id": 7,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Blockchain is best described as:",
+        "options": [
+            "A) A cryptographic algorithm",
+            "B) A data confidentiality technique using cryptography",
+            "C) A popular cryptocurrency",
+            "D) A list of records that are linked using cryptography"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) A cryptographic algorithm": "Incorrect – Blockchain is not a cryptographic algorithm; blockchain uses crypto algorithms, however.",
+            "B) A data confidentiality technique using cryptography": "Incorrect – Blockchain does not protect the confidentiality of data.",
+            "C) A popular cryptocurrency": "Incorrect – Blockchain is not a cryptocurrency.",
+            "D) A list of records that are linked using cryptography": "Correct – A blockchain is a series of records that are linked using cryptography. Specifically, each successive record in a blockchain contains a hash of the previous record; this makes data in a blockchain resistant to alteration."
+        }
+    },
+    {
+        "id": 8,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The private keys for a well-known web site have been compromised. What is the best approach for resolving this matter?",
+        "options": [
+            "A) Change the IP address of the web server.",
+            "B) Add an entry to a CRL for the web site's SSL keys.",
+            "C) Recompile the web site's application.",
+            "D) Reboot the web server."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Change the IP address of the web server.": "Incorrect – Changing the IP address does not address the compromised keys.",
+            "B) Add an entry to a CRL for the web site's SSL keys.": "Correct – Adding an entry to the certificate revocation list (CRL) is the most effective solution. The certificate authority (CA) that issued the original SSL keys would perform this action. Subsequent attempts to connect with the compromised keys would be unsuccessful—at least for all software that checks the CRL first.",
+            "C) Recompile the web site's application.": "Incorrect – Recompiling does not affect the compromised SSL keys.",
+            "D) Reboot the web server.": "Incorrect – Rebooting does not revoke the compromised keys."
+        }
+    },
+    {
+        "id": 9,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A web application stores unique codes on each user's system in order to track the activities of each visitor. What is a common term for these codes?",
+        "options": [
+            "A) Http-only cookie",
+            "B) Super cookie",
+            "C) Session cookie",
+            "D) Persistent cookie"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Http-only cookie": "Incorrect – An http-only cookie is one that cannot be read by client-side software such as JavaScript.",
+            "B) Super cookie": "Incorrect – A super cookie is one issued by a top-level domain such as .com.",
+            "C) Session cookie": "Correct – A session cookie is used to uniquely identify each visitor to a web site and is used to manage user sessions.",
+            "D) Persistent cookie": "Incorrect – A persistent cookie is used to store user preferences such as language and time zone."
+        }
+    },
+    {
+        "id": 10,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The term \"virtual memory\" refers to what mechanism?",
+        "options": [
+            "A) The main storage allocated to a guest of a hypervisor",
+            "B) Memory management that isolates running processes",
+            "C) Memory that is shared between guests of a hypervisor",
+            "D) Main storage space that exceeds physical memory and is extended to secondary storage"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) The main storage allocated to a guest of a hypervisor": "Incorrect – Virtual memory is not specifically about hypervisor memory allocation.",
+            "B) Memory management that isolates running processes": "Incorrect – That describes process isolation, not virtual memory.",
+            "C) Memory that is shared between guests of a hypervisor": "Incorrect – That is shared memory, not virtual memory.",
+            "D) Main storage space that exceeds physical memory and is extended to secondary storage": "Correct – Virtual memory is the technique of creating memory space that exceeds the physical main memory of a system; memory is extended onto secondary storage."
+        }
+    },
+    {
+        "id": 11,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the effect of suppressing the broadcast of SSID?",
+        "options": [
+            "A) Network is not listed, but no difference in security.",
+            "B) Only registered users are able to connect.",
+            "C) Stronger (AES vs. TKIP) cryptography.",
+            "D) Administrators can track users more easily."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Network is not listed, but no difference in security.": "Correct – Suppressing the broadcast of SSID in a Wi-Fi network makes no difference in terms of the security of the network. Some believe that suppressing SSID is better for security, but there are numerous tools available that show all available networks, whether they are broadcasting SSID or not.",
+            "B) Only registered users are able to connect.": "Incorrect – Suppressing SSID broadcast has no effect on the users who are able to connect.",
+            "C) Stronger (AES vs. TKIP) cryptography.": "Incorrect – Suppressing SSID broadcast is not related to the selection of cryptography.",
+            "D) Administrators can track users more easily.": "Incorrect – Suppressing SSID broadcast does not affect administration or monitoring of the Wi-Fi network."
+        }
+    },
+    {
+        "id": 12,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the purpose of recordkeeping in a security awareness training program?",
+        "options": [
+            "A) It prevents users from repeating the training.",
+            "B) Compliance with training provider licensing requirements.",
+            "C) Recordkeeping is required by ISO 27001.",
+            "D) Users cannot later claim no knowledge of content if they violate policy."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) It prevents users from repeating the training.": "Incorrect – An organization would not normally deny a user from repeating security awareness training.",
+            "B) Compliance with training provider licensing requirements.": "Incorrect – License requirements are enforced through access controls.",
+            "C) Recordkeeping is required by ISO 27001.": "Incorrect – Recordkeeping is not necessarily required by ISO 27001.",
+            "D) Users cannot later claim no knowledge of content if they violate policy.": "Correct – When a user completes security awareness training and there is evidence of this completion in business records, the user cannot easily refute knowledge of the training content if they later are found to violate policy. Competency quizzes as a part of security awareness training helps even more in this regard."
+        }
+    },
+    {
+        "id": 13,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An attack technique in which an attacker attempts to place arbitrary code into the instruction space of a running process is known as:",
+        "options": [
+            "A) Cross-site scripting",
+            "B) A time-of-check to time-of-use attack",
+            "C) A buffer overflow attack",
+            "D) A race condition"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Cross-site scripting": "Incorrect – A cross-site scripting attack does not overwrite code in the instruction space of a running program, but instead is a technique where the attacker attempts to place client-side scripts into web pages so that a user's browser will execute the attacker's code.",
+            "B) A time-of-check to time-of-use attack": "Incorrect – A TOC/TOU attack exploits a timing window, not code injection.",
+            "C) A buffer overflow attack": "Correct – A buffer overflow attack is a technique where the attacker attempts to overflow a running program's input buffer, resulting in arbitrary code overwriting other instructions in the program. Successful exploitation of a buffer overflow vulnerability gives the attacker complete control over the target program.",
+            "D) A race condition": "Incorrect – A race condition is another term for TOC/TOU, not a direct code injection."
+        }
+    },
+    {
+        "id": 14,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A security analyst who is troubleshooting a security issue has asked another engineer to obtain a PCAP file associated with a given user's workstation. What is the security analyst asking for?",
+        "options": [
+            "A) A copy of the workstation's registry file",
+            "B) A copy of the network traffic to and from the workstation",
+            "C) An image of the workstation's main memory (RAM)",
+            "D) An image of the workstation's secondary memory (hard drive)"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) A copy of the workstation's registry file": "Incorrect – A PCAP is not a copy of the workstation's registry file.",
+            "B) A copy of the network traffic to and from the workstation": "Correct – A PCAP (packet capture) file is a file containing a copy of network traffic associated with one or more devices on a network.",
+            "C) An image of the workstation's main memory (RAM)": "Incorrect – A PCAP is not an image of memory.",
+            "D) An image of the workstation's secondary memory (hard drive)": "Incorrect – A PCAP is not a disk image."
+        }
+    },
+    {
+        "id": 15,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A development lab employs a syslog server for security and troubleshooting issues. The information security office has recently implemented a SIEM and has directed that all log data be sent to the SIEM. How can the development lab continue to employ its local syslog server while complying with this request?",
+        "options": [
+            "A) Build a proxy server that will clone the log data.",
+            "B) The development lab will have to shut down its syslog server.",
+            "C) Export syslog data every hour and send it to the SIEM.",
+            "D) Direct servers to send their syslog data to the local server and to the SIEM."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Build a proxy server that will clone the log data.": "Incorrect – A proxy server is unnecessary, as systems and devices can send syslog data to multiple destinations.",
+            "B) The development lab will have to shut down its syslog server.": "Incorrect – The lab can continue using its syslog server and comply by configuring dual destinations.",
+            "C) Export syslog data every hour and send it to the SIEM.": "Incorrect – Exporting and forwarding is unnecessary since systems can send to multiple destinations directly.",
+            "D) Direct servers to send their syslog data to the local server and to the SIEM.": "Correct – Servers and devices can send syslog data to multiple destinations."
+        }
+    },
+    {
+        "id": 16,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The best time to assign roles and responsibilities for computer security incident response is:",
+        "options": [
+            "A) During training",
+            "B) During tabletop testing",
+            "C) While responding to an incident",
+            "D) While writing the incident response plan"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) During training": "Incorrect – Responsible parties should be established well before training, in the plan development stage.",
+            "B) During tabletop testing": "Incorrect – Should be established well before tabletop testing.",
+            "C) While responding to an incident": "Incorrect – Roles and responsibilities should be established before an incident actually occurs.",
+            "D) While writing the incident response plan": "Correct – The best time to establish and assign roles and responsibilities is at the time of incident response plan development."
+        }
+    },
+    {
+        "id": 17,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Chain of custody is employed in which business process?",
+        "options": [
+            "A) Internal investigation",
+            "B) Asset management",
+            "C) Access management",
+            "D) Penetration testing"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Internal investigation": "Correct – Chain of custody is employed whenever there is an investigation, including forensics and security incidents, where evidence needs to be collected and retained for later legal proceedings.",
+            "B) Asset management": "Incorrect – Chain of custody is not used in asset or access management processes.",
+            "C) Access management": "Incorrect – Chain of custody is not used in access management.",
+            "D) Penetration testing": "Incorrect – Chain of custody is not used in penetration tests."
+        }
+    },
+    {
+        "id": 18,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Canada's ITSG-33 is a similar to which standard?",
+        "options": [
+            "A) SSAE18",
+            "B) HIPAA",
+            "C) NIST SP800-53",
+            "D) ISO/IEC 27001"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) SSAE18": "Incorrect – ITSG-33 is not similar to SSAE18.",
+            "B) HIPAA": "Incorrect – ITSG-33 is not similar to HIPAA.",
+            "C) NIST SP800-53": "Correct – Canada's ITSG-33 is nearly a clone of the U.S. standard NIST SP800-53.",
+            "D) ISO/IEC 27001": "Incorrect – ITSG-33 is not similar to ISO/IEC 27001."
+        }
+    },
+    {
+        "id": 19,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The process of ensuring proper protection and use of PII is known as:",
+        "options": [
+            "A) Security",
+            "B) Privacy",
+            "C) Data loss prevention",
+            "D) Data discovery"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Security": "Incorrect – Security is primarily concerned only with the protection of PII, but not with its use.",
+            "B) Privacy": "Correct – Privacy is primarily concerned with the protection of PII (personally identifiable information), as well as its uses in and by an organization.",
+            "C) Data loss prevention": "Incorrect – DLP is mainly concerned with the use of PII and other sensitive information such as intellectual property.",
+            "D) Data discovery": "Incorrect – Data discovery is the process of examining storage systems to determine the nature of the data that resides there."
+        }
+    },
+    {
+        "id": 20,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A CIO is investigating the prospect of a hosting center for its IT infrastructure. A specific hosting center claims to have \"N + 1\" HVAC Systems. What is meant by this term?",
+        "options": [
+            "A) The hosting center has one more HVAC system than is necessary for adequate cooling.",
+            "B) The hosting center has the \"N + 1\" brand of HVAC systems designed for hosting centers.",
+            "C) The hosting center has recently installed a new HVAC system.",
+            "D) The hosting center HVAC systems meet the \"N + 1\" reliability standard."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) The hosting center has one more HVAC system than is necessary for adequate cooling.": "Correct – N+1 refers to any of several critical systems, including incoming power, HVAC, and Internet connectivity, where at least one additional component is available so that the failure of one component will not interrupt hosting center services.",
+            "B) The hosting center has the \"N + 1\" brand of HVAC systems designed for hosting centers.": "Incorrect – N+1 is not an HVAC brand, but an expression of resilience.",
+            "C) The hosting center has recently installed a new HVAC system.": "Incorrect – N+1 is an expression of resilience through redundancy.",
+            "D) The hosting center HVAC systems meet the \"N + 1\" reliability standard.": "Incorrect – N+1 is an expression of resilience through the number of components in use, generally one more than is necessary to sustain operations."
+        }
+    },
+    {
+        "id": 21,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization has updated its identity and access management infrastructure so that users use their AD credentials to log in to the network as well as internal business applications. What has the organization implemented?",
+        "options": [
+            "A) Credential vaulting",
+            "B) Single sign-on",
+            "C) Federated identity",
+            "D) Reduced sign-on"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Credential vaulting": "Incorrect – Credential vaulting is a technique of storing login credentials in an encrypted repository.",
+            "B) Single sign-on": "Incorrect – SSO permits a user to log in once to an environment containing multiple applications and systems. The logged-in state is known to systems and applications that are part of the SSO environment.",
+            "C) Federated identity": "Incorrect – Federated identity permits users to authenticate to systems in participating organizations.",
+            "D) Reduced sign-on": "Correct – Reduced sign-on is the result of integrating a central identity store such as Active Directory (AD) with applications and networks. The term refers to the reduction in the numbers of login credentials users need to access networks and systems."
+        }
+    },
+    {
+        "id": 22,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The primary advantage of a firewall on a laptop computer is:",
+        "options": [
+            "A) Laptop computers are protected when outside the enterprise network.",
+            "B) End users have more control over their network security.",
+            "C) Improved performance of enterprise network firewalls.",
+            "D) Redundancy in the event the enterprise firewall is overloaded."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Laptop computers are protected when outside the enterprise network.": "Correct – The firewall on a laptop computer will provide some network protection in cases where the laptop is connected to the Internet at a location outside of the enterprise and its firewalls.",
+            "B) End users have more control over their network security.": "Incorrect – End users should not be able to configure the firewalls on their workstations.",
+            "C) Improved performance of enterprise network firewalls.": "Incorrect – Laptop firewalls will not affect the performance of enterprise firewalls.",
+            "D) Redundancy in the event the enterprise firewall is overloaded.": "Incorrect – Laptop firewalls do not serve as a redundancy for enterprise firewalls."
+        }
+    },
+    {
+        "id": 23,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization's data classification policy includes guidelines for placing footers with specific language in documents and presentations. What activity does this refer to?",
+        "options": [
+            "A) Digital signatures",
+            "B) Digital envelopes",
+            "C) Document marking",
+            "D) Document tagging"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Digital signatures": "Incorrect – Digital signatures cryptographically sign a document to ensure authenticity and integrity.",
+            "B) Digital envelopes": "Incorrect – Digital envelopes encapsulate encryption keys.",
+            "C) Document marking": "Correct – Document marking is the process of placing human-readable text in a document that advises a reader of its sensitivity.",
+            "D) Document tagging": "Incorrect – Document tagging is used to place machine-readable tags on documents for use by automated systems."
+        }
+    },
+    {
+        "id": 24,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What technique does PGP use to permit multiple users to read an encrypted document?",
+        "options": [
+            "A) Key fingerprints",
+            "B) Symmetric cryptography",
+            "C) Digital envelope",
+            "D) Digital signature"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Key fingerprints": "Incorrect – Key fingerprints are used to verify a user's public key.",
+            "B) Symmetric cryptography": "Incorrect – Symmetric cryptography, while used at the core of PGP to encrypt and decrypt files, does not itself facilitate access by multiple users.",
+            "C) Digital envelope": "Correct – PGP uses a digital envelope to encapsulate multiple public keys that permits multiple users to read an encrypted document.",
+            "D) Digital signature": "Incorrect – A digital signature is used to verify the authenticity and integrity of a document."
+        }
+    },
+    {
+        "id": 25,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What feature permits enterprise users of Microsoft Outlook to digitally sign e-mail messages?",
+        "options": [
+            "A) PGP",
+            "B) AD PKI",
+            "C) Local administrative privileges",
+            "D) Password vaulting"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) PGP": "Incorrect – PGP is not commonly used any more for this purpose.",
+            "B) AD PKI": "Correct – The PKI capabilities in Active Directory facilitate the use of digital signatures, and encryption, of e-mail messages in Outlook.",
+            "C) Local administrative privileges": "Incorrect – Local administrative privileges do not directly facilitate the use of digital signatures in e-mail. While a local administrator may be able to generate a keypair locally, a recipient of a digitally signed or encrypted message would probably not be able to verify or decrypt it.",
+            "D) Password vaulting": "Incorrect – Password vaulting is used to protect passwords."
+        }
+    },
+    {
+        "id": 26,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A URL starting with https:// signifies what technology?",
+        "options": [
+            "A) Self-signed content",
+            "B) Encryption with 3DES",
+            "C) Encryption with SSL or TLS",
+            "D) SET, or Secure Electronic Transaction"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Self-signed content": "Incorrect – https does not signify the use of self-signed content.",
+            "B) Encryption with 3DES": "Incorrect – https does not determine the specific encryption algorithm used.",
+            "C) Encryption with SSL or TLS": "Correct – https indicates that SSL/TLS is used to secure the connection.",
+            "D) SET, or Secure Electronic Transaction": "Incorrect – SET is a deprecated protocol, not what https represents."
+        }
+    },
+    {
+        "id": 27,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A recent audit of an IT operation included a finding stating that the organization experiences virtualization sprawl. What is the meaning of this term?",
+        "options": [
+            "A) The process related to the creation of new virtual machines is not effective.",
+            "B) Virtual machines are contending for scarce resources.",
+            "C) The organization has too many virtual machines.",
+            "D) Resource requirements for virtual machines are growing."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) The process related to the creation of new virtual machines is not effective.": "Correct – Virtualization sprawl is the phenomenon whereby new virtual machines are created without adequate management control. Because new servers can be created in a virtual environment without requiring the purchase of server hardware, organizations without effective controls will find that they have far more virtual machines than management intends.",
+            "B) Virtual machines are contending for scarce resources.": "Incorrect – Virtualization sprawl does not refer to VMs contending for scarce resources. However, VMs contending for resources is a likely result of virtualization sprawl.",
+            "C) The organization has too many virtual machines.": "Incorrect – An organization with too many virtual machines is a result of ineffective virtual machine management controls.",
+            "D) Resource requirements for virtual machines are growing.": "Incorrect – Virtualization sprawl does not refer to the growing need for resources, but to the loss of control over the creation of virtual machines."
+        }
+    },
+    {
+        "id": 28,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Reasons for placing all IoT-type devices on isolated VLANs include all of the following except:",
+        "options": [
+            "A) Use of a different network access method",
+            "B) Compatibility with IPv4",
+            "C) Risks associated with unpatched and unpatchable devices",
+            "D) Protection from malware present in end-user environments"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Use of a different network access method": "Incorrect – This is a potential consideration for placing IoT devices in isolated VLANs.",
+            "B) Compatibility with IPv4": "Correct – Compatibility with IPv4 is rarely, if ever, a reason for isolating IoT devices onto a separate VLAN.",
+            "C) Risks associated with unpatched and unpatchable devices": "Incorrect – This is a potential consideration.",
+            "D) Protection from malware present in end-user environments": "Incorrect – This is a potential consideration."
+        }
+    },
+    {
+        "id": 29,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the best reason for including competency quizzes in security awareness training courses?",
+        "options": [
+            "A) Quizzes are needed in order to improve users' knowledge.",
+            "B) Quizzes are required by regulations such as PCI and HIPAA.",
+            "C) It gives users an opportunity to test their skills.",
+            "D) It provides evidence of retention of course content."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Quizzes are needed in order to improve users' knowledge.": "Incorrect – Quizzes don't necessarily improve users' knowledge, but are used to test their knowledge.",
+            "B) Quizzes are required by regulations such as PCI and HIPAA.": "Incorrect – PCI and HIPAA do not necessarily require quizzes.",
+            "C) It gives users an opportunity to test their skills.": "Incorrect – The primary purposes of quizzes is to measure competency, not provide opportunities to practice.",
+            "D) It provides evidence of retention of course content.": "Correct – Quizzes help to reinforce learning and provide evidence that users learned the content. Some online courses are able to require users to pass quizzes with a minimum score to complete the course."
+        }
+    },
+    {
+        "id": 30,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "In the context of information technology and information security, what is the purpose of fuzzing?",
+        "options": [
+            "A) To assess a physical server's resilience through a range of humidity settings",
+            "B) To assess a physical server's ability to repel static electricity",
+            "C) To assess a program's resistance to attack via the UI",
+            "D) To assess a program's performance"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) To assess a physical server's resilience through a range of humidity settings": "Incorrect – Fuzzing is not related to humidity or static electricity in a server environment.",
+            "B) To assess a physical server's ability to repel static electricity": "Incorrect – Fuzzing is not related to static electricity.",
+            "C) To assess a program's resistance to attack via the UI": "Correct – Fuzzing refers to techniques where numerous iterations of data input combinations are offered to input fields to assess the presence and exploitability of security vulnerabilities.",
+            "D) To assess a program's performance": "Incorrect – Fuzzing is not used to assess a program's performance."
+        }
+    },
+    {
+        "id": 31,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An attacker who is attempting to infiltrate an organization has decided to employ a DNS poison cache attack. What method will the attacker use to attempt this attack?",
+        "options": [
+            "A) Send forged query replies to a DNS server.",
+            "B) Send forged query replies to end-user workstations.",
+            "C) Send forged PTR replies to end-user workstations.",
+            "D) Send forced PTR replies to DNS servers."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Send forged query replies to a DNS server.": "Correct – A DNS poison cache attack works by sending forged DNS query replies to a DNS server in an attempt to plant false information in the server's cache. The purpose of this attack is to direct users to the wrong server when their workstations query the DNS server.",
+            "B) Send forged query replies to end-user workstations.": "Incorrect – DNS poison cache attacks involve sending forged replies to DNS servers, not to workstations.",
+            "C) Send forged PTR replies to end-user workstations.": "Incorrect – DNS poison cache attacks do not utilize the sending of PTR replies.",
+            "D) Send forced PTR replies to DNS servers.": "Incorrect – DNS poison cache attacks do not utilize PTR replies."
+        }
+    },
+    {
+        "id": 32,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the Unix command to dynamically view the end of a text logfile?",
+        "options": [
+            "A) tail -f",
+            "B) tail -e",
+            "C) less -f",
+            "D) more -f"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) tail -f": "Correct – The \"tail -f\" command will dynamically display the end of a text logfile. When new entries appear, tail will automatically show the new entries with no user intervention required.",
+            "B) tail -e": "Incorrect – \"tail -e\" is not the proper command to display the end of a logfile dynamically.",
+            "C) less -f": "Incorrect – \"less -f\" is not the proper command.",
+            "D) more -f": "Incorrect – \"more -f\" is not the proper command."
+        }
+    },
+    {
+        "id": 33,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "In the United States, what are organizations required to do when discovering child pornography on a user's workstation?",
+        "options": [
+            "A) Contact law enforcement after the user has admitted to viewing child porn.",
+            "B) Contact law enforcement when the user's workstation has been retired.",
+            "C) Contact law enforcement after terminating the user.",
+            "D) Immediately contact law enforcement."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Contact law enforcement after the user has admitted to viewing child porn.": "Incorrect – There is no requirement for users to admit anything.",
+            "B) Contact law enforcement when the user's workstation has been retired.": "Incorrect – Law enforcement must be notified immediately.",
+            "C) Contact law enforcement after terminating the user.": "Incorrect – Law enforcement must be notified immediately.",
+            "D) Immediately contact law enforcement.": "Correct – Organizations in the United States are required to contact law enforcement immediately upon discovery of child porn on any computer or workstation."
+        }
+    },
+    {
+        "id": 34,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization suspects one of its employees of a security violation regarding the use of their workstation. The workstation, a laptop computer that is powered down, has been delivered to a forensic expert. What is the first thing the expert should do?",
+        "options": [
+            "A) Remove the hard drive.",
+            "B) Photograph the laptop.",
+            "C) Power up the laptop.",
+            "D) Remove the RAM from the laptop."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Remove the hard drive.": "Incorrect – The laptop should be photographed prior to removing the hard drive in order to document its pre-investigation state.",
+            "B) Photograph the laptop.": "Correct – Prior to removing the hard drive to make a forensically identical copy for analysis, the forensic expert should first photograph the laptop to show its state prior to any disassembly.",
+            "C) Power up the laptop.": "Incorrect – The laptop should not be powered up until after it has been photographed and its hard drive forensically copied.",
+            "D) Remove the RAM from the laptop.": "Incorrect – The laptop should be photographed prior to any disassembly."
+        }
+    },
+    {
+        "id": 35,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following statements is true regarding the Payment Card Industry Data Security Standard (PCI-DSS)?",
+        "options": [
+            "A) All organizations processing more than US$6,000,000 in credit card transactions annually must undergo an annual audit.",
+            "B) Organizations using chip-and-PIN terminals are exempt from PCI requirements.",
+            "C) Organizations processing fewer than six million merchant transactions annually are usually permitted to provide annual self-assessments.",
+            "D) Organizations are permitted to opt out of low-risk controls via Compensating Control Worksheets."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) All organizations processing more than US$6,000,000 in credit card transactions annually must undergo an annual audit.": "Incorrect – Compliance levels are determined by the number of transactions, not the value of transactions.",
+            "B) Organizations using chip-and-PIN terminals are exempt from PCI requirements.": "Incorrect – Organizations using chip-and-PIN terminals are still subject to PCI-DSS standards; however, such organizations have fewer requirements to comply with.",
+            "C) Organizations processing fewer than six million merchant transactions annually are usually permitted to provide annual self-assessments.": "Correct – Merchant organizations with fewer than six million credit card transactions annually are usually permitted to complete annual self-assessment questionnaires.",
+            "D) Organizations are permitted to opt out of low-risk controls via Compensating Control Worksheets.": "Incorrect – Organizations are not permitted to opt out of controls."
+        }
+    },
+    {
+        "id": 36,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "According to the European General Data Protection Regulation (GDPR), what is the requirement for organizations' use of a Data Protection Officer (DPO)?",
+        "options": [
+            "A) All organizations storing EU citizen data are required to have an employee designated as the DPO.",
+            "B) All organizations storing large volumes of EU citizen data are required to use a DPO.",
+            "C) All organizations storing EU citizen data are required to retain the services of a DPO consultant.",
+            "D) Only organizations based in Europe are required to have a DPO."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) All organizations storing EU citizen data are required to have an employee designated as the DPO.": "Incorrect – Only organizations with a large volume of data, or operations requiring monitoring, are required to have a DPO.",
+            "B) All organizations storing large volumes of EU citizen data are required to use a DPO.": "Correct – According to Article 37 of the GDPR, those organizations with large volumes of EU citizen data are required to have a DPO, which may be an employee or a consultant.",
+            "C) All organizations storing EU citizen data are required to retain the services of a DPO consultant.": "Incorrect – Organizations are not required to have a DPO consultant; they can appoint an employee or not have a DPO at all if they meet certain criteria.",
+            "D) Only organizations based in Europe are required to have a DPO.": "Incorrect – Organizations outside Europe but with operations in Europe may be required to have a DPO."
+        }
+    },
+    {
+        "id": 37,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the biggest risk associated with access badges that show the name of the organization?",
+        "options": [
+            "A) Someone who finds the badge may know where it can be used.",
+            "B) An attacker can look up the organization's public key and create forged badges.",
+            "C) An attacker would know what brand of access badge technology is being used.",
+            "D) Someone who finds a lost badge would be able to return it to the company."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Someone who finds the badge may know where it can be used.": "Correct – An access badge bearing the name of the organization would give someone finding the badge valuable information about where the badge may be used. If the organization does not use multifactor access controls, anyone finding a badge may be able to enter buildings, parking garages, and even data centers.",
+            "B) An attacker can look up the organization's public key and create forged badges.": "Incorrect – Encryption keys for access badge systems are not publicly available.",
+            "C) An attacker would know what brand of access badge technology is being used.": "Incorrect – The organization's name does not reveal the brand of access card in use.",
+            "D) Someone who finds a lost badge would be able to return it to the company.": "Incorrect – This is not a risk associated with an organization's name on the badge, but a benefit."
+        }
+    },
+    {
+        "id": 38,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A user at work logs on to a web site that includes links to various business applications. Once the user logs on to the web site, the user does not need to log on to individual business applications. What mechanism provides this capability?",
+        "options": [
+            "A) Public key infrastructure",
+            "B) Reduced sign-on",
+            "C) Single sign-on",
+            "D) Key vaulting"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Public key infrastructure": "Incorrect – A PKI is not the primary agent providing this capability. PKI is not required for an SSO portal.",
+            "B) Reduced sign-on": "Incorrect – Reduced sign-on lets users remember fewer login credentials, but those credentials must be used when logging on to each application.",
+            "C) Single sign-on": "Correct – The user has logged on to a single sign-on (SSO) portal, which provides easy access to many business applications without the user having to log on to each one.",
+            "D) Key vaulting": "Incorrect – Key vaulting is a mechanism for storing encryption keys, not for facilitating single sign-on."
+        }
+    },
+    {
+        "id": 39,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the primary advantage of cloud-based web content filtering versus on-premises web content filtering?",
+        "options": [
+            "A) Cloud-based web content filtering systems are less expensive.",
+            "B) Exceptions can be processed more quickly.",
+            "C) Off-network users are protected just as in-office users are.",
+            "D) Users are unable to circumvent this protection."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Cloud-based web content filtering systems are less expensive.": "Incorrect – Cloud-based solutions are not necessarily less expensive.",
+            "B) Exceptions can be processed more quickly.": "Incorrect – The process of handling exceptions does not vary based on whether the solution is on-premises or cloud-based.",
+            "C) Off-network users are protected just as in-office users are.": "Correct – The primary advantage of cloud-based web content filtering is that all users are protected, whether they are on the organization's internal network or off-network, either at home or traveling.",
+            "D) Users are unable to circumvent this protection.": "Incorrect – Users are unable to circumvent protection, whether the solution is on-premises or cloud-based."
+        }
+    },
+    {
+        "id": 40,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization is investigating the use of an automated DLP solution that controls whether data files can be sent via e-mail or stored on USB drives based on their tags. What is the advantage of the use of tags for such a solution?",
+        "options": [
+            "A) Users are easily able to tag files so that they can be properly handled in e-mail.",
+            "B) Data files are automatically processed based on tags instead of their data content.",
+            "C) Tags are a better solution than the use of digital envelopes.",
+            "D) Tags are human readable and can be altered as needed."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Users are easily able to tag files so that they can be properly handled in e-mail.": "Incorrect – Users do not necessarily have the ability to tag files (and if they did, one should expect that many errors will be made that will result in mishandling of data).",
+            "B) Data files are automatically processed based on tags instead of their data content.": "Correct – Automated systems can take action based on the tags in a file. However, this is only as good as the mechanism used to apply tags in the first place, which could be highly accurate or inaccurate.",
+            "C) Tags are a better solution than the use of digital envelopes.": "Incorrect – Digital envelopes have not been used in DLP solutions.",
+            "D) Tags are human readable and can be altered as needed.": "Incorrect – Tags are not easily human readable, and they are not intended to be easily changed, except by approved means."
+        }
+    },
+    {
+        "id": 41,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "All of the following are appropriate uses of digital signatures except:",
+        "options": [
+            "A) Verification of message authenticity",
+            "B) Verification of message integrity",
+            "C) Verification of message confidentiality",
+            "D) Verification of message origin"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Verification of message authenticity": "Incorrect – This is a legitimate and intended use of digital signatures.",
+            "B) Verification of message integrity": "Incorrect – This is a legitimate use.",
+            "C) Verification of message confidentiality": "Correct – Verification of message confidentiality is not a use of digital signatures.",
+            "D) Verification of message origin": "Incorrect – This is a legitimate use."
+        }
+    },
+    {
+        "id": 42,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The entity that accepts requests for new public keys in a PKI is known as the:",
+        "options": [
+            "A) Reservation authority (RA)",
+            "B) Validation authority (VA)",
+            "C) Registration authority (RA)",
+            "D) Certificate authority (CA)"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Reservation authority (RA)": "Incorrect – Reservation authority is not the term used; further, the PKI model does not have an entity called a reservation authority.",
+            "B) Validation authority (VA)": "Incorrect – A validation authority (VA), usually a third party such as a government, serves to ensure that the request is genuine.",
+            "C) Registration authority (RA)": "Correct – A registration authority (RA) is the entity that receives and accepts requests for new public keys or digital certificates in a PKI such as an SSL certificate issuer for securing web site communication.",
+            "D) Certificate authority (CA)": "Incorrect – A certificate authority (CA) is the entity that creates and issues a public key or digital certificate."
+        }
+    },
+    {
+        "id": 43,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What method is used by a transparent proxy filter to prevent a user from visiting a site that has been blacklisted?",
+        "options": [
+            "A) Proxy sends an HTTP 400 Bad Request to the user's browser.",
+            "B) User is directed to a \"web site blocked\" splash page.",
+            "C) Proxy filter simply drops the packets and the user's browser times out.",
+            "D) User's workstation is quarantined to prevent malware from spreading."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Proxy sends an HTTP 400 Bad Request to the user's browser.": "Incorrect – A transparent proxy generally does not return error codes to the user's browser, but instead displays a splash page.",
+            "B) User is directed to a \"web site blocked\" splash page.": "Correct – A transparent proxy server will usually direct a user to a \"splash page,\" informing the user that their request to access a forbidden web site has been blocked. Some organizations include information on the splash page that can direct the user to make a request to unblock access.",
+            "C) Proxy filter simply drops the packets and the user's browser times out.": "Incorrect – This inelegant method will cause the user to believe that there is a technical problem that potentially requires tech support.",
+            "D) User's workstation is quarantined to prevent malware from spreading.": "Incorrect – This situation does not cite a suspected or confirmed malware infection that warrants quarantining the workstation."
+        }
+    },
+    {
+        "id": 44,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "In a virtualized environment, which method is the fastest way to ensure rapid recovery of servers at an alternative processing center?",
+        "options": [
+            "A) Copy snapshots of virtual machine images to alternative processing center storage system.",
+            "B) Provide build instructions for all servers and make master server images available.",
+            "C) Perform full and incremental backups of all servers on a daily basis.",
+            "D) Perform grandfather-father-son backups of all servers on a daily basis."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Copy snapshots of virtual machine images to alternative processing center storage system.": "Correct – Copying snapshots of actual server images ensures that recent server images are available at the alternative processing center for rapid restoration.",
+            "B) Provide build instructions for all servers and make master server images available.": "Incorrect – Using procedures to recover servers may be accurate but will take more time than restoring snapshots of virtual server images.",
+            "C) Perform full and incremental backups of all servers on a daily basis.": "Incorrect – Restoring server images from multiple generations of backup media may be accurate, but will be far more time consuming than employing snapshots of server images.",
+            "D) Perform grandfather-father-son backups of all servers on a daily basis.": "Incorrect – Restoring from backup media is slower than snapshots."
+        }
+    },
+    {
+        "id": 45,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "In an environment where users are not local administrators of their workstations, which of the following methods ensures that end users are not able to use their mobile devices as mobile Wi-Fi hotspots for circumventing network security controls such as web content filters and IPS?",
+        "options": [
+            "A) Require employees to turn off their mobile devices at work.",
+            "B) Jam the signals of unauthorized Wi-Fi networks.",
+            "C) Create a whitelist of permitted Wi-Fi networks.",
+            "D) Create a blacklist of forbidden Wi-Fi networks."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Require employees to turn off their mobile devices at work.": "Incorrect – A policy requiring employees to turn off their mobile devices is not likely to be successful.",
+            "B) Jam the signals of unauthorized Wi-Fi networks.": "Incorrect – Jamming signals of unauthorized Wi-Fi networks is not likely to be successful, and may possibly even be illegal in some jurisdictions. Also, many mobile devices also permit Bluetooth and USB connections for tethering.",
+            "C) Create a whitelist of permitted Wi-Fi networks.": "Correct – The best workable solution is to create a whitelist of Wi-Fi networks that workstations are permitted to connect to. These networks would include all corporate Wi-Fi networks, as well as any trusted non-corporate networks.",
+            "D) Create a blacklist of forbidden Wi-Fi networks.": "Incorrect – Managing blacklists is a never-ending game of whack-a-mole."
+        }
+    },
+    {
+        "id": 46,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the most effective method for training users to more accurately detect and delete phishing messages?",
+        "options": [
+            "A) Block access to personal webmail and permit corporate e-mail only.",
+            "B) Include phishing information in regular security awareness training.",
+            "C) Conduct phishing tests and publicly inform offenders of their mistakes.",
+            "D) Conduct phishing tests and privately inform offenders of their mistakes."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Block access to personal webmail and permit corporate e-mail only.": "Incorrect – Blocking personal web mail does not address the matter of phishing messages that are sent to users' corporate e-mail addresses.",
+            "B) Include phishing information in regular security awareness training.": "Incorrect – While including phishing information in security awareness training is a good practice, this is not as effective as conducting phishing tests.",
+            "C) Conduct phishing tests and publicly inform offenders of their mistakes.": "Incorrect – Publicly shaming users who make mistakes is not good for morale.",
+            "D) Conduct phishing tests and privately inform offenders of their mistakes.": "Correct – Well-managed phishing testing campaigns can help employees learn how to spot phishing messages. Providing a \"I think this is a phish\" reporting capability gives end users the ability to affirm that test messages are phishing tests, and it's also a good method for reporting actual phishing messages."
+        }
+    },
+    {
+        "id": 47,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An attacker has targeted an organization in order to steal specific information. The attacker has found that the organization's defenses are strong and that very few phishing messages arrive at end-user inboxes. The attacker has decided to try a watering hole attack. What first steps should the hacker use to ensure a successful watering hole attack?",
+        "options": [
+            "A) Determine which web sites are frequently visited by the organization's end users.",
+            "B) Determine which restaurants the organization's end users visit after working hours.",
+            "C) Determine which protocols are blocked by the organization's Internet firewalls.",
+            "D) Determine the IP addresses of public-facing web servers that can be attacked."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Determine which web sites are frequently visited by the organization's end users.": "Correct – In order to conduct a successful watering hole attack, the attacker must first determine which web sites are frequently visited by employees in the organization. This will include cloud-based applications used for primary business processes such as accounting, sales, human resources, and file storage.",
+            "B) Determine which restaurants the organization's end users visit after working hours.": "Incorrect – A watering hole attack involves attacks on web sites frequently visited by the target organization's personnel.",
+            "C) Determine which protocols are blocked by the organization's Internet firewalls.": "Incorrect – The attacker has already dismissed frontal attack techniques such as compromising exploitable server vulnerabilities.",
+            "D) Determine the IP addresses of public-facing web servers that can be attacked.": "Incorrect – The attacker is not focusing on direct server attacks."
+        }
+    },
+    {
+        "id": 48,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following techniques most accurately describes a penetration test?",
+        "options": [
+            "A) Manual exploitation tools and techniques",
+            "B) Security scan, with results tabulated into a formal report that includes an executive summary",
+            "C) Security scan, with results validated to remove any false positives",
+            "D) Security scan, followed by manual exploitation tools and techniques"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Manual exploitation tools and techniques": "Incorrect – A penetration test usually begins with a security scan to enumerate the environment, which identifies targets to attack.",
+            "B) Security scan, with results tabulated into a formal report that includes an executive summary": "Incorrect – This method lacks the manual tools and techniques that are central to a penetration test. What is described here is simply a security scan and nothing more.",
+            "C) Security scan, with results validated to remove any false positives": "Incorrect – A penetration test also includes numerous manual exploitation techniques. This is just a validated security scan.",
+            "D) Security scan, followed by manual exploitation tools and techniques": "Correct – A penetration test most commonly begins with a security scan that enumerates assets and provides a big-picture attack profile. This is followed by an array of manual attack techniques that attempt to exploit vulnerabilities in the systems and services identified by the security scan."
+        }
+    },
+    {
+        "id": 49,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A security analyst spends most of her time on a system that collects log data and correlates events from various systems to deduce potential attacks in progress. What kind of a system is the security analyst using?",
+        "options": [
+            "A) SIEM",
+            "B) IPS",
+            "C) IDS",
+            "D) AV console"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) SIEM": "Correct – The security analyst is using a SIEM, or security information and event management system. A SIEM collects log data from devices throughout the environment and then correlates seemingly disparate events to deduce potential attacks. When such attacks are discerned, the SIEM will produce an alert that directs the security analyst to further investigate the matter and take possible action.",
+            "B) IPS": "Incorrect – An IPS is an inline device that is used to detect and block unwanted network traffic. An IPS does not collect log data from devices in the network.",
+            "C) IDS": "Incorrect – An IDS monitors network traffic and detects unwanted traffic but does not collect log data from devices.",
+            "D) AV console": "Incorrect – An AV console is used to monitor antivirus software that is running on servers and endpoints."
+        }
+    },
+    {
+        "id": 50,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The general counsel is becoming annoyed with notifications of minor security events occurring in the organization. This is most likely due to:",
+        "options": [
+            "A) Careless users clicking on too many phishing e-mails",
+            "B) Ineffective defenses allowing frequent attacks",
+            "C) Improper classification of security incidents",
+            "D) Lack of a security incident severity scheme"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Careless users clicking on too many phishing e-mails": "Incorrect – This is too narrow a scenario.",
+            "B) Ineffective defenses allowing frequent attacks": "Incorrect – The scenario here involves minor incidents, not successful attacks on outer defenses.",
+            "C) Improper classification of security incidents": "Incorrect – Improper classification of incidents would likely be resolved quickly.",
+            "D) Lack of a security incident severity scheme": "Correct – The most likely reason the general counsel is being notified of minor incidents is the lack of an incident classification scheme in the organization's security incident response plan. Without a severity classification scheme, all incidents are treated as equal, regardless of their actual severity. In this case, the result is executives being notified of minor incidents that should be of little or no concern to them."
+        }
+    },
+    {
+        "id": 51,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A forensic investigator is seen to be creating a detailed record of artifacts that are collected, analyzed, controlled, transferred to others, and stored for safekeeping. What kind of a written record is this?",
+        "options": [
+            "A) Storage inventory",
+            "B) Investigation report",
+            "C) Evidence collection log",
+            "D) Chain of custody record"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Storage inventory": "Incorrect – A storage inventory record would not include information about transfer of custody or analysis of items.",
+            "B) Investigation report": "Incorrect – An investigative report would describe conclusions of an investigation.",
+            "C) Evidence collection log": "Incorrect – An evidence collection log would not include analysis, control, and transfers.",
+            "D) Chain of custody record": "Correct – The recordkeeping described is a chain of custody record, which provides a detailed account for each artifact collected and analyzed."
+        }
+    },
+    {
+        "id": 52,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which controls framework is suggested by the ISO/IEC 27001 standard?",
+        "options": [
+            "A) ISO/IEC 27001",
+            "B) ISO/IEC 27002",
+            "C) NIST SP800-53",
+            "D) Any framework that is applicable to the organization"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) ISO/IEC 27001": "Incorrect – The controls listed in Annex A of ISO/IEC 27001 are from the ISO/IEC 27002 standard.",
+            "B) ISO/IEC 27002": "Correct – ISO/IEC 27001 suggests the use of the ISO/IEC 27002 standard for controls. Annex A of ISO/IEC 27001 contains a summary list of the controls found in the ISO/IEC 27002 standard.",
+            "C) NIST SP800-53": "Incorrect – ISO/IEC 27001 does not suggest the use of NIST SP800-53.",
+            "D) Any framework that is applicable to the organization": "Incorrect – ISO/IEC 27001 contains a summary of the controls in ISO/IEC 27002."
+        }
+    },
+    {
+        "id": 53,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The default principle in the European General Data Protection Regulation for marketing communications from organizations to citizens is:",
+        "options": [
+            "A) Citizens are included and cannot opt out.",
+            "B) Citizens are included until they explicitly opt out.",
+            "C) Citizens are excluded until they explicitly opt in.",
+            "D) Citizens are excluded and cannot opt in."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Citizens are included and cannot opt out.": "Incorrect – Citizens are not included; they are excluded by default.",
+            "B) Citizens are included until they explicitly opt out.": "Incorrect – Citizens are not included; they are excluded.",
+            "C) Citizens are excluded until they explicitly opt in.": "Correct – Under the GDPR, organizations are not permitted to market to individual citizens unless the citizens first opt in.",
+            "D) Citizens are excluded and cannot opt in.": "Incorrect – Citizens can opt in."
+        }
+    },
+    {
+        "id": 54,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The primary purpose of a mantrap is:",
+        "options": [
+            "A) To catch an individual attempting to enter a room without authorization",
+            "B) To hold an offender in custody until charged or released",
+            "C) To permit entry of one authorized person at a time",
+            "D) To permit entry or exit of one authorized person at a time"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) To catch an individual attempting to enter a room without authorization": "Incorrect – A mantrap does not intend to entrap persons attempting to enter or exit an area.",
+            "B) To hold an offender in custody until charged or released": "Incorrect – A mantrap is not a holding cell, but an access control.",
+            "C) To permit entry of one authorized person at a time": "Incorrect – A mantrap can be used for both entrance and exit.",
+            "D) To permit entry or exit of one authorized person at a time": "Correct – A mantrap is a special controlled entrance or exit that permits only one person at a time to enter or exit an area."
+        }
+    },
+    {
+        "id": 55,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the purpose of locking a user account that has not been used for long periods of time?",
+        "options": [
+            "A) Reduction of the risk of compromised credentials",
+            "B) Free up space for others to use the system",
+            "C) Avoidance of audit exceptions",
+            "D) Recycle license keys and cost reduction"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Reduction of the risk of compromised credentials": "Correct – If a user has not logged in to an application for long periods of time, then perhaps the user account for that application can be locked. This would reduce the impact of compromised credentials by preventing an unauthorized party from logging in to a system.",
+            "B) Free up space for others to use the system": "Incorrect – Freeing up space is generally not the primary reason for removing user accounts.",
+            "C) Avoidance of audit exceptions": "Incorrect – Avoidance of audit exceptions would be a secondary result. Many organizations have a control that requires dormant user accounts to be locked or removed, and that control is sometimes audited.",
+            "D) Recycle license keys and cost reduction": "Incorrect – The harvesting of unused licenses is not generally a primary reason for locking a user account. If an organization needed to harvest licenses, the user account would probably need to be removed and not just locked."
+        }
+    },
+    {
+        "id": 56,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the best approach for implementing a new blocking rule in an IPS?",
+        "options": [
+            "A) First implement a firewall rule and then activate the IPS rule.",
+            "B) Use the change control process so that stakeholders are aware of the new rule.",
+            "C) Implement a new rule during a change window.",
+            "D) Put the rule in learn mode and analyze the results."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) First implement a firewall rule and then activate the IPS rule.": "Incorrect – Firewalls generally lack the sophistication of an IPS and instead can only block packets based on source and destination IP addresses and port numbers.",
+            "B) Use the change control process so that stakeholders are aware of the new rule.": "Incorrect – Even the change control process is not always going to detect potential negative consequences of a new IPS blocking rule.",
+            "C) Implement a new rule during a change window.": "Incorrect – This approach provides no opportunity to first learn whether the new blocking rule will disrupt legitimate activities.",
+            "D) Put the rule in learn mode and analyze the results.": "Correct – The best approach is to first create the rule in learn mode, where the rule will detect and log rule activations, but not actually block traffic. Analysis of the log will help analysts understand whether the new rule would inadvertently block legitimate traffic and disrupt system operation. If no such interference is observed, the rule can be safely put into block mode."
+        }
+    },
+    {
+        "id": 57,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A security leader needs to develop a data classification program. After developing the data classification and handling policy, what is the best next step to perform?",
+        "options": [
+            "A) Configure DLP systems to monitor and enforce compliance.",
+            "B) Configure DLP systems to monitor compliance.",
+            "C) Announce the new policy to the organization.",
+            "D) Work with business departments to socialize the policy."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Configure DLP systems to monitor and enforce compliance.": "Incorrect – Enforcing data classification policy as a first step is highly likely to disrupt business processes.",
+            "B) Configure DLP systems to monitor compliance.": "Incorrect – Monitoring data classification policy is highly likely to produce numerous false-positive alerts.",
+            "C) Announce the new policy to the organization.": "Incorrect – Announcing policy to the organization is likely to cause confusion unless the security leader first works with all individual departments to understand the potential impact of the new data classification policy.",
+            "D) Work with business departments to socialize the policy.": "Correct – The best next step is to work with various business departments to discuss the new policy and handling guidelines to understand the potential impact of the policy. A badly implemented data classification program can cause business disruption and erode goodwill."
+        }
+    },
+    {
+        "id": 58,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization wants to implement an IPS that utilizes SSL inspection. What must first be implemented so that the IPS will function?",
+        "options": [
+            "A) A span port on the Internet switch must be configured.",
+            "B) A new root certificate must be pushed to all user workstations.",
+            "C) Users must sign a consent for their personal traffic to be monitored.",
+            "D) All end-user private keys must be refreshed."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) A span port on the Internet switch must be configured.": "Incorrect – A span port is used for traffic mirroring, not SSL inspection.",
+            "B) A new root certificate must be pushed to all user workstations.": "Correct – For SSL inspection to work, the IPS must be able to act as a man-in-the-middle, which requires its own root certificate to be trusted by the endpoints.",
+            "C) Users must sign a consent for their personal traffic to be monitored.": "Incorrect – Consent is not a technical prerequisite.",
+            "D) All end-user private keys must be refreshed.": "Incorrect – Refreshing keys is not required for SSL inspection."
+        }
+    },
+    {
+        "id": 59,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "In what manner does a PKI support whole disk encryption on end-user workstations?",
+        "options": [
+            "A) PKI stores the bootup passwords used on each end-user workstation.",
+            "B) PKI detects unauthorized use of data on end-user workstations.",
+            "C) PKI stores decryption keys in the event an end-user forgets their bootup password.",
+            "D) PKI records encryption and decryption operations."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) PKI stores the bootup passwords used on each end-user workstation.": "Incorrect – A PKI does not store the bootup password used on end-user workstations.",
+            "B) PKI detects unauthorized use of data on end-user workstations.": "Incorrect – A PKI does not monitor file access on systems.",
+            "C) PKI stores decryption keys in the event an end-user forgets their bootup password.": "Correct – While a PKI is not required to implement whole disk encryption on end-user workstations, a PKI can be used to store administrative keys that can be used to unlock a workstation in the event that the user has forgotten their bootup password.",
+            "D) PKI records encryption and decryption operations.": "Incorrect – A PKI does not record encryption and decryption operations, but instead can store administrative keys that can be used to unlock a workstation."
+        }
+    },
+    {
+        "id": 60,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A browser contacts a web server and requests a web page. The web server responds with a status code 200. What is the meaning of this status code?",
+        "options": [
+            "A) The user has been redirected to another URL on the same domain.",
+            "B) The user has been redirected to another URL on a different domain.",
+            "C) The requested page requires prior authentication.",
+            "D) The request is valid and has been accepted."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) The user has been redirected to another URL on the same domain.": "Incorrect – A code 200 is a successful transaction and not related to redirection.",
+            "B) The user has been redirected to another URL on a different domain.": "Incorrect – A code 200 is a successful transaction.",
+            "C) The requested page requires prior authentication.": "Incorrect – A code 200 is a successful transaction and not related to authentication.",
+            "D) The request is valid and has been accepted.": "Correct – A response code 200 means the request is valid and has been responded to."
+        }
+    },
+    {
+        "id": 61,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "For what reason would an engineer choose to use a hosted hypervisor versus a bare-metal hypervisor?",
+        "options": [
+            "A) There are insufficient resources available for a bare-metal hypervisor.",
+            "B) Features available only in a host operating system are required.",
+            "C) Guest OS monitoring is required.",
+            "D) The hypervisor is supporting a VDI environment."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) There are insufficient resources available for a bare-metal hypervisor.": "Incorrect – A bare-metal hypervisor actually consumes fewer resources than a full OS.",
+            "B) Features available only in a host operating system are required.": "Correct – An engineer would select a hosted hypervisor because one or more features or functions found only on the operating system are required.",
+            "C) Guest OS monitoring is required.": "Incorrect – Bare-metal hypervisors provide guest OS monitoring.",
+            "D) The hypervisor is supporting a VDI environment.": "Incorrect – A bare-metal hypervisor is capable of supporting a VDI (virtual desktop infrastructure) environment."
+        }
+    },
+    {
+        "id": 62,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The laboratory environment of a pharmaceutical research organization contains many scientific instruments that contain older versions of Windows and Linux operating systems that cannot be patched. What is the best remedy for this?",
+        "options": [
+            "A) Isolate the scientific instruments on a separate, protected network.",
+            "B) Upgrade the OSs on the scientific instruments to current OS versions.",
+            "C) Disconnect the OSs from the network.",
+            "D) Audit user accounts on the OSs periodically."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Isolate the scientific instruments on a separate, protected network.": "Correct – The presence of older and/or unpatchable OSs on scientific equipment is a common problem. Most often, the best approach is to isolate those systems through network segmentation and security controls to ensure that all attempts to attack those systems will be automatically detected and blocked.",
+            "B) Upgrade the OSs on the scientific instruments to current OS versions.": "Incorrect – Often the OSs on such equipment cannot be upgraded for various reasons (e.g., laboratory software will not run on newer OS versions, or there are insufficient resources such as memory).",
+            "C) Disconnect the OSs from the network.": "Incorrect – Disconnecting those older OSs may impair their operation.",
+            "D) Audit user accounts on the OSs periodically.": "Incorrect – Auditing user accounts does little to protect these older OSs from attack."
+        }
+    },
+    {
+        "id": 63,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following is the best policy for a security awareness training course?",
+        "options": [
+            "A) Users are not required to take competency quizzes.",
+            "B) Users are required to repeat modules when they fail competency quizzes.",
+            "C) Users are required to take competency quizzes only one time, regardless of score.",
+            "D) Users can skip training if they pass competency quizzes."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Users are not required to take competency quizzes.": "Incorrect – Users should be required to take competency quizzes to see how well they retained the learning content.",
+            "B) Users are required to repeat modules when they fail competency quizzes.": "Correct – When a user fails to achieve the minimum passing grade on a competency quiz, the user should be required to repeat the learning module and then take the quiz again.",
+            "C) Users are required to take competency quizzes only one time, regardless of score.": "Incorrect – Users should be required to repeat the learning module if they fail the competency quiz.",
+            "D) Users can skip training if they pass competency quizzes.": "Incorrect – Some learning content may not have accompanying quizzes, but that is not the best policy."
+        }
+    },
+    {
+        "id": 64,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Guessing that an intended victim has a particular online banking session open, an attacker attempts to trick the victim into clicking on a link that will attempt to execute a transaction on the online banking site. This type of an attack is known as:",
+        "options": [
+            "A) Cross-site scripting",
+            "B) Cross-site request forgery",
+            "C) Man in the middle",
+            "D) Man in the browser"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Cross-site scripting": "Incorrect – A cross-site scripting attack is one in which an attacker attempts to inject code into a web site, where the code is then executed later by others who visit the site.",
+            "B) Cross-site request forgery": "Correct – A cross-site request forgery (CSRF) attack is one in which an attacker attempts to trick a victim into performing a transaction on another web site (for example, a banking transaction in which the victim transfers money to the attacker).",
+            "C) Man in the middle": "Incorrect – A man-in-the-middle (MITM) attack is one in which an attacker attempts to subvert communications between two parties by intercepting and injecting forged content into the communications.",
+            "D) Man in the browser": "Incorrect – A man-in-the-browser (MITB) attack is one in which an attacker attempts to exploit a vulnerability in a user's browser by tricking the user into downloading malicious code that alters the browser's operation."
+        }
+    },
+    {
+        "id": 65,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following tools is considered a search engine that can be used to list vulnerabilities in devices?",
+        "options": [
+            "A) OpenVAS",
+            "B) Burp Suite",
+            "C) Shodan",
+            "D) John the Ripper"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) OpenVAS": "Incorrect – OpenVAS is a network vulnerability testing tool.",
+            "B) Burp Suite": "Incorrect – Burp Suite is a web application testing tool.",
+            "C) Shodan": "Correct – Shodan is a search engine that scans the Internet using common protocols and catalogs the responses returned from devices. This is a useful tool for seeing what devices are visible from the Internet.",
+            "D) John the Ripper": "Incorrect – John the Ripper is a password cracking tool."
+        }
+    },
+    {
+        "id": 66,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "All of the following tools are used to detect changes in static files except:",
+        "options": [
+            "A) Blacklight",
+            "B) OSSEC",
+            "C) Tripwire",
+            "D) Firesheep"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Blacklight": "Incorrect – Blacklight is a file integrity monitoring (FIM) tool.",
+            "B) OSSEC": "Incorrect – OSSEC is a file integrity monitoring tool.",
+            "C) Tripwire": "Incorrect – Tripwire is a file integrity monitoring tool.",
+            "D) Firesheep": "Correct – Firesheep is not a file integrity monitoring (FIM) tool, but instead is a tool used to steal cookies from other user sessions in unprotected Wi-Fi networks."
+        }
+    },
+    {
+        "id": 67,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following correctly describes the correct sequence for computer security incident response?",
+        "options": [
+            "A) Protect, detect, respond, recover",
+            "B) Identify, protect, detect, respond, recover",
+            "C) Evaluate, detect, eradicate, contain, recover, closure",
+            "D) Detect, initiate, evaluate, contain, eradicate, recover, remediate"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Protect, detect, respond, recover": "Incorrect – These are not the correct steps in computer security incident response.",
+            "B) Identify, protect, detect, respond, recover": "Incorrect – These are the pillars of the NIST CSF framework, not incident response steps.",
+            "C) Evaluate, detect, eradicate, contain, recover, closure": "Incorrect – Evaluate and detect are out of sequence; an incident is first detected and then evaluated.",
+            "D) Detect, initiate, evaluate, contain, eradicate, recover, remediate": "Correct – The correct sequence for organizing computer security incident response is detect, initiate, evaluate, contain, eradicate, recover, and remediate. This is often followed by a post-incident review."
+        }
+    },
+    {
+        "id": 68,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following devices is needed for the creation of a forensically identical hard disk drive?",
+        "options": [
+            "A) Diode",
+            "B) Bit locker",
+            "C) Read blocker",
+            "D) Write blocker"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Diode": "Incorrect – A diode is not used for forensic duplication.",
+            "B) Bit locker": "Incorrect – Bit locker is a Microsoft encryption feature.",
+            "C) Read blocker": "Incorrect – A read blocker would prevent reading, not writing.",
+            "D) Write blocker": "Correct – A write blocker is a device used to read data from a hard drive whose contents are being evaluated. The write blocker makes it impossible for data to be written to the hard drive."
+        }
+    },
+    {
+        "id": 69,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Which of the following statements about NIST CSF is true?",
+        "options": [
+            "A) NIST CSF is a security controls framework.",
+            "B) NIST CSF is a policy framework for cybersecurity.",
+            "C) NIST CSF is a computer security incident response framework.",
+            "D) NIST CSF is a software development framework."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) NIST CSF is a security controls framework.": "Incorrect – NIST CSF is not a controls framework.",
+            "B) NIST CSF is a policy framework for cybersecurity.": "Correct – NIST CSF is a policy framework for cybersecurity that provides guidance for organizations that want to improve their cybersecurity capabilities.",
+            "C) NIST CSF is a computer security incident response framework.": "Incorrect – NIST CSF is not an incident response framework.",
+            "D) NIST CSF is a software development framework.": "Incorrect – NIST CSF is not a software development framework."
+        }
+    },
+    {
+        "id": 70,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The \"right to be forgotten\" was first implemented by:",
+        "options": [
+            "A) GDPR",
+            "B) Google",
+            "C) NYDFS",
+            "D) Facebook"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) GDPR": "Correct – The \"right to be forgotten\" is a concept that has been codified in the European General Data Protection Regulation (GDPR). A European citizen can make requests of online service providers and ask that records associated with them be anonymized or expunged.",
+            "B) Google": "Incorrect – Google did not first implement the \"right to be forgotten.\"",
+            "C) NYDFS": "Incorrect – NYDFS did not first implement it.",
+            "D) Facebook": "Incorrect – Facebook did not first implement it."
+        }
+    },
+    {
+        "id": 71,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "The term \"tailgating\" most often refers to:",
+        "options": [
+            "A) Personnel who prop or shim doors so that others can enter a protected facility without authentication",
+            "B) Personnel who permit others to follow them into a protected facility without authentication",
+            "C) Personnel who follow others into a protected facility without authentication",
+            "D) Personnel who loan their keycards to others to enter a protected facility"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Personnel who prop or shim doors so that others can enter a protected facility without authentication": "Incorrect – Tailgating does not refer to propping doors open.",
+            "B) Personnel who permit others to follow them into a protected facility without authentication": "Incorrect – Tailgating is the act of following others in, not permitting entry.",
+            "C) Personnel who follow others into a protected facility without authentication": "Correct – Tailgating refers to people who follow others into a protected facility without themselves authenticating with their keycard or other device.",
+            "D) Personnel who loan their keycards to others to enter a protected facility": "Incorrect – Tailgating is not the act of loaning a keycard."
+        }
+    },
+    {
+        "id": 72,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A security manager in a large organization has found that the IT department has no central management of privileged user accounts. What kind of a tool should the security manager introduce to remedy this practice?",
+        "options": [
+            "A) FAM tools",
+            "B) FIM tools",
+            "C) PAM tools",
+            "D) SIEM tools"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) FAM tools": "Incorrect – File activity monitoring (FAM) tools are not a proper remedy.",
+            "B) FIM tools": "Incorrect – File integrity monitoring (FIM) tools are not a proper remedy.",
+            "C) PAM tools": "Correct – Privileged Access Management (PAM) tools are used to centrally control the use of privileged accounts, both for administrative personnel and for service accounts.",
+            "D) SIEM tools": "Incorrect – Security information and event management (SIEM) tools are not a proper remedy."
+        }
+    },
+    {
+        "id": 73,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A security analyst has determined that some of the OS configuration file alterations have taken place without proper authorization. Which tool did the security analyst use to determine this?",
+        "options": [
+            "A) FAM",
+            "B) FIM",
+            "C) PAM",
+            "D) SIEM"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) FAM": "Incorrect – File activity monitoring (FAM) tools record accesses to files, but not alterations to files.",
+            "B) FIM": "Correct – The security analyst's use of file integrity monitoring (FIM) tools revealed that files were being changed without authorization. FIM tools do not reveal the subject(s) who altered the files; other means are needed, such as examining login logs.",
+            "C) PAM": "Incorrect – Privileged Access Management (PAM) tools do not all record administrator activities.",
+            "D) SIEM": "Incorrect – A security information and event management (SIEM) tool cannot by itself detect file changes, but only in conjunction with file integrity monitoring (FIM) tools."
+        }
+    },
+    {
+        "id": 74,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An employee notes that a company document is marked \"Confidential.\" Is it acceptable for the employee to e-mail the document to a party outside the company?",
+        "options": [
+            "A) Yes, but the document must be encrypted first.",
+            "B) Yes, the document can be e-mailed to an outside party in plaintext.",
+            "C) This cannot be determined without first consulting the data classification and handling policy.",
+            "D) No, the document cannot be e-mailed to any inside or outside party."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Yes, but the document must be encrypted first.": "Incorrect – The marking alone does not indicate whether encryption is sufficient.",
+            "B) Yes, the document can be e-mailed to an outside party in plaintext.": "Incorrect – The marking alone does not grant permission.",
+            "C) This cannot be determined without first consulting the data classification and handling policy.": "Correct – A simple marking on a document such as \"Confidential\" does not by itself reveal what handling is permitted. An employee would need to consult a data classification and handling policy to see what actions are permitted.",
+            "D) No, the document cannot be e-mailed to any inside or outside party.": "Incorrect – The marking itself does not dictate specific handling; the policy must be consulted."
+        }
+    },
+    {
+        "id": 75,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An auditor has completed an audit of an organization's use of a tool that generates SSL certificates for its external web sites. The auditor has determined that key management procedures are insufficient and that split custody of the key generation procedure is required. How might this be implemented?",
+        "options": [
+            "A) Of two engineers, one creates the certificate and the other verifies its creation.",
+            "B) Of two engineers, each performs half of the procedure used to create a new certificate.",
+            "C) Of two engineers, each has one half of the password required to create a new certificate.",
+            "D) Of two engineers, one approves the creation of the certificate and the other creates the certificate."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Of two engineers, one creates the certificate and the other verifies its creation.": "Incorrect – This is separation of duties, not split custody.",
+            "B) Of two engineers, each performs half of the procedure used to create a new certificate.": "Incorrect – This is also separation of duties, not split custody.",
+            "C) Of two engineers, each has one half of the password required to create a new certificate.": "Correct – Split custody refers to the concept of splitting knowledge of a key task, such as two halves of a safe combination or two halves of a password. This requires that both parties cooperate to complete a sensitive task.",
+            "D) Of two engineers, one approves the creation of the certificate and the other creates the certificate.": "Incorrect – This is separation of duties, not split custody."
+        }
+    },
+    {
+        "id": 76,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization that issues digital certificates recently discovered that a digital certificate was issued to an unauthorized party. What is the appropriate response?",
+        "options": [
+            "A) Create a CRLF entry.",
+            "B) Create a CRL entry.",
+            "C) Notify all certificate holders.",
+            "D) Call a press conference."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Create a CRLF entry.": "Incorrect – CRLF is shorthand for \"carriage return, line feed,\" a character sequence found in text files.",
+            "B) Create a CRL entry.": "Correct – Creating an entry in the certificate revocation list (CRL) is the appropriate response. In the future, when any party attempts to verify the integrity of the certificate, its presence in the CRL will render it invalid.",
+            "C) Notify all certificate holders.": "Incorrect – Notifying other certificate holders does not remedy the situation.",
+            "D) Call a press conference.": "Incorrect – Calling a press conference does not effectively remedy the situation."
+        }
+    },
+    {
+        "id": 77,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Why is it important for a web session cookie to be encrypted?",
+        "options": [
+            "A) Parties that can observe the communication will not be able to hijack the session.",
+            "B) Parties that observe the communication will not be able to view the user's password.",
+            "C) Third parties will not be able to push unsolicited advertising to the user.",
+            "D) The web site operator will not be able to record the user's session."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Parties that can observe the communication will not be able to hijack the session.": "Correct – When a user's session cookie is encrypted, another party that can observe the communication will not be able to hijack the user's session. The Firesheep tool is a proof-of-concept tool that was developed to demonstrate this technique.",
+            "B) Parties that observe the communication will not be able to view the user's password.": "Incorrect – Encrypting a session cookie does not imply that the remainder of the communications is also encrypted.",
+            "C) Third parties will not be able to push unsolicited advertising to the user.": "Incorrect – Encrypting a session cookie does not prevent advertising.",
+            "D) The web site operator will not be able to record the user's session.": "Incorrect – Encrypting a session cookie does not prevent the web site operator from recording the user's session."
+        }
+    },
+    {
+        "id": 78,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "Why would a hypervisor conceal its existence from a guest OS?",
+        "options": [
+            "A) To prevent the guest OS from breaking out of the container.",
+            "B) To improve the performance of the guest OS.",
+            "C) To avoid letting an intruder know that the OS is part of a virtualized environment.",
+            "D) To let an intruder know that the OS is part of a virtualized environment."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) To prevent the guest OS from breaking out of the container.": "Incorrect – This does not prevent an intruder from breaking out of the guest environment.",
+            "B) To improve the performance of the guest OS.": "Incorrect – This has no effect on guest OS performance.",
+            "C) To avoid letting an intruder know that the OS is part of a virtualized environment.": "Correct – Concealing the existence of the virtualized environment may lead an intruder to believe that the OS is running on bare metal. This is a security-by-obscurity tactic that does not prevent an intruder from attempting to break into the hypervisor.",
+            "D) To let an intruder know that the OS is part of a virtualized environment.": "Incorrect – Concealing this does not reveal it to an intruder."
+        }
+    },
+    {
+        "id": 79,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "How can an organization prevent employees from connecting to the corporate Exchange e-mail environment with personally owned mobile devices?",
+        "options": [
+            "A) Implement multifactor authentication.",
+            "B) Permit only Outlook clients to connect to the Exchange server.",
+            "C) Encrypt OWA traffic.",
+            "D) Put the OWA server behind the firewall and VPN switch."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Implement multifactor authentication.": "Incorrect – Implementing MFA does nothing to prevent personally owned mobile devices from connecting to the Exchange server.",
+            "B) Permit only Outlook clients to connect to the Exchange server.": "Incorrect – There is not a reliable way of preventing non-Outlook clients from connecting to the Exchange server.",
+            "C) Encrypt OWA traffic.": "Incorrect – Encrypting OWA traffic does nothing to prevent personally owned mobile devices from connecting to the Exchange server.",
+            "D) Put the OWA server behind the firewall and VPN switch.": "Correct – By putting the OWA server behind the firewall and the VPN switch, the organization prevents personally owned mobile devices from reaching the OWA server—provided the VPN switch is configured to permit only company-managed devices to connect."
+        }
+    },
+    {
+        "id": 80,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the purpose of the Firesheep tool?",
+        "options": [
+            "A) It demonstrates the dangers of non-encrypted web sessions.",
+            "B) It is used as an alternative browser to Firefox to illustrate security concepts.",
+            "C) It is used to analyze firewall rules.",
+            "D) It is used to back up firewall rules."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) It demonstrates the dangers of non-encrypted web sessions.": "Correct – Firesheep is a proof-of-concept tool used to demonstrate how easy it is to hijack unencrypted user sessions on a Wi-Fi network.",
+            "B) It is used as an alternative browser to Firefox to illustrate security concepts.": "Incorrect – Firesheep is not a browser.",
+            "C) It is used to analyze firewall rules.": "Incorrect – Firesheep is not a firewall management tool.",
+            "D) It is used to back up firewall rules.": "Incorrect – Firesheep is not a backup tool."
+        }
+    },
+    {
+        "id": 81,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "An organization is implementing a new SIEM. How must engineers get log data from systems and devices to the SIEM?",
+        "options": [
+            "A) Install agents on all systems and devices.",
+            "B) Send them via Windows events.",
+            "C) Send them via syslog.",
+            "D) Send them via syslog and Windows events."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Install agents on all systems and devices.": "Incorrect – Agents, while they may provide additional functionality, are not required to get basic log data from systems and devices.",
+            "B) Send them via Windows events.": "Incorrect – Syslog can also be used to send log data to a SIEM.",
+            "C) Send them via syslog.": "Incorrect – Windows events can also be used to send log data to a SIEM.",
+            "D) Send them via syslog and Windows events.": "Correct – Any SIEM can accept log entries sent via syslog and Windows events."
+        }
+    },
+    {
+        "id": 82,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "What is the appropriate consequence of SOC operators declaring incidents that turn out to be false positives?",
+        "options": [
+            "A) Additional training to improve their incident-handling skills.",
+            "B) Termination of employment.",
+            "C) Removal of incident declaration privileges.",
+            "D) No consequence, as false positives are a part of business as usual."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Additional training to improve their incident-handling skills.": "Correct – If SOC operators chronically declare incidents where none exist, this suggests that they need additional training to better recognize and distinguish real incidents from false positives. A false positive now and then should not be a big deal.",
+            "B) Termination of employment.": "Incorrect – Termination of employment is an unreasonably harsh consequence.",
+            "C) Removal of incident declaration privileges.": "Incorrect – Removal of incident declaration privileges is too harsh.",
+            "D) No consequence, as false positives are a part of business as usual.": "Incorrect – The number of false positives is high, indicating a need for improvement."
         }
     }
 ]
