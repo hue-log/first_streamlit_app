@@ -4023,6 +4023,15 @@ st.sidebar.progress((st.session_state.idx + 1) / total)
 st.sidebar.write(f"Question {st.session_state.idx + 1} of {total}")
 st.sidebar.write(f"Score: {st.session_state.score} / {st.session_state.idx}")
 
+# Sidebar code snippet for selecting number of questions
+num_questions = st.sidebar.slider(
+    "Number of questions",
+    min_value=1,
+    max_value=total_available,   # total_available is the count of all filtered questions
+    value=min(20, total_available),
+    step=1
+)
+
 # Display question
 st.subheader(f"Question {st.session_state.idx + 1}")
 st.write(q["question"])
