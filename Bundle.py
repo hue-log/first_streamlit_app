@@ -5478,7 +5478,7 @@ if total == 0:
     st.stop()
 
 # ------------------------------------------------------------
-# The rest of the quiz (unchanged from your existing code)
+# The rest of the quiz
 # ------------------------------------------------------------
 q = st.session_state.questions[st.session_state.idx]
 
@@ -5529,8 +5529,17 @@ if not st.session_state.answered:
         else:
             st.warning("Please select an answer first.")
 else:
-    # Inline feedback (unchanged)
+    # ----- AFTER SUBMISSION: Show result header + inline feedback -----
     selected_idx = st.session_state.selected_idx
+    correct_pos = next(i for i, (_, is_c) in enumerate(shuffled) if is_c)
+
+    # Overall result message (appears at the top of the options area)
+    if selected_idx == correct_pos:
+        st.success("✅ You have selected the correct answer!")
+    else:
+        st.error("❌ Your answer is incorrect.")
+
+    # Per-option detailed feedback
     explanations = q.get("option_explanations", {})
     for i, (orig_text, stripped_text, is_correct) in enumerate(shuffled):
         letter = labels[i]
@@ -5558,19 +5567,8 @@ else:
             st.session_state.shuffled_data = None
             st.rerun()
     else:
+        # Last question: show final score and restart button
         st.markdown("---")
-        # Inside the else block (after submission), before the option details:
-if st.session_state.answered:
-    st.markdown("---")
-    selected_idx = st.session_state.selected_idx
-    correct_pos = next(i for i, (_, is_c) in enumerate(shuffled) if is_c)
-
-    # Show overall result header
-    if st.session_state.selected_idx == correct_pos:
-        st.success("✅ You have selected the correct answer!")
-    else:
-        st.error("❌ Your answer is incorrect.")
-        
         st.subheader("🎉 Quiz Completed!")
         st.write(f"Final Score: **{st.session_state.score} / {total}**")
         if st.button("Restart Quiz"):
