@@ -1,27 +1,108 @@
 import streamlit as st
 import random
+import re
 
-# ========== FULL QUESTION BANK (replace with complete list) ==========
-# Keep the structure exactly as below. I'll send the full list in a separate message.
+# ========== SAMPLE QUESTIONS (with prefixed options) ==========
 QUESTIONS = [
-    # Example questions – replace with the full set
+    # Domain 1 – The Audit Process
     {
+        "id": 1,
         "domain": "Domain 1 – The Audit Process",
         "question": "The IT Assurance Framework consists of all of the following except:",
         "options": [
-            "ISACA Code of Professional Ethics",
-            "IS audit and assurance standards",
-            "ISACA Audit Job Practice",
-            "IS audit and assurance guidelines"
+            "A) ISACA Code of Professional Ethics",
+            "B) IS audit and assurance standards",
+            "C) ISACA Audit Job Practice",
+            "D) IS audit and assurance guidelines"
         ],
-        "answer": "C",
-        "explanation": "The IT Assurance Framework includes ISACA Code of Professional Ethics, IS audit and assurance standards, guidelines, and tools/techniques. It does not contain the ISACA Audit Job Practice."
+        "correct": "C",
+        "option_explanations": {
+            "A) ISACA Code of Professional Ethics": "Incorrect – The ITAF does include the ISACA Code of Professional Ethics.",
+            "B) IS audit and assurance standards": "Incorrect – The ITAF does include IS audit and assurance standards.",
+            "C) ISACA Audit Job Practice": "Correct – The IT Assurance Framework does not contain the ISACA Audit Job Practice.",
+            "D) IS audit and assurance guidelines": "Incorrect – The ITAF does include IS audit and assurance guidelines."
+        }
     },
-    # ... add ALL questions from the PDFs here ...
+    # Domain 2 – IT Governance and Management
+    {
+        "id": 2,
+        "domain": "Domain 2 – IT Governance and Management",
+        "question": "Management's control of information technology processes is best described as:",
+        "options": [
+            "A) Information technology policies",
+            "B) Information technology policies along with audits of those policies",
+            "C) Information technology governance",
+            "D) Metrics as compared to similar organizations"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Information technology policies": "Incorrect – IT policies alone do not control processes; they are only one part.",
+            "B) Information technology policies along with audits of those policies": "Incorrect – IT policies and audits are only one component of governance.",
+            "C) Information technology governance": "Correct – ISACA defines governance as the processes that ensure stakeholder needs are evaluated…",
+            "D) Metrics as compared to similar organizations": "Incorrect – Benchmarking metrics is not a significant part of governance; many organisations forego it entirely."
+        }
+    },
+    # Domain 3 – IT Life Cycle Management
+    {
+        "id": 3,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "What is the best reason for considering a proof of concept?",
+        "options": [
+            "A) The system being considered is too expensive to implement all at once.",
+            "B) The system being considered will be a fully customized solution.",
+            "C) The system being considered is too complicated to evaluate fully.",
+            "D) The system being considered is not yet available."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) The system being considered is too expensive to implement all at once.": "Incorrect – Cost alone is not the primary driver for a proof of concept.",
+            "B) The system being considered will be a fully customized solution.": "Incorrect – A fully custom solution may not yet exist for a POC.",
+            "C) The system being considered is too complicated to evaluate fully.": "Correct – A POC is used when complexity makes it hard to evaluate through documents or walkthroughs.",
+            "D) The system being considered is not yet available.": "Incorrect – A POC requires an existing solution to evaluate."
+        }
+    },
+    # Domain 4 – IT Service Management and Continuity
+    {
+        "id": 4,
+        "domain": "Domain 4 – IT Service Management and Continuity",
+        "question": "A device that forwards packets to their destination based on their destination IP address is known as:",
+        "options": [
+            "A) Bridge",
+            "B) Gateway",
+            "C) Router",
+            "D) Switch"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Bridge": "Incorrect – A bridge forwards all packets regardless of destination.",
+            "B) Gateway": "Incorrect – A gateway translates between protocols, not IP forwarding.",
+            "C) Router": "Correct – Routers forward packets based on destination IP addresses.",
+            "D) Switch": "Incorrect – A switch forwards based on MAC addresses, not IP."
+        }
+    },
+    # Domain 5 – Information Asset Protection
+    {
+        "id": 5,
+        "domain": "Domain 5 – Information Asset Protection",
+        "question": "A new information security manager has examined the systems in the production environment and has found that their security‑related configurations are inadequate and inconsistent. To improve this situation, the security manager should create a:",
+        "options": [
+            "A) Jump server",
+            "B) Firewall rule",
+            "C) Hardening standard",
+            "D) CMDB"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Jump server": "Incorrect – A jump server does not address configuration consistency.",
+            "B) Firewall rule": "Incorrect – Firewall rules help control traffic, not internal server hardening.",
+            "C) Hardening standard": "Correct – A hardening standard defines security configurations for systems and devices.",
+            "D) CMDB": "Incorrect – A CMDB manages configuration data but does not define security settings."
+        }
+    }
 ]
 
-# ========== STREAMLIT APP LOGIC (options shuffle only on new question) ==========
-st.set_page_config(page_title="CISA Full Practice Exam", layout="wide")
+# ========== STREAMLIT APP ==========
+st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
 # Session state init
 if "questions" not in st.session_state:
@@ -36,111 +117,124 @@ if "answered" not in st.session_state:
 if "selected_idx" not in st.session_state:
     st.session_state.selected_idx = None
 if "shuffled_data" not in st.session_state:
-    st.session_state.shuffled_data = None   # will hold [(text, is_correct), ...] for current Q
+    st.session_state.shuffled_data = None  # [(original, stripped, is_correct), ...]
 
-# Sidebar filters
-domains = sorted({q["domain"] for q in QUESTIONS})
+# Helper: remove "A) " or "A)" prefix
+def strip_option_prefix(text):
+    return re.sub(r"^[A-D]\)\s*", "", text)
+
+# Domain filter
+all_domains = sorted({q["domain"] for q in QUESTIONS})
 selected_domains = st.sidebar.multiselect(
     "Filter by Domain",
-    options=domains,
-    default=domains,
+    options=all_domains,
+    default=all_domains,
     key="domain_filter"
 )
 
-# Apply filter
-filtered = [q for q in QUESTIONS if q["domain"] in selected_domains]
-if st.sidebar.button("Apply Filter"):
+if "filtered" not in st.session_state or st.sidebar.button("Apply Filter"):
+    filtered = [q for q in QUESTIONS if q["domain"] in selected_domains]
     st.session_state.questions = filtered.copy()
     random.shuffle(st.session_state.questions)
     st.session_state.idx = 0
     st.session_state.answered = False
     st.session_state.score = 0
-    st.session_state.shuffled_data = None   # force reshuffle for new question set
+    st.session_state.shuffled_data = None
+    st.session_state.filtered = True
 
 total = len(st.session_state.questions)
 if total == 0:
-    st.warning("No questions selected.")
+    st.warning("No questions match the selected domains.")
     st.stop()
 
 # Current question
 q = st.session_state.questions[st.session_state.idx]
 
-# *** FIX: Only shuffle when shuffling_data is None (i.e., first time for this question) ***
+# Prepare shuffled options (if not already set)
 if st.session_state.shuffled_data is None:
-    correct_letter = q["answer"]
-    original_index = {"A":0, "B":1, "C":2, "D":3}[correct_letter]
-    options_with_flag = [(text, i == original_index) for i, text in enumerate(q["options"])]
-    random.shuffle(options_with_flag)
-    st.session_state.shuffled_data = options_with_flag
+    correct_letter = q["correct"]
+    correct_raw = q["options"][ord(correct_letter) - ord("A")]
+    opts_with_flag = []
+    for opt in q["options"]:
+        stripped = strip_option_prefix(opt)
+        is_correct = (stripped == strip_option_prefix(correct_raw))
+        opts_with_flag.append((opt, stripped, is_correct))
+    random.shuffle(opts_with_flag)
+    st.session_state.shuffled_data = opts_with_flag
 
-options_with_flag = st.session_state.shuffled_data  # stable until next question
-
-# Radio labels: A) B) C) D) are fixed
+shuffled = st.session_state.shuffled_data
 labels = ["A", "B", "C", "D"]
-radio_options = [f"{labels[i]}. {options_with_flag[i][0]}" for i in range(4)]
+radio_choices = [f"{labels[i]}) {shuffled[i][1]}" for i in range(4)]
 
 # Progress sidebar
 st.sidebar.progress((st.session_state.idx + 1) / total)
 st.sidebar.write(f"Question {st.session_state.idx + 1} of {total}")
 st.sidebar.write(f"Score: {st.session_state.score} / {st.session_state.idx}")
 
-# Question display
+# Display question
 st.subheader(f"Question {st.session_state.idx + 1}")
 st.write(q["question"])
 
-# Radio selection
-selected = st.radio(
-    "Select your answer:",
-    radio_options,
-    index=None,
-    key=f"radio_{st.session_state.idx}",
-    disabled=st.session_state.answered
-)
-
-col1, col2 = st.columns([1, 2])
+# ----- OPTIONS AREA -----
 if not st.session_state.answered:
+    # Show radio buttons
+    selected = st.radio(
+        "Select your answer:",
+        radio_choices,
+        index=None,
+        key=f"radio_{st.session_state.idx}"
+    )
+
+    col1, col2 = st.columns([1, 2])
     if col1.button("Submit", use_container_width=True):
         if selected is not None:
-            selected_label = selected[0]   # e.g., "A"
+            selected_label = selected[0]             # "A", "B", ...
             selected_idx = labels.index(selected_label)
             st.session_state.selected_idx = selected_idx
             st.session_state.answered = True
-            if options_with_flag[selected_idx][1]:  # is_correct?
+            if shuffled[selected_idx][2]:            # is_correct?
                 st.session_state.score += 1
             st.rerun()
         else:
             st.warning("Please select an answer first.")
 else:
-    # Find correct index in the shuffled set
-    correct_idx = next(i for i, (_, is_correct) in enumerate(options_with_flag) if is_correct)
-    if st.session_state.selected_idx == correct_idx:
-        st.success("✅ Correct!")
-    else:
-        st.error(f"❌ Incorrect. The correct answer is: **{labels[correct_idx]}**")
-    correct_text = options_with_flag[correct_idx][0]
-    st.info(f"Correct answer: {correct_text}")
-    st.markdown(f"**Explanation:** {q.get('explanation', '')}")
+    # ----- INLINE FEEDBACK (replaces radio) -----
+    selected_idx = st.session_state.selected_idx
+    explanations = q.get("option_explanations", {})
 
-    # Navigation buttons
+    for i, (orig_text, stripped_text, is_correct) in enumerate(shuffled):
+        letter = labels[i]
+        display_text = f"{letter}) {stripped_text}"
+        # Use original text (with prefix) to look up explanation
+        explanation = explanations.get(orig_text, "")
+
+        if is_correct:
+            st.success(f"**{display_text}**  \n{explanation}")
+        elif i == selected_idx and not is_correct:
+            st.error(f"**{display_text}**  \n{explanation}")
+        else:
+            st.error(f"**{display_text}**  \n{explanation}")
+
+    # Navigation buttons (always placed after the feedback)
     nav1, nav2, nav3 = st.columns([1, 2, 1])
     if st.session_state.idx > 0:
         if nav1.button("⬅ Previous", use_container_width=True):
             st.session_state.idx -= 1
             st.session_state.answered = False
-            st.session_state.shuffled_data = None   # reshuffle for the previous question
+            st.session_state.shuffled_data = None
             st.rerun()
     if st.session_state.idx < total - 1:
         if nav2.button("Next ➡", use_container_width=True):
             st.session_state.idx += 1
             st.session_state.answered = False
-            st.session_state.shuffled_data = None   # reshuffle for the next question
+            st.session_state.shuffled_data = None
             st.rerun()
     else:
         st.markdown("---")
         st.subheader("🎉 Quiz Completed!")
         st.write(f"Final Score: **{st.session_state.score} / {total}**")
         if st.button("Restart Quiz"):
-            st.session_state.questions = filtered.copy()
+            st.session_state.questions = [q for q in QUESTIONS if q["domain"] in selected_domains]
             random.shuffle(st.session_state.questions)
             st.session_state.idx = 0
             st.session_state.score = 0
