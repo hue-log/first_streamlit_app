@@ -2078,7 +2078,7 @@ QUESTIONS = [
     },
     # Domain 3 – IT Life Cycle Management
     {
-        "id": 3,
+        "id": 1,
         "domain": "Domain 3 – IT Life Cycle Management",
         "question": "What is the best reason for considering a proof of concept?",
         "options": [
@@ -2089,10 +2089,622 @@ QUESTIONS = [
         ],
         "correct": "C",
         "option_explanations": {
-            "A) The system being considered is too expensive to implement all at once.": "Incorrect – Cost alone is not the primary driver for a proof of concept.",
-            "B) The system being considered will be a fully customized solution.": "Incorrect – A fully custom solution may not yet exist for a POC.",
-            "C) The system being considered is too complicated to evaluate fully.": "Correct – A POC is used when complexity makes it hard to evaluate through documents or walkthroughs.",
-            "D) The system being considered is not yet available.": "Incorrect – A POC requires an existing solution to evaluate."
+            "A) The system being considered is too expensive to implement all at once.": "Incorrect – The cost of a system is not a primary reason for considering a POC.",
+            "B) The system being considered will be a fully customized solution.": "Incorrect – A fully customized solution would not yet exist for a POC to take place.",
+            "C) The system being considered is too complicated to evaluate fully.": "Correct – The system being evaluated is too complex to evaluate in a walkthrough or by analyzing its specifications.",
+            "D) The system being considered is not yet available.": "Incorrect – A solution that is not yet available cannot be evaluated in a POC."
+        }
+    },
+    {
+        "id": 2,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "A formal process whereby the organization gathers all business and technical requirements and forwards them to several qualified vendors, who then respond to them, is called:",
+        "options": [
+            "A) Request for information (RFI)",
+            "B) Request for proposals (RFP)",
+            "C) Request for evaluation (RFE)",
+            "D) Request for quote (RFQ)"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Request for information (RFI)": "Incorrect – An RFI does not meet all of these requirements.",
+            "B) Request for proposals (RFP)": "Correct – An RFP is the formal process used to publish the organization's requirements to several vendors, who will then reply formally with proposals that will meet those requirements.",
+            "C) Request for evaluation (RFE)": "Incorrect – An RFE does not meet all of these requirements.",
+            "D) Request for quote (RFQ)": "Incorrect – An RFQ does not meet all of these requirements."
+        }
+    },
+    {
+        "id": 3,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "An organization that wishes to acquire IT products or services that it fully understands should issue what kind of document?",
+        "options": [
+            "A) Request for proposals (RFP)",
+            "B) Request for information (RFI)",
+            "C) Statement of work (SOW)",
+            "D) Bid schedule"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Request for proposals (RFP)": "Correct – An organization that understands the IT products or services it wants should issue an RFP. If it does not yet understand them, it should first issue an RFI.",
+            "B) Request for information (RFI)": "Incorrect – An RFI does not meet all of these requirements.",
+            "C) Statement of work (SOW)": "Incorrect – An SOW is not issued by a customer organization, but by a product or service organization.",
+            "D) Bid schedule": "Incorrect – A bid schedule does not provide detailed information on IT products or services."
+        }
+    },
+    {
+        "id": 4,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which SEI CMM maturity level states that there is some consistency in the ways that individuals perform tasks from one time to the next, as well as some management planning and direction to ensure that tasks and projects are performed consistently?",
+        "options": [
+            "A) Initial",
+            "B) Defined",
+            "C) Repeatable",
+            "D) Managed"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Initial": "Incorrect – The initial level defines an ad hoc, unmanaged process.",
+            "B) Defined": "Incorrect – The defined level signifies a process that is documented but probably not measured.",
+            "C) Repeatable": "Correct – The repeatable level states that there is some consistency in task performance and management planning and direction.",
+            "D) Managed": "Incorrect – The managed level signifies a more mature process with statistics and metrics."
+        }
+    },
+    {
+        "id": 5,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "At what stage in the acquisition process should a project team develop requirements?",
+        "options": [
+            "A) After writing the test plan",
+            "B) After operational process development",
+            "C) Prior to writing the test plan",
+            "D) Prior to operational process development"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) After writing the test plan": "Incorrect – Test plans are written directly from requirements, so requirements must come first.",
+            "B) After operational process development": "Incorrect – Processes need to comply with requirements, so requirements must be defined before processes are designed.",
+            "C) Prior to writing the test plan": "Correct – Requirements should be developed early in the life cycle; ideally before the solution is designed, but at least prior to writing the test plan.",
+            "D) Prior to operational process development": "Incorrect – This is still not early enough; requirements need to be developed prior to solution selection and design."
+        }
+    },
+    {
+        "id": 6,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "All of the following are activities a project manager must perform to ensure a project is progressing in accordance with its plan except:",
+        "options": [
+            "A) Designing and testing the system",
+            "B) Tracking project expenditures",
+            "C) Recording task completion",
+            "D) Managing the project schedule"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Designing and testing the system": "Correct – It is not the project manager's job to design and test the system; they coordinate those activities.",
+            "B) Tracking project expenditures": "Incorrect – This is a key project management activity.",
+            "C) Recording task completion": "Incorrect – This is a key project management activity.",
+            "D) Managing the project schedule": "Incorrect – This is a key project management activity."
+        }
+    },
+    {
+        "id": 7,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "During which phase of the infrastructure development life cycle are all changes to the environment performed under formal processes, including incident management, problem management, defect management, change management, and configuration management?",
+        "options": [
+            "A) Testing",
+            "B) Design",
+            "C) Implementation",
+            "D) Maintenance"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Testing": "Incorrect – Testing is performed before the infrastructure is placed into production.",
+            "B) Design": "Incorrect – Design precedes changes to the live environment.",
+            "C) Implementation": "Incorrect – Implementation is completed before subsequent changes are made.",
+            "D) Maintenance": "Correct – After a system is in production, the maintenance phase involves incident, problem, defect, change, and configuration management."
+        }
+    },
+    {
+        "id": 8,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which management processes cover the post-implementation phase of the SDLC?",
+        "options": [
+            "A) Maintenance management and change management",
+            "B) Change management and configuration management",
+            "C) Service management and configuration management",
+            "D) Incident management and problem management"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Maintenance management and change management": "Incorrect – Maintenance management is not a formal operational term.",
+            "B) Change management and configuration management": "Correct – The post-implementation phase of the SDLC is carried out by the change management and configuration management processes.",
+            "C) Service management and configuration management": "Incorrect – Service management is broader; change and configuration management are the specific processes.",
+            "D) Incident management and problem management": "Incorrect – Incident and problem management are operational processes but do not cover the entire post-implementation phase."
+        }
+    },
+    {
+        "id": 9,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Change management and configuration management are key to which phase of the SDLC?",
+        "options": [
+            "A) Requirement definition",
+            "B) Design",
+            "C) Maintenance",
+            "D) Testing"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Requirement definition": "Incorrect – Requirement definition occurs before initial implementation.",
+            "B) Design": "Incorrect – Design occurs before initial implementation.",
+            "C) Maintenance": "Correct – Change management and configuration management are essential operational processes in the maintenance phase.",
+            "D) Testing": "Incorrect – Testing occurs during and immediately after initial development, not as ongoing operational processes."
+        }
+    },
+    {
+        "id": 10,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which of the following is a formal verification of system specifications and technologies?",
+        "options": [
+            "A) Design review",
+            "B) User acceptance testing (UAT)",
+            "C) Implementation review",
+            "D) Quality assurance testing (QAT)"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Design review": "Incorrect – Design review is not a verification of technologies, since development and implementation have not yet taken place.",
+            "B) User acceptance testing (UAT)": "Incorrect – UAT is a test of functionality, not of technologies.",
+            "C) Implementation review": "Incorrect – Implementation review verifies the implementation process, not the specifications.",
+            "D) Quality assurance testing (QAT)": "Correct – QAT is a formal verification of system specifications and technologies, typically performed by IT or IS departments."
+        }
+    },
+    {
+        "id": 11,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "All of the following are considerations when selecting and evaluating a software vendor except:",
+        "options": [
+            "A) Source code languages",
+            "B) Financial stability",
+            "C) References",
+            "D) Vendor supportability"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Source code languages": "Correct – A software vendor's choice of source code languages is of lesser concern when selecting and evaluating software vendors.",
+            "B) Financial stability": "Incorrect – Financial stability is an important consideration.",
+            "C) References": "Incorrect – References are an important consideration.",
+            "D) Vendor supportability": "Incorrect – Vendor supportability is an important consideration."
+        }
+    },
+    {
+        "id": 12,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which type of quality assurance method involves the users rather than IT or IS personnel?",
+        "options": [
+            "A) System testing",
+            "B) Functional testing",
+            "C) Quality assurance testing (QAT)",
+            "D) User acceptance testing (UAT)"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) System testing": "Incorrect – Users are not involved in system testing.",
+            "B) Functional testing": "Incorrect – Users are not involved in functional testing; this is performed by developers.",
+            "C) Quality assurance testing (QAT)": "Incorrect – QAT is performed by alternative developers or software test personnel.",
+            "D) User acceptance testing (UAT)": "Correct – UAT consists of formal tests performed by end users to determine whether the application will operate properly."
+        }
+    },
+    {
+        "id": 13,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "All of the following are considered risks to a software development project except:",
+        "options": [
+            "A) Delivered software not adequately meeting business needs",
+            "B) Delivered software not meeting efficiency needs",
+            "C) Termination of the project manager",
+            "D) Project falling behind schedule or exceeding budget"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Delivered software not adequately meeting business needs": "Incorrect – This is a risk.",
+            "B) Delivered software not meeting efficiency needs": "Incorrect – This is a risk.",
+            "C) Termination of the project manager": "Correct – Termination of the project manager is not an anticipated risk; they can be replaced more easily.",
+            "D) Project falling behind schedule or exceeding budget": "Incorrect – This is a risk."
+        }
+    },
+    {
+        "id": 14,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Analysis of regulations and market conditions normally takes place during which phase of the SDLC?",
+        "options": [
+            "A) Testing phase",
+            "B) Feasibility study",
+            "C) Design phase",
+            "D) Requirements definition phase"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Testing phase": "Incorrect – Testing occurs after development.",
+            "B) Feasibility study": "Correct – Changes in business conditions, including market changes and regulations, are examined during the feasibility study.",
+            "C) Design phase": "Incorrect – The design phase concerns the logical design of the system.",
+            "D) Requirements definition phase": "Incorrect – Requirements definition focuses on ensuring the system meets business needs."
+        }
+    },
+    {
+        "id": 15,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which term describes a Scrum project and is a focused effort to produce some portion of the total project deliverable?",
+        "options": [
+            "A) Milestone",
+            "B) Objective",
+            "C) Daily Scrum",
+            "D) Sprint"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Milestone": "Incorrect – A milestone is a point when a key objective has been completed.",
+            "B) Objective": "Incorrect – An objective is a goal of a project.",
+            "C) Daily Scrum": "Incorrect – A Daily Scrum is a daily project status meeting.",
+            "D) Sprint": "Correct – A typical Scrum project consists of several sprints, which are focused efforts to produce a portion of the project deliverable."
+        }
+    },
+    {
+        "id": 16,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "For what reason would an Internet-based financial application record the IP address of users who log in?",
+        "options": [
+            "A) This permits application performance testing.",
+            "B) This provides localization information to the application.",
+            "C) This provides authentication information to the application.",
+            "D) This provides forensic information that can be used later."
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) This permits application performance testing.": "Incorrect – There is little or no correlation between a user's IP address and application performance.",
+            "B) This provides localization information to the application.": "Incorrect – IP addresses are not always reliable indicators of location (e.g., VPNs).",
+            "C) This provides authentication information to the application.": "Incorrect – An IP address can provide location information but is not reliable for authentication.",
+            "D) This provides forensic information that can be used later.": "Correct – Recording the IP address at login can be useful later if an account is compromised."
+        }
+    },
+    {
+        "id": 17,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "In the context of logical access controls, the terms \"subject\" and \"object\" refer to:",
+        "options": [
+            "A) \"Subject\" refers to the person who is accessing the data, and \"object\" refers to the data being accessed.",
+            "B) \"Subject\" refers to the data being accessed, and \"object\" refers to the file that contains the data.",
+            "C) \"Subject\" refers to the security context, and \"object\" refers to the data.",
+            "D) \"Subject\" refers to the data, and \"object\" refers to the person or entity accessing the data."
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) \"Subject\" refers to the person who is accessing the data, and \"object\" refers to the data being accessed.": "Correct – Subject refers to a person (or program/machine), and object refers to data or other resource being accessed.",
+            "B) \"Subject\" refers to the data being accessed, and \"object\" refers to the file that contains the data.": "Incorrect – This definition of \"object\" is too narrow.",
+            "C) \"Subject\" refers to the security context, and \"object\" refers to the data.": "Incorrect – \"Subject\" and \"object\" are not used in this manner.",
+            "D) \"Subject\" refers to the data, and \"object\" refers to the person or entity accessing the data.": "Incorrect – The definitions are reversed."
+        }
+    },
+    {
+        "id": 18,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "In the context of logical access control, what does the term \"fail closed\" mean?",
+        "options": [
+            "A) In the event of a power outage, all access points are closed.",
+            "B) If access is denied, a database table will be closed or locked to changes.",
+            "C) If an access control mechanism fails, all access will be denied.",
+            "D) If an access control mechanism fails, all access will be allowed."
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) In the event of a power outage, all access points are closed.": "Incorrect – This is not the definition of fail closed.",
+            "B) If access is denied, a database table will be closed or locked to changes.": "Incorrect – This is not the definition of fail closed.",
+            "C) If an access control mechanism fails, all access will be denied.": "Correct – Fail closed means that when the access control mechanism fails, no access is granted.",
+            "D) If an access control mechanism fails, all access will be allowed.": "Incorrect – This describes fail open, not fail closed."
+        }
+    },
+    {
+        "id": 19,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "When would you design an access control to \"fail open\"?",
+        "options": [
+            "A) In the case of fire suppression controls, which would need to activate immediately if a fire is detected.",
+            "B) In the case of building access controls, which would need to permit evacuation of personnel in an emergency.",
+            "C) In the event of an emergency, where data access controls would need to allow anyone access to data so it could be backed up successfully and removed from the site.",
+            "D) In the case of an incident, where outside investigators would require immediate and complete access to restricted data."
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) In the case of fire suppression controls, which would need to activate immediately if a fire is detected.": "Incorrect – This is not an example of fail open.",
+            "B) In the case of building access controls, which would need to permit evacuation of personnel in an emergency.": "Correct – Building access controls should fail open to allow people to exit during emergencies.",
+            "C) In the event of an emergency, where data access controls would need to allow anyone access to data so it could be backed up successfully and removed from the site.": "Incorrect – This is not a typical fail-open scenario.",
+            "D) In the case of an incident, where outside investigators would require immediate and complete access to restricted data.": "Incorrect – This is not a typical fail-open scenario."
+        }
+    },
+    {
+        "id": 20,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "What are the three levels of the Constructive Cost Model (COCOMO) method for estimating software development projects?",
+        "options": [
+            "A) Basic, Intermediate, and Detailed",
+            "B) Levels I, II, and III",
+            "C) Initial, Managed, and Optimized",
+            "D) Organic, Semi-detached, and Embedded"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Basic, Intermediate, and Detailed": "Correct – The three levels of COCOMO are Basic, Intermediate, and Detailed.",
+            "B) Levels I, II, and III": "Incorrect – These are not the levels of COCOMO.",
+            "C) Initial, Managed, and Optimized": "Incorrect – These are not the levels of COCOMO.",
+            "D) Organic, Semi-detached, and Embedded": "Incorrect – These are not the levels of COCOMO."
+        }
+    },
+    {
+        "id": 21,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "The best source for requirements for an RFP project is:",
+        "options": [
+            "A) Published industry standards",
+            "B) The incumbent system's specifications",
+            "C) Vendors and suppliers",
+            "D) The organization's own business, technical, and security requirements"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Published industry standards": "Incorrect – There is no industry-standard list of requirements; every organization is different.",
+            "B) The incumbent system's specifications": "Incorrect – The incumbent system may no longer be meeting requirements.",
+            "C) Vendors and suppliers": "Incorrect – Requirements should not come from vendors to avoid bias.",
+            "D) The organization's own business, technical, and security requirements": "Correct – The organization must develop its own requirements internally for an RFP."
+        }
+    },
+    {
+        "id": 22,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "An organization wants to build a new application, but it has not yet defined precisely how end-user interaction will work. Which application development technique should be chosen to determine end-user interaction?",
+        "options": [
+            "A) Prototyping",
+            "B) RAD",
+            "C) Waterfall",
+            "D) Scrum"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Prototyping": "Correct – Prototyping helps determine end-user interaction by building various prototypes until the most suitable one is chosen.",
+            "B) RAD": "Incorrect – RAD is more suited when more is known about the desired function.",
+            "C) Waterfall": "Incorrect – Waterfall requires requirements to be developed in advance.",
+            "D) Scrum": "Incorrect – Scrum is a good alternative but not the best choice for determining unknown interaction details."
+        }
+    },
+    {
+        "id": 23,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "A project manager regularly sends project status reports to executive management. Executives are requesting that status reports include visual diagrams showing the project schedule and project-critical paths from week to week. Which type of a chart should the project manager use?",
+        "options": [
+            "A) WBS",
+            "B) PRINCE2",
+            "C) PERT",
+            "D) Gantt"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) WBS": "Incorrect – WBS shows the project structure, not the schedule or critical path.",
+            "B) PRINCE2": "Incorrect – PRINCE2 is a methodology, not a reporting tool.",
+            "C) PERT": "Correct – A PERT chart shows the project status and critical path.",
+            "D) Gantt": "Incorrect – Gantt charts show project status but do not show the critical path."
+        }
+    },
+    {
+        "id": 24,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "During which phase of the SDLC are functionality and design characteristics verified?",
+        "options": [
+            "A) Maintenance",
+            "B) Implementation",
+            "C) Testing",
+            "D) Design"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Maintenance": "Incorrect – Functionality and design are not verified during maintenance.",
+            "B) Implementation": "Incorrect – Verification occurs before implementation.",
+            "C) Testing": "Correct – Testing is the phase where functionality and design are verified in the test plan.",
+            "D) Design": "Incorrect – Verification occurs after design, during testing."
+        }
+    },
+    {
+        "id": 25,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which kind of testing ensures that data is being formatted properly and inserted into the new application from the old application?",
+        "options": [
+            "A) Unit testing",
+            "B) Migration testing",
+            "C) Regression testing",
+            "D) Functional testing"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Unit testing": "Incorrect – Unit testing verifies small portions of code, not data migration.",
+            "B) Migration testing": "Correct – Migration testing ensures data is properly formatted and inserted when moving from an old application to a new one.",
+            "C) Regression testing": "Incorrect – Regression testing checks that changes do not break existing functionality.",
+            "D) Functional testing": "Incorrect – Functional testing confirms proper operation of a system, not data migration."
+        }
+    },
+    {
+        "id": 26,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which entity commissions feasibility studies to support a business case?",
+        "options": [
+            "A) Project team",
+            "B) Project manager",
+            "C) CISO",
+            "D) IT steering committee"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Project team": "Incorrect – The project team executes tasks; it does not commission feasibility studies.",
+            "B) Project manager": "Incorrect – The project manager coordinates activities but does not commission studies.",
+            "C) CISO": "Incorrect – The CISO leads cybersecurity, not project commissioning.",
+            "D) IT steering committee": "Correct – The IT steering committee formally commissions feasibility studies, approves projects, and assigns resources."
+        }
+    },
+    {
+        "id": 27,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "What is the purpose of a configuration management database?",
+        "options": [
+            "A) Storage of every change made to system components",
+            "B) Storage of available configurations for system components",
+            "C) Storage of approvals for configuration changes to a system",
+            "D) Storage of the most recent change made to system components"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Storage of every change made to system components": "Correct – A CMDB stores all changes made to a system, enabling knowledge of every component's configuration at any point in time.",
+            "B) Storage of available configurations for system components": "Incorrect – A CMDB stores actual configurations, not just available configurations.",
+            "C) Storage of approvals for configuration changes to a system": "Incorrect – Approval storage is part of the change control process, not the CMDB's purpose.",
+            "D) Storage of the most recent change made to system components": "Incorrect – A CMDB stores all historical changes, not just the most recent."
+        }
+    },
+    {
+        "id": 28,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "When is the best time for an organization to measure business benefits of a new system?",
+        "options": [
+            "A) During unit testing",
+            "B) One year after implementation",
+            "C) During requirements definition",
+            "D) During user acceptance testing"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) During unit testing": "Incorrect – The system is not yet running.",
+            "B) One year after implementation": "Correct – Measuring benefits after implementation allows time for business measurements to collect data.",
+            "C) During requirements definition": "Incorrect – The system is not yet built.",
+            "D) During user acceptance testing": "Incorrect – The system is not yet fully operational."
+        }
+    },
+    {
+        "id": 29,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which of the following represents the components of the project in graphical or tabular form and is a visual or structural representation of the system, software, or application?",
+        "options": [
+            "A) Data flow diagram (DFD)",
+            "B) Work breakdown structure (WBS)",
+            "C) Zachman model",
+            "D) Object breakdown structure (OBS)"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Data flow diagram (DFD)": "Incorrect – A DFD depicts data flows in a system.",
+            "B) Work breakdown structure (WBS)": "Incorrect – A WBS depicts all the work required to complete a project.",
+            "C) Zachman model": "Incorrect – The Zachman model shows the architecture of a system.",
+            "D) Object breakdown structure (OBS)": "Correct – An OBS is a hierarchical visual or structural representation of the system, software, or application."
+        }
+    },
+    {
+        "id": 30,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which type of tests will determine whether there are any failures or errors in input, processing, or output controls in an application?",
+        "options": [
+            "A) Referential integrity tests",
+            "B) Data conversion tests",
+            "C) Data integrity tests",
+            "D) Static data storage tests"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) Referential integrity tests": "Incorrect – These confirm primary and foreign key relationships, not overall input/output controls.",
+            "B) Data conversion tests": "Incorrect – These confirm data is properly converted from one system to another.",
+            "C) Data integrity tests": "Correct – Data integrity testing confirms whether an application properly accepts, processes, and stores information, including input, processing, and output controls.",
+            "D) Static data storage tests": "Incorrect – These confirm the correctness of data storage, not the broader control failures."
+        }
+    },
+    {
+        "id": 31,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which quantitative method of sizing software projects is repeatable for traditional programming languages, but is not as effective with newer, nontextual languages?",
+        "options": [
+            "A) Source lines of code (SLOC)",
+            "B) Work breakdown structure (WBS)",
+            "C) Object breakdown structure (OBS)",
+            "D) Constructive Cost Model (COCOMO)"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Source lines of code (SLOC)": "Correct – SLOC (or KLOC) is quantitative and repeatable for traditional textual languages but less effective for modern nontextual languages.",
+            "B) Work breakdown structure (WBS)": "Incorrect – WBS depicts work, not software size.",
+            "C) Object breakdown structure (OBS)": "Incorrect – OBS depicts system components, not software size.",
+            "D) Constructive Cost Model (COCOMO)": "Incorrect – COCOMO calculates cost, not size."
+        }
+    },
+    {
+        "id": 32,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which type of testing, usually performed by developers during the coding phase of the software development project, is used to verify that the code in various parts of the application works properly?",
+        "options": [
+            "A) Unit testing",
+            "B) Regression testing",
+            "C) Functional testing",
+            "D) User acceptance testing"
+        ],
+        "correct": "A",
+        "option_explanations": {
+            "A) Unit testing": "Correct – Unit testing is performed by developers during coding to verify that sections of code work correctly.",
+            "B) Regression testing": "Incorrect – Regression testing verifies that changes do not break existing functionality.",
+            "C) Functional testing": "Incorrect – Functional testing verifies the correct operation of a system.",
+            "D) User acceptance testing": "Incorrect – User acceptance testing confirms user-facing features work properly."
+        }
+    },
+    {
+        "id": 33,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "An organization is considering acquiring a key business application from a small software company. What business provision should the organization require of the software company?",
+        "options": [
+            "A) Bonding",
+            "B) Liability insurance",
+            "C) Developer background checks",
+            "D) Place source code in escrow"
+        ],
+        "correct": "D",
+        "option_explanations": {
+            "A) Bonding": "Incorrect – Bonding is related to operational liability, not survival of the vendor.",
+            "B) Liability insurance": "Incorrect – Liability insurance does not ensure the vendor's survival.",
+            "C) Developer background checks": "Incorrect – Developer background checks do not help ensure the vendor's survival.",
+            "D) Place source code in escrow": "Correct – Software escrow ensures the customer can continue using and maintaining the application even if the vendor goes out of business."
+        }
+    },
+    {
+        "id": 34,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "Which phase of the SDLC is continually referenced during the development, acquisition, and testing phases to ensure that the system is meeting the required specifications?",
+        "options": [
+            "A) Testing",
+            "B) Requirements definition",
+            "C) Design",
+            "D) Implementation"
+        ],
+        "correct": "B",
+        "option_explanations": {
+            "A) Testing": "Incorrect – Testing is not referenced during all these phases.",
+            "B) Requirements definition": "Correct – The requirements definition phase is continually referenced throughout the SDLC to ensure the system meets agreed-upon requirements.",
+            "C) Design": "Incorrect – Design is not referenced during all phases.",
+            "D) Implementation": "Incorrect – Implementation is not referenced throughout the SDLC."
+        }
+    },
+    {
+        "id": 35,
+        "domain": "Domain 3 – IT Life Cycle Management",
+        "question": "What is the purpose of the review process after each phase of the SDLC?",
+        "options": [
+            "A) To establish additional requirements",
+            "B) To change existing requirements",
+            "C) To ensure that project deliverables meet the agreed-upon requirements",
+            "D) To provide end users with a progress check on system development"
+        ],
+        "correct": "C",
+        "option_explanations": {
+            "A) To establish additional requirements": "Incorrect – Additional requirements are not introduced in post-phase reviews.",
+            "B) To change existing requirements": "Incorrect – Requirements are not altered in post-phase reviews.",
+            "C) To ensure that project deliverables meet the agreed-upon requirements": "Correct – Post-phase reviews, sometimes called gate reviews, ensure that deliverables meet requirements before the project progresses.",
+            "D) To provide end users with a progress check on system development": "Incorrect – The main purpose is to review project status and performance, not just inform end users."
         }
     },
     # Domain 4 – IT Service Management and Continuity
