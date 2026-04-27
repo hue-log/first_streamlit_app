@@ -5411,13 +5411,6 @@ QUESTIONS = [
     }
 ]
 
-# ========== STREAMLIT APP ==========
-st.set_page_config(page_title="CISA Practice Exam", layout="wide")
-
-# Helper: remove "A) " or "A)" prefix from option text
-def strip_option_prefix(text):
-    return re.sub(r"^[A-D]\)\s*", "", text)
-# ========== STREAMLIT APP ==========
 st.set_page_config(page_title="CISA Practice Exam", layout="wide")
 
 # Helper: remove "A) " or "A)" prefix from option text
@@ -5497,6 +5490,43 @@ if total == 0:
     st.warning("No questions available for the selected domains.")
     st.stop()
 
+# ============================================================
+# 🎉 QUIZ COMPLETED BANNER (shown at the very top when done)
+# ============================================================
+quiz_finished = (st.session_state.get("answered", False) and 
+                 st.session_state.get("idx", 0) == total - 1)
+
+if quiz_finished:
+    st.markdown("---")
+    st.subheader("🎉 Quiz Completed!")
+    st.write(f"Overall Score: **{st.session_state.score} / {total}**")
+
+    if st.session_state.get("domain_stats"):
+        st.write("### Domain Breakdown")
+        for dom, stats in st.session_state.domain_stats.items():
+            st.write(f"- {dom}: **{stats['correct']}/{stats['total']}**")
+
+    if st.button("Restart Quiz", key="restart_top"):
+        sample_size = min(num_questions, total_available)
+        st.session_state.questions = random.sample(filtered_pool, sample_size)
+        random.shuffle(st.session_state.questions)
+        st.session_state.idx = 0
+        st.session_state.score = 0
+        st.session_state.answered = False
+        st.session_state.shuffled_data = None
+        # Reinitialize domain stats for the new quiz
+        domain_stats = {}
+        for q in st.session_state.questions:
+            d = q["domain"]
+            if d not in domain_stats:
+                domain_stats[d] = {"total": 0, "correct": 0}
+            domain_stats[d]["total"] += 1
+        st.session_state.domain_stats = domain_stats
+        st.rerun()
+
+    # We still show the last question's feedback below, so continue execution
+    # (No need to stop)
+
 # ------------------------------------------------------------
 # Current question and options
 # ------------------------------------------------------------
@@ -5523,7 +5553,7 @@ st.sidebar.progress((st.session_state.idx + 1) / total)
 st.sidebar.write(f"Question {st.session_state.idx + 1} of {total}")
 st.sidebar.write(f"Score: {st.session_state.score} / {st.session_state.idx}")
 
-# Display question
+# Display question (skip if quiz finished? No, we still want to show the last question)
 st.subheader(f"Question {st.session_state.idx + 1}")
 st.write(q["question"])
 
@@ -5552,21 +5582,6 @@ if not st.session_state.answered:
         else:
             st.warning("Please select an answer first.")
 else:
-    # Check if this is the last question AND the quiz is completed
-    is_last = (st.session_state.idx == total - 1)
-
-    # ----- IF LAST QUESTION: Show summary at the TOP before feedback -----
-    if is_last:
-        st.markdown("---")
-        st.subheader("🎉 Quiz Completed!")
-        st.write(f"Overall Score: **{st.session_state.score} / {total}**")
-
-        # Domain breakdown
-        if st.session_state.get("domain_stats"):
-            st.write("### Domain Breakdown")
-            for dom, stats in st.session_state.domain_stats.items():
-                st.write(f"- {dom}: **{stats['correct']}/{stats['total']}**")
-
     # ----- AFTER SUBMISSION: Show result header + inline feedback -----
     selected_idx = st.session_state.selected_idx
     correct_pos = next(i for i, (_, _, is_c) in enumerate(shuffled) if is_c)
@@ -5592,7 +5607,7 @@ else:
             st.error(f"**{display_text}**  \n{explanation}")
 
     # Navigation (only if not the last question)
-    if not is_last:
+    if not quiz_finished:
         nav1, nav2, nav3 = st.columns([1, 2, 1])
         if st.session_state.idx > 0:
             if nav1.button("⬅ Previous", use_container_width=True):
@@ -5605,23 +5620,4 @@ else:
             st.session_state.answered = False
             st.session_state.shuffled_data = None
             st.rerun()
-    else:
-        # Restart button at the bottom (after feedback)
-        st.markdown("---")
-        if st.button("Restart Quiz"):
-            sample_size = min(num_questions, total_available)
-            st.session_state.questions = random.sample(filtered_pool, sample_size)
-            random.shuffle(st.session_state.questions)
-            st.session_state.idx = 0
-            st.session_state.score = 0
-            st.session_state.answered = False
-            st.session_state.shuffled_data = None
-            # Reinitialize domain stats for the new quiz
-            domain_stats = {}
-            for q in st.session_state.questions:
-                d = q["domain"]
-                if d not in domain_stats:
-                    domain_stats[d] = {"total": 0, "correct": 0}
-                domain_stats[d]["total"] += 1
-            st.session_state.domain_stats = domain_stats
-            st.rerun()
+    # No navigation or restart button here – already handled by the top banner
