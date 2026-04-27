@@ -5559,6 +5559,18 @@ else:
             st.rerun()
     else:
         st.markdown("---")
+        # Inside the else block (after submission), before the option details:
+if st.session_state.answered:
+    st.markdown("---")
+    selected_idx = st.session_state.selected_idx
+    correct_pos = next(i for i, (_, is_c) in enumerate(shuffled) if is_c)
+
+    # Show overall result header
+    if st.session_state.selected_idx == correct_pos:
+        st.success("✅ You have selected the correct answer!")
+    else:
+        st.error("❌ Your answer is incorrect.")
+        
         st.subheader("🎉 Quiz Completed!")
         st.write(f"Final Score: **{st.session_state.score} / {total}**")
         if st.button("Restart Quiz"):
