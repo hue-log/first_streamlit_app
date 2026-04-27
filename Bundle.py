@@ -1147,6 +1147,7 @@ DOMAIN1_QUESTIONS = [
 ]
 
     # Domain 2 – IT Governance and Management
+DOMAIN2_QUESTIONS = [
     {
         "id": 2,
         "domain": "Domain 2 – IT Governance and Management",
@@ -1165,7 +1166,9 @@ DOMAIN1_QUESTIONS = [
             "D) Metrics as compared to similar organizations": "Incorrect – Benchmarking metrics is not a significant part of governance; many organisations forego it entirely."
         }
     },
+]
     # Domain 3 – IT Life Cycle Management
+DOMAIN3_QUESTIONS = [
     {
         "id": 3,
         "domain": "Domain 3 – IT Life Cycle Management",
@@ -1184,7 +1187,9 @@ DOMAIN1_QUESTIONS = [
             "D) The system being considered is not yet available.": "Incorrect – A POC requires an existing solution to evaluate."
         }
     },
+]
     # Domain 4 – IT Service Management and Continuity
+DOMAIN4_QUESTIONS = [
     {
         "id": 4,
         "domain": "Domain 4 – IT Service Management and Continuity",
@@ -1203,7 +1208,9 @@ DOMAIN1_QUESTIONS = [
             "D) Switch": "Incorrect – A switch forwards based on MAC addresses, not IP."
         }
     },
+]
     # Domain 5 – Information Asset Protection
+DOMAIN5_QUESTIONS = [
     {
         "id": 5,
         "domain": "Domain 5 – Information Asset Protection",
