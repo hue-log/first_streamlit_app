@@ -83,6 +83,11 @@ if max_q > 0:
 else:
     st.sidebar.warning("Please select at least one domain.")
 
+# Reset Button
+if st.sidebar.button("🔙 Reset & Configure New Quiz"):
+    st.session_state.quiz_active = False
+    st.rerun()
+
 # --- MAIN AREA ---
 st.title("🎓 CISA Exam Practice App")
 
@@ -94,18 +99,26 @@ else:
     
     # Progress Bar
     st.progress((idx + 1) / total)
-    st.markdown(f"### 📝 Question {idx + 1} of {total} &nbsp;&nbsp;|&nbsp;&nbsp; 🏆 Score: {st.session_state.score}/{idx}")
+    st.markdown(f"###  Question {idx + 1} of {total} &nbsp;&nbsp;|&nbsp;&nbsp; 🏆 Score: {st.session_state.score}/{idx}")
     
     current_q = st.session_state.questions[idx]
     st.markdown(f"#### {current_q['q']}")
     
-    # Handle Question Logic
+    # --- LOGIC FLOW ---
+    
+    # 1. If NOT submitted yet: Show Radio Buttons and Submit Button
     if not st.session_state.submitted:
-        # Radio buttons for options
         keys = list(current_q['opts'].keys())
-        choice = st.radio("Select your answer:", keys, format_func=lambda x: f"{x}. {current_q['opts'][x]}", key=f"radio_{idx}")
+        choice = st.radio(
+            "Select your answer:", 
+            keys, 
+            format_func=lambda x: f"{x}. {current_q['opts'][x]}", 
+            key=f"radio_{idx}",
+            index=keys.index(st.session_state.selected) if st.session_state.selected else None
+        )
         st.session_state.selected = choice
         
+        st.markdown("<br>", unsafe_allow_html=True) # Spacer
         if st.button("✅ Submit Answer", type="primary"):
             if st.session_state.selected:
                 st.session_state.submitted = True
@@ -114,37 +127,45 @@ else:
                 st.rerun()
             else:
                 st.warning("Please select an option before submitting.")
+
+    # 2. If SUBMITTED: Show Color-Coded Options, Result, Explanation, and Next Button
     else:
-        # Show Results & Explanation
         correct_ans = current_q['ans']
         user_ans = st.session_state.selected
         
-        # Color-coded options
+        # Color-coded options HTML
+        results_html = ""
         for k, v in current_q['opts'].items():
             if k == correct_ans:
-                bg, border, icon = "#d4edda", "#28a745", "✅"
+                bg, border, icon = "#d4edda", "#28a745", "✅" # Green
             elif k == user_ans and k != correct_ans:
-                bg, border, icon = "#f8d7da", "#dc3545", "❌"
+                bg, border, icon = "#f8d7da", "#dc3545", "❌" # Red
             else:
-                bg, border, icon = "#f8f9fa", "#cccccc", ""
+                bg, border, icon = "#f8f9fa", "#cccccc", "" # Gray
                 
-            st.markdown(f"""
-            <div style="background-color:{bg}; padding:12px; border-radius:6px; margin:6px 0; border-left: 5px solid {border};">
+            results_html += f'''
+            <div style="background-color:{bg}; padding:12px; border-radius:6px; margin:8px 0; border-left: 5px solid {border}; font-size: 16px;">
                 <b>{icon} {k}.</b> {v}
             </div>
-            """, unsafe_allow_html=True)
-            
-        # Feedback Summary
+            '''
+        st.markdown(results_html, unsafe_allow_html=True)
+        
+        # Result Summary
+        st.markdown("<br>", unsafe_allow_html=True)
         if user_ans == correct_ans:
             st.success("🎉 **Correct!** Great job.")
         else:
             st.error(f"❌ **Incorrect.** The correct answer is **{correct_ans}**.")
             
-        st.info(f"💡 **Explanation:** {current_q['exp']}")
+        # Explanation (Now appears right below the result)
+        st.markdown("### 💡 Explanation:")
+        st.info(current_q['exp'])
         
-        # Navigation
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Next Question Button (At the very bottom)
         if idx < total - 1:
-            if st.button("Next Question ➡️", use_container_width=True):
+            if st.button("Next Question ➡️", use_container_width=True, type="secondary"):
                 st.session_state.current_idx += 1
                 st.session_state.selected = None
                 st.session_state.submitted = False
@@ -152,6 +173,6 @@ else:
         else:
             st.balloons()
             st.success(f"🏆 **Quiz Completed!** Your final score is **{st.session_state.score}** out of **{total}**.")
-            if st.sidebar.button("🔙 Reset & Configure New Quiz"):
+            if st.button("🔄 Start New Quiz", use_container_width=True):
                 st.session_state.quiz_active = False
                 st.rerun()
