@@ -2,43 +2,79 @@ import streamlit as st
 import random
 
 # ==========================================
-# 1. QUESTIONS DATABASE (Sample 5 per Domain)
+# 1. QUESTIONS DATABASE
 # ==========================================
+# Note: The structure now includes specific explanations for EACH option (A, B, C, D)
+# to match the detailed feedback in your screenshot.
+
 QUESTIONS_DB = {
     "Domain 1: IS Auditing Process": [
-        {"q": "The internal audit department wrote some scripts for continuous auditing. IT asked for copies to set up continuous monitoring. Should sharing these scripts be permitted?", "opts": {"A": "No, it gives IT the ability to pre-audit systems.", "B": "Yes, IT must review all programs regardless of independence.", "C": "Yes, if IT recognizes audits may cover areas not in the scripts.", "D": "No, IS auditors who wrote them cannot audit those systems."}, "ans": "C", "exp": "IS audit can still audit all aspects of the systems. IT's ability to continuously monitor does not affect IS audit's ability to perform a comprehensive audit."},
-        {"q": "Which is the BEST factor for determining the required extent of data collection during the planning phase of an IS compliance audit?", "opts": {"A": "Complexity of the organization's operation", "B": "Findings and issues noted from the prior year", "C": "Purpose, objective and scope of the audit", "D": "Auditor's familiarity with the organization"}, "ans": "C", "exp": "The extent of data collection is directly related to the purpose, objective, and scope of the audit."},
-        {"q": "What BEST describes the risk that information collected may contain a material error that may go undetected during IS auditing?", "opts": {"A": "Inherent risk", "B": "Audit risk", "C": "Control risk", "D": "Detection risk"}, "ans": "B", "exp": "Audit risk is the probability that reports may contain material errors and that the auditor may not detect them."},
-        {"q": "For which controls would an IS auditor look in an environment where duties cannot be appropriately segregated?", "opts": {"A": "Overlapping controls", "B": "Boundary controls", "C": "Access controls", "D": "Compensating controls"}, "ans": "D", "exp": "Compensating controls reduce the risk of a control weakness when duties cannot be segregated."},
-        {"q": "Which is the MOST critical step when planning an IS audit?", "opts": {"A": "Review findings from prior audits", "B": "Obtain executive management approval", "C": "Review infosec policies", "D": "Perform a risk assessment"}, "ans": "D", "exp": "Performing a risk assessment is the most critical step to ensure high-risk areas are identified for evaluation."}
+        {
+            "q": "Which of the following is MOST useful for making risk treatment decisions?",
+            "opts": {
+                "A": "A control testing procedure",
+                "B": "A control framework",
+                "C": "A risk appetite statement",
+                "D": "A security policy"
+            },
+            "ans": "C",
+            "exp": {
+                "A": "Control testing procedures are not related to risk treatment decisions.",
+                "B": "An organization's control framework is not typically used for making risk treatment decisions.",
+                "C": "A risk appetite statement provides guidance on the types of risk and the amount of risk an organization may be willing to accept versus what it prefers to mitigate, avoid, or transfer.",
+                "D": "Security policy is not a primary means for making risk treatment decisions."
+            }
+        },
+        {
+            "q": "Which of the following is the BEST factor for determining the required extent of data collection during the planning phase of an information systems (IS) compliance audit?",
+            "opts": {
+                "A": "Complexity of the organization's operation",
+                "B": "Findings and issues noted from the prior year",
+                "C": "Purpose, objective and scope of the audit",
+                "D": "Auditor's familiarity with the organization"
+            },
+            "ans": "C",
+            "exp": {
+                "A": "The complexity of the organization's operation is a factor in planning but does not directly determine the extent of data collection.",
+                "B": "Prior findings are factors in planning but do not directly determine the extent of data collection.",
+                "C": "The extent to which data will be collected is related directly to the purpose, objective and scope of the audit.",
+                "D": "An auditor's familiarity is a factor but the audit must be based on sufficient evidence, not familiarity."
+            }
+        },
+        {
+            "q": "What BEST describes the risk that information collected may contain a material error that may go undetected during information systems (IS) auditing?",
+            "opts": {
+                "A": "Inherent risk",
+                "B": "Audit risk",
+                "C": "Control risk",
+                "D": "Detection risk"
+            },
+            "ans": "B",
+            "exp": {
+                "A": "Inherent risk is the risk level without considering controls.",
+                "B": "Audit risk is the probability that reports may contain material errors and the auditor may not detect them.",
+                "C": "Control risk is the risk that a material error exists that would not be prevented by internal controls.",
+                "D": "Detection risk is the risk that material errors will not be detected by the auditor."
+            }
+        }
     ],
     "Domain 2: Governance and Management of IT": [
-        {"q": "Organizations requiring employees to take a mandatory vacation PRIMARILY want to ensure that:", "opts": {"A": "adequate cross-training exists.", "B": "an effective internal control environment is in place by increasing morale.", "C": "potential irregularities in processing are identified by a temporary replacement.", "D": "the risk of processing errors is reduced."}, "ans": "C", "exp": "Mandatory vacations help ensure that irregularities and fraud are detected by a temporary replacement."},
-        {"q": "An IS auditor finds some IT policies have not been approved by management, but employees strictly follow them. What should the auditor do FIRST?", "opts": {"A": "Ignore the absence of approval.", "B": "Recommend immediate management approval.", "C": "Emphasize the importance of approval.", "D": "Report the absence of documented approval."}, "ans": "D", "exp": "Unapproved policies present a potential risk and may prevent management from enforcing them legally. The finding must be reported."},
-        {"q": "What is the PRIMARY consideration for an IS auditor reviewing the prioritization of IT projects?", "opts": {"A": "Projects are aligned with the organization's strategy.", "B": "Identified project risk is monitored.", "C": "Controls related to planning are appropriate.", "D": "IT project metrics are reported accurately."}, "ans": "A", "exp": "IT projects must align with business strategy to add value and achieve intended results."},
-        {"q": "In a review of HR policies, an IS auditor is MOST concerned with the absence of a:", "opts": {"A": "requirement for periodic job rotations.", "B": "process for formalized exit interviews.", "C": "termination checklist.", "D": "requirement for new employees to sign an NDA."}, "ans": "C", "exp": "A termination checklist is critical to ensure logical and physical security, preventing unauthorized access by former employees."},
-        {"q": "Which factor is MOST critical when evaluating the effectiveness of an IT governance implementation?", "opts": {"A": "Ensure assurance objectives are defined.", "B": "Determine stakeholder requirements and involvement.", "C": "Identify relevant risk and opportunities.", "D": "Determine relevant enablers."}, "ans": "B", "exp": "Stakeholder needs and involvement form the basis for scoping IT governance and drive the success of the project."}
-    ],
-    "Domain 3: IS Acquisition, Development and Implementation": [
-        {"q": "Who should review and approve system deliverables to ensure successful completion of a new business system?", "opts": {"A": "User management", "B": "Project steering committee", "C": "Senior management", "D": "Quality assurance (QA) staff"}, "ans": "A", "exp": "User management assumes ownership of the project and resulting system, and should review/approve deliverables."},
-        {"q": "Which BEST helps to prioritize project activities and determine the timeline?", "opts": {"A": "Gantt chart", "B": "Earned value analysis", "C": "Program evaluation review technique (PERT)", "D": "Function point analysis"}, "ans": "C", "exp": "PERT calculates timelines based on worst, best, and normal scenarios, identifying the critical path."},
-        {"q": "Implemented functionality often exceeded requirements and projects ran over budget. What is the MOST likely cause?", "opts": {"A": "Project scope management", "B": "Project time management", "C": "Project risk management", "D": "Project procurement management"}, "ans": "A", "exp": "Failure to effectively manage project scope leads to implementing more functionality than required (scope creep)."},
-        {"q": "Which function is appropriate for end users to perform in software development?", "opts": {"A": "Program output testing", "B": "System configuration", "C": "Program logic specification", "D": "Performance tuning"}, "ans": "A", "exp": "Users can test program output by checking input vs output. Other options are too technical and violate separation of duties."},
-        {"q": "Production data are used in the test environment. What is the MOST significant potential risk?", "opts": {"A": "Test environment may not ensure data accuracy.", "B": "Test environment may produce inaccurate results.", "C": "Hardware may not be identical.", "D": "Test environment may not have adequate access controls to ensure confidentiality."}, "ans": "D", "exp": "Test environments often lack production-level access controls, exposing sensitive production data to unauthorized access."}
-    ],
-    "Domain 4: IS Operations and Business Resilience": [
-        {"q": "From an audit perspective, what is the MOST important item to review when considering a new IT service provider?", "opts": {"A": "References from other clients", "B": "Physical security of the site", "C": "The proposed service level agreement (SLA)", "D": "Background checks of employees"}, "ans": "C", "exp": "The SLA guarantees the provider will deliver services according to contract, including performance and security requirements."},
-        {"q": "Which BEST describes the function of control self-assessment (CSA)?", "opts": {"A": "Quality control", "B": "Quality assessment", "C": "Quality planning", "D": "Quality assurance (QA)"}, "ans": "D", "exp": "CSA is a QA approach where the IS auditor acts as a consultant/facilitator to help business areas assess their own controls."},
-        {"q": "An IS auditor reviewing a new outsourcing contract would be MOST concerned if which was missing?", "opts": {"A": "A clause providing a right to audit the service provider", "B": "A clause defining penalty payments", "C": "Predefined service level report templates", "D": "A clause regarding supplier limitation of liability"}, "ans": "A", "exp": "Without a right-to-audit clause, the IS auditor cannot investigate control deficiencies or compliance at the provider."},
-        {"q": "When reviewing desktop software compliance, the IS auditor should be MOST concerned if installed software:", "opts": {"A": "is not documented in IT records.", "B": "is used by untrained users.", "C": "is not listed in the approved software standards document.", "D": "has a license expiring in 15 days."}, "ans": "C", "exp": "Installing unapproved software violates policy and introduces severe security, legal, and financial risks."},
-        {"q": "Reviewing a cloud provider contract for patient health info. Which term is the GREATEST risk?", "opts": {"A": "Data ownership is retained by the customer.", "B": "The provider reserves the right to access data to perform certain operations.", "C": "Bulk data withdrawal mechanisms are undefined.", "D": "Customer is responsible for backup and restoration."}, "ans": "B", "exp": "Regulations may restrict third-party access to protected health info. The provider accessing data poses a major compliance risk."}
-    ],
-    "Domain 5: Protection of Information Assets": [
-        {"q": "Web developers use hidden fields to save session info. The MOST likely web-based attack due to this is:", "opts": {"A": "parameter tampering.", "B": "cross-site scripting.", "C": "cookie poisoning.", "D": "stealth commanding."}, "ans": "A", "exp": "Attackers can intercept and modify hidden form fields (parameters) to perform unintended functions."},
-        {"q": "Which control is the BEST way to ensure data in a file has not been changed during transmission?", "opts": {"A": "Reasonableness check", "B": "Parity bits", "C": "Hash values", "D": "Check digits"}, "ans": "C", "exp": "Hash values are highly sensitive to any changes in data, making them the best method to verify integrity."},
-        {"q": "The PRIMARY purpose of audit trails is to:", "opts": {"A": "improve response time for users.", "B": "establish accountability for processed transactions.", "C": "improve operational efficiency.", "D": "provide information to auditors."}, "ans": "B", "exp": "Audit trails trace transactions through the system to establish accountability and responsibility."},
-        {"q": "Which system can recognize a credit card transaction is MORE likely from a stolen card?", "opts": {"A": "Intrusion detection systems (IDS)", "B": "Data mining techniques", "C": "Stateful inspection firewalls", "D": "Packet filtering routers"}, "ans": "B", "exp": "Data mining detects trends/patterns. A change in historical charging patterns flags potential fraud."},
-        {"q": "Which BEST ensures the integrity of a server's operating system?", "opts": {"A": "Protecting the server in a secure location", "B": "Setting a boot password", "C": "Hardening the server configuration", "D": "Implementing activity logging"}, "ans": "C", "exp": "Hardening (patching, disabling unused services, configuring access) prevents unauthorized privileged execution."}
+        {
+            "q": "Organizations requiring employees to take a mandatory vacation each year PRIMARILY want to ensure that:",
+            "opts": {
+                "A": "adequate cross-training exists between functions.",
+                "B": "an effective internal control environment is in place by increasing morale.",
+                "C": "potential irregularities in processing are identified by a temporary replacement.",
+                "D": "the risk of processing errors is reduced."
+            },
+            "ans": "C",
+            "exp": {
+                "A": "Cross-training is good practice but can be achieved without mandatory vacation.",
+                "B": "Good morale is worthwhile but not a means to achieve an effective internal control system.",
+                "C": "Employees in critical functions should take time off to help ensure irregularities and fraud are detected by a replacement.",
+                "D": "Rotating employees can reduce errors, but this is not the primary reason for mandatory vacation."
+            }
+        }
     ]
 }
 
@@ -70,7 +106,7 @@ for d in selected_domains:
 max_q = len(pool)
 
 if max_q > 0:
-    num_q = st.sidebar.slider("2. Number of Questions:", 1, max_q, min(10, max_q))
+    num_q = st.sidebar.slider("2. Number of Questions:", 1, max_q, min(1, max_q))
     
     if st.sidebar.button("🔄 Shuffle & Start Quiz", use_container_width=True, type="primary"):
         st.session_state.questions = random.sample(pool, num_q)
@@ -83,7 +119,6 @@ if max_q > 0:
 else:
     st.sidebar.warning("Please select at least one domain.")
 
-# Reset Button
 if st.sidebar.button("🔙 Reset & Configure New Quiz"):
     st.session_state.quiz_active = False
     st.rerun()
@@ -92,14 +127,14 @@ if st.sidebar.button("🔙 Reset & Configure New Quiz"):
 st.title("🎓 CISA Exam Practice App")
 
 if not st.session_state.quiz_active:
-    st.info("👈 **Step 1:** Select your domains from the sidebar.\n\n👈 **Step 2:** Choose the number of questions.\n\n👈 **Step 3:** Click **Shuffle & Start Quiz** to begin!")
+    st.info("👈 **Step 1:** Select your domains from the sidebar.\n\n👈 **Step 2:** Choose the number of questions.\n\n **Step 3:** Click **Shuffle & Start Quiz** to begin!")
 else:
     total = len(st.session_state.questions)
     idx = st.session_state.current_idx
     
     # Progress Bar
     st.progress((idx + 1) / total)
-    st.markdown(f"###  Question {idx + 1} of {total} &nbsp;&nbsp;|&nbsp;&nbsp; 🏆 Score: {st.session_state.score}/{idx}")
+    st.markdown(f"### 📝 Question {idx + 1} of {total} &nbsp;&nbsp;|&nbsp;&nbsp; 🏆 Score: {st.session_state.score}/{idx}")
     
     current_q = st.session_state.questions[idx]
     st.markdown(f"#### {current_q['q']}")
@@ -133,37 +168,44 @@ else:
         correct_ans = current_q['ans']
         user_ans = st.session_state.selected
         
-        # Color-coded options HTML
-        results_html = ""
-        for k, v in current_q['opts'].items():
-            if k == correct_ans:
-                bg, border, icon = "#d4edda", "#28a745", "✅" # Green
-            elif k == user_ans and k != correct_ans:
-                bg, border, icon = "#f8d7da", "#dc3545", "❌" # Red
-            else:
-                bg, border, icon = "#f8f9fa", "#cccccc", "" # Gray
-                
-            results_html += f'''
-            <div style="background-color:{bg}; padding:12px; border-radius:6px; margin:8px 0; border-left: 5px solid {border}; font-size: 16px;">
-                <b>{icon} {k}.</b> {v}
-            </div>
-            '''
-        st.markdown(results_html, unsafe_allow_html=True)
-        
-        # Result Summary
-        st.markdown("<br>", unsafe_allow_html=True)
+        # Top Alert Banner
         if user_ans == correct_ans:
-            st.success("🎉 **Correct!** Great job.")
+            st.success(f"✅ The answer you selected ({user_ans}) is correct!")
         else:
-            st.error(f"❌ **Incorrect.** The correct answer is **{correct_ans}**.")
+            st.error(f"❌ The answer you selected ({user_ans}) is incorrect. The correct answer is ({correct_ans}).")
             
-        # Explanation (Now appears right below the result)
-        st.markdown("### 💡 Explanation:")
-        st.info(current_q['exp'])
-        
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        # Display Options as Styled Blocks
+        for key in ["A", "B", "C", "D"]:
+            opt_text = current_q['opts'][key]
+            # Get specific explanation if available, otherwise use generic
+            exp_text = current_q['exp'].get(key, "No specific explanation provided.")
+            
+            if key == correct_ans:
+                # Correct Option Style (Dark Green Background, Green Text)
+                html_block = f"""
+                <div style="background-color: #1e2d1e; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 5px solid #00b894;">
+                    <p style="color: #55efc4; font-weight: bold; font-size: 1.1em; margin-bottom: 5px;">{key}) {opt_text}</p>
+                    <p style="color: #55efc4; font-size: 0.95em; margin-top: 0;">Correct – {exp_text}</p>
+                </div>
+                """
+            else:
+                # Incorrect Option Style (Dark Red/Brown Background, Red Text)
+                # If this was the selected wrong answer, maybe make it slightly more distinct? 
+                # The screenshot shows all wrong options looking similar (dark red).
+                html_block = f"""
+                <div style="background-color: #2d1e1e; padding: 15px; border-radius: 8px; margin-bottom: 10px; border-left: 5px solid #d63031;">
+                    <p style="color: #ff7675; font-weight: bold; font-size: 1.1em; margin-bottom: 5px;">{key}) {opt_text}</p>
+                    <p style="color: #ff7675; font-size: 0.95em; margin-top: 0;">Incorrect – {exp_text}</p>
+                </div>
+                """
+            
+            st.markdown(html_block, unsafe_allow_html=True)
+            
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # Next Question Button (At the very bottom)
+        # Next Question Button
         if idx < total - 1:
             if st.button("Next Question ➡️", use_container_width=True, type="secondary"):
                 st.session_state.current_idx += 1
